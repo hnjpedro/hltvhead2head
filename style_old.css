@@ -183,3 +183,22 @@ h3 {
 .major-mvp {
   padding-bottom: 5px !important;
 }
+
+.more-stats {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  background-color: #ffd600;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 9999px;
+  border: 0px;
+  transition:.3s;
+}
+
+.more-stats:hover {
+  background-color: #ffde33; 
+  transform: scale(1.05);
+}
