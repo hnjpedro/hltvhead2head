@@ -195,10 +195,76 @@ h3 {
   cursor: pointer;
   border-radius: 9999px;
   border: 0px;
-  transition:.3s;
+  transition: 0.3s;
 }
 
 .more-stats:hover {
-  background-color: #ffde33; 
+  background-color: #ffde33;
   transform: scale(1.05);
+}
+
+#stats-major-complete {
+  background-color: white;
+  height: 800px;
+  color: black;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.main-popup {
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  width: 50%;
+  z-index: 1;
+  background-color: aqua;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+  overflow: hidden
+}
+
+.close-btn {
+  position: absolute;
+  top:2rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0)
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%)
+  }
 }
