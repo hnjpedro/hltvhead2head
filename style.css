@@ -215,11 +215,10 @@ h3 {
   top: 0;
   right: 0;
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   color: black;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .popup-overlay {
@@ -231,24 +230,123 @@ h3 {
 
 .main-popup {
   position: absolute;
-  right: 0;
-  height: 100vh;
-  width: 50%;
+  height: 100%;
+  width: 70%;
   z-index: 1;
-  background-color: aqua;
+  background-color: white;
   padding: 30px 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   transform: translateY(100%);
-  overflow: hidden
+  overflow: hidden;
 }
 
 .close-btn {
   position: absolute;
-  top:2rem;
-  right: 1rem;
+  right: 0;
+  text-transform: uppercase;
   cursor: pointer;
+  background-color: #ffd600;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.close-btn:hover {
+  background-color: #e9c202
+}
+
+.details-title {
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: 0px 2px 30px 3px rgba(0, 0, 0, 0.1);
+  width: 999px;
+}
+
+.popup h3,
+.popup h2 {
+  background: none;
+  top: 0;
+  margin-top: 20px;
+}
+
+.details-list {
+  display: flex;
+  justify-content: center;
+  padding: 0px 50px;
+  flex-wrap: wrap;
+}
+
+.details-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 25px;
+}
+
+.details-list h4 {
+  text-transform: uppercase;
+  margin-block-end: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 220px;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.details-list ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-block-start: 0;
+  padding: 0px;
+}
+
+.details-list li {
+  list-style-type: none;
+  padding: 17px 20px 35px;
+  width: 70px;
+  height: 36px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.s1-detailed-stat {
+  background-color: rgba(0, 185, 191, 0.7);
+}
+
+.dev-detailed-stat {
+  background-color: rgba(191, 0, 0, 1);
+}
+
+.four-dig {
+  font-size: 25px !important;
+}
+
+.s1-detailed-stat::after, .dev-detailed-stat::after  {
+  font-size: 15px;
+  position: relative;
+  top: 1px;
+  background-color: rgba(255,255,255,.6);
+  color: rgba(0,0,0,.7);
+  font-weight: 100;
+}
+
+.s1-detailed-stat::after {
+  content: '\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0s1mple\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+  right: 22px
+}
+
+.dev-detailed-stat::after {
+  content: '\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0 device\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+  right: 20px;
+}
+
+.four-dig::after {
+  top: 11px
 }
 
 @keyframes slide-in {
@@ -256,7 +354,7 @@ h3 {
     transform: translateY(100%);
   }
   100% {
-    transform: translateY(0)
+    transform: translateY(0);
   }
 }
 
@@ -265,6 +363,6 @@ h3 {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(100%)
+    transform: translateY(100%);
   }
 }
