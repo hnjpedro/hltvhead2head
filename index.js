@@ -1,25 +1,63 @@
-const majorButton = document.getElementById('stats-major');
-const popup = document.querySelector('.popup');
-const mainPopup = document.querySelector('.main-popup')
-const body = document.body
+const majorButton = document.getElementById("stats-major");
+const bigEventsButton = document.getElementById("stats-big-events");
+const majorPopup = document.getElementById("major-popup");
+const majorMainPopup = document.getElementById("major-main-popup");
+const bigEventsPopup = document.getElementById("big-events-popup");
+const bigEventsMainPopup = document.getElementById("big-events-main-popup");
+const body = document.body;
+
+const auxOpenPopup = () => {
+  body.style.overflow = "hidden";
+  window.scroll(0, 0);
+};
+
+// MAJOR POPUP
 
 majorButton.addEventListener("click", () => {
-    popup.style.display = 'flex';
-    mainPopup.style.cssText = 'animation:slide-in .5s; animation-fill-mode: forwards';
-    body.style.overflow = 'hidden';
-    window.scroll(0,0)
-})
+  majorPopup.style.display = "flex";
+  majorMainPopup.style.cssText =
+    "animation:slide-in .5s; animation-fill-mode: forwards";
+  auxOpenPopup();
+});
 
-popup.addEventListener('click', event => {
+majorPopup.addEventListener("click", (event) => {
+  const classNameOfClickedElement = event.target.classList[0];
+  const classNames = ["close-btn", "popup-overlay"];
+  const shouldClosePopUp = classNames.some(
+    (className) => className === classNameOfClickedElement
+  );
+
+  if (shouldClosePopUp) {
+    majorMainPopup.style.cssText =
+      "animation:slide-out .5s; animation-fill-mode: forwards";
+    setTimeout(() => {
+      majorPopup.style.display = "none";
+    }, 500);
+  }
+  body.style.overflow = "auto";
+});
+
+// BIG EVENTS POPUP
+bigEventsButton.addEventListener("click", () => {
+    bigEventsPopup.style.display = "flex";
+    bigEventsMainPopup.style.cssText =
+      "animation:slide-in .5s; animation-fill-mode: forwards";
+    auxOpenPopup();
+  });
+  
+  bigEventsPopup.addEventListener("click", (event) => {
     const classNameOfClickedElement = event.target.classList[0];
-    const classNames = ['close-btn', 'popup-overlay']
-    const shouldClosePopUp = classNames.some(className => className === classNameOfClickedElement)
-
+    const classNames = ["close-btn", "popup-overlay"];
+    const shouldClosePopUp = classNames.some(
+      (className) => className === classNameOfClickedElement
+    );
+  
     if (shouldClosePopUp) {
-        mainPopup.style.cssText = 'animation:slide-out .5s; animation-fill-mode: forwards';
-        setTimeout(() => {
-            popup.style.display = 'none'
-        },500)
+      bigEventsMainPopup.style.cssText =
+        "animation:slide-out .5s; animation-fill-mode: forwards";
+      setTimeout(() => {
+        bigEventsPopup.style.display = "none";
+      }, 500);
     }
-    body.style.overflow = 'auto';
-})
+    body.style.overflow = "auto";
+  });

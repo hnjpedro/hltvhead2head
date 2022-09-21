@@ -16,7 +16,11 @@ body {
   font-size: 30px;
   text-align: center;
   align-items: center;
-  margin-left: 250px;
+  margin-left: 180px;
+  position: relative;
+  top: 20px;
+  z-index: -1;
+  margin-top: -45px;
 }
 
 .s1-header {
@@ -24,8 +28,8 @@ body {
 }
 
 img {
-  max-width: 150px;
-  max-height: 130px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .all-lan {
@@ -33,6 +37,8 @@ img {
   max-width: 800px;
   text-align: center;
   padding: 0px 50px 30px 50px;
+  border-radius: 20px 0px 20px 0px;
+  z-index: 999;
 }
 
 .all-lan h2 {
@@ -252,12 +258,12 @@ h3 {
   background-color: #ffd600;
   padding: 10px 20px;
   cursor: pointer;
-  transition: .3s;
-  z-index: 999
+  transition: 0.3s;
+  z-index: 999;
 }
 
 .close-btn:hover {
-  background-color: #e9c202
+  background-color: #e9c202;
 }
 
 .details-title {
@@ -266,7 +272,7 @@ h3 {
   box-shadow: 0px 2px 30px 3px rgba(0, 0, 0, 0.1);
   width: 999px;
   position: relative;
-  top: -10px
+  top: -10px;
 }
 
 .popup h3,
@@ -328,31 +334,32 @@ h3 {
   background-color: rgba(191, 0, 0, 1);
 }
 
-.four-dig {
+.five-dig {
   font-size: 25px !important;
 }
 
-.s1-detailed-stat::after, .dev-detailed-stat::after  {
+.s1-detailed-stat::after,
+.dev-detailed-stat::after {
   font-size: 15px;
   position: relative;
   top: 1px;
-  background-color: rgba(255,255,255,.6);
-  color: rgba(0,0,0,.7);
+  background-color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.7);
   font-weight: 100;
 }
 
 .s1-detailed-stat::after {
-  content: '\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0s1mple\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
-  right: 22px
+  content: "\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0s1mple\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  right: 22px;
 }
 
 .dev-detailed-stat::after {
-  content: '\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0 device\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+  content: "\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0 device\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
   right: 20px;
 }
 
-.four-dig::after {
-  top: 11px
+.five-dig::after {
+  top: 11px;
 }
 
 @keyframes slide-in {
