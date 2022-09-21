@@ -1,10 +1,13 @@
 const majorButton = document.getElementById('stats-major');
 const popup = document.querySelector('.popup');
 const mainPopup = document.querySelector('.main-popup')
+const body = document.body
 
 majorButton.addEventListener("click", () => {
     popup.style.display = 'flex';
-    mainPopup.style.cssText = 'animation:slide-in .5s; animation-fill-mode: forwards'
+    mainPopup.style.cssText = 'animation:slide-in .5s; animation-fill-mode: forwards';
+    body.style.overflow = 'hidden';
+    window.scroll(0,0)
 })
 
 popup.addEventListener('click', event => {
@@ -18,4 +21,5 @@ popup.addEventListener('click', event => {
             popup.style.display = 'none'
         },500)
     }
+    body.style.overflow = 'auto';
 })
