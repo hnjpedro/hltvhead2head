@@ -225,6 +225,22 @@ h3 {
   overflow-x: hidden !important;
 }
 
+@media screen and (min-width: 1600px) {
+  body {
+    overflow-y: hidden !important
+  }
+
+  .popup {
+    top: 70px;
+    height: 70vh;
+  }
+
+  .details-title {
+    top:-30px !important;
+    bottom: 30px !important
+  }
+}
+
 .close-btn {
   position: absolute;
   top: 20px;
@@ -241,9 +257,11 @@ h3 {
   display: flex;
   justify-content: space-evenly;
   box-shadow: 0px 2px 30px 3px rgba(0, 0, 0, 0.1);
-  width: 999px;
+  width: 100%;
   position: relative;
   top: -10px;
+  padding: 20px;
+  right: 20px
 }
 
 .popup h3,
@@ -304,7 +322,7 @@ h3 {
 .dev-detailed-stat::after {
   font-size: 15px;
   position: relative;
-  top: 1px;
+  top: 2px;
   background-color: rgba(255, 255, 255, 0.6);
   color: rgba(0, 0, 0, 0.7);
   font-weight: 100;
@@ -321,7 +339,7 @@ h3 {
 }
 
 .five-dig::after {
-  top: 11px;
+  top: 14px;
 }
 
 @keyframes slide-in {
