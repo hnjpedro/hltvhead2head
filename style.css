@@ -232,13 +232,20 @@ h3 {
 
   .popup {
     top: 70px;
-    height: 70vh;
+    height: 60vh;
   }
 
   .details-title {
     top:-30px !important;
     bottom: 30px !important
   }
+
+  .close-btn {
+    top: 0px !important
+  }
+
+
+
 }
 
 .close-btn {
@@ -357,5 +364,14 @@ h3 {
   }
   100% {
     transform: translateY(100%);
+  }
+}
+
+@keyframes slide-out200 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200%);
   }
 }

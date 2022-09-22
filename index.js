@@ -28,8 +28,13 @@ majorPopup.addEventListener("click", (event) => {
   );
 
   if (shouldClosePopUp) {
+    if (window.innerWidth < 1600) {
     majorMainPopup.style.cssText =
-      "animation:slide-out .5s; animation-fill-mode: forwards";
+      "animation:slide-out .5s; animation-fill-mode: forwards"
+    } else {
+      majorMainPopup.style.cssText =
+      "animation:slide-out200 .5s; animation-fill-mode: forwards" 
+    }
     setTimeout(() => {
       majorPopup.style.display = "none";
     }, 500);
