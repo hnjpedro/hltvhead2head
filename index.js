@@ -24,7 +24,7 @@ majorButton.addEventListener("click", () => {
 
 majorPopup.addEventListener("click", (event) => {
   const classNameOfClickedElement = event.target.classList[0];
-  const classNames = ["close-btn", "popup-overlay", "rest"];
+  const classNames = ["close-btn", "popup-overlay"];
   const shouldClosePopUp = classNames.some(
     (className) => className === classNameOfClickedElement
   );
