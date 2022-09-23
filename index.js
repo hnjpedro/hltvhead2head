@@ -14,6 +14,7 @@ const auxOpenPopup = () => {
   for (const popup of allPopups) {
     popup.style.top = `${window.pageYOffset + 10}px`
 };
+overlay.style.top = `${window.pageYOffset}px`
   body.style.overflow = "hidden";
   overlay.style.display = 'block'
 };
