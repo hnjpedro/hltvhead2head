@@ -1,6 +1,7 @@
 html {
   display: table;
   margin: auto;
+  scroll-behavior: smooth;
 }
 
 body {

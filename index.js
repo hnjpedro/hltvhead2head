@@ -4,13 +4,15 @@ const majorPopup = document.getElementById("major-popup");
 const majorMainPopup = document.getElementById("major-main-popup");
 const bigEventsPopup = document.getElementById("big-events-popup");
 const bigEventsMainPopup = document.getElementById("big-events-main-popup");
+let scrollPos = [];
 let overlay = document.getElementById('popup-overlay')
 
 const body = document.body;
 
 const auxOpenPopup = () => {
+  scrollPos.push(window.pageYOffset);
   body.style.overflow = "hidden";
-  window.scroll(0, 0);
+  window.scrollTo(0, 0);
   overlay.style.display = 'block'
 };
 
@@ -43,6 +45,7 @@ majorPopup.addEventListener("click", (event) => {
       majorPopup.style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
+      window.scrollTo(0,scrollPos.slice(-1))
     }, 500);
   }
 });
@@ -74,6 +77,7 @@ bigEventsPopup.addEventListener("click", (event) => {
       bigEventsPopup.style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
+      window.scrollTo(0,scrollPos.slice(-1))
     }, 500);
   }
 });
