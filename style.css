@@ -236,8 +236,8 @@ h3 {
   }
 
   .popup {
-    top: 70px;
-    height: 60vh;
+    top: 15vh !important;
+    height: 70vh !important;
   }
 
   .details-title {
