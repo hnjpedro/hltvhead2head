@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "express": "^4.18.1",
+    "hltv": "^3.4.1",
     "hltv-api": "^3.0.2"
   }
 }
