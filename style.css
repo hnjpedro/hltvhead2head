@@ -1,3 +1,8 @@
+:root {
+  --device: 223, 86, 22;
+  --s1mple: 0, 185, 191
+}
+
 html {
   display: table;
   margin: auto;
@@ -131,31 +136,31 @@ h3 {
 }
 
 .s1-div .mvp {
-  background-color: rgba(0, 185, 191, 1);
+  background-color: rgba(var(--s1mple), 1);
 }
 
 .s1-div .lans-won {
-  background-color: rgba(0, 185, 191, 0.7);
+  background-color: rgba(var(--s1mple), 0.7);
 }
 
 .s1-div .lans-played {
-  background-color: rgba(0, 185, 191, 0.4);
+  background-color: rgba(var(--s1mple), 0.4);
 }
 
 .dev-stats {
-  color: rgb(248, 66, 66);
+  color: rgb(var(--device));
 }
 
 .dev-div .mvp {
-  background-color: rgba(191, 0, 0, 1);
+  background-color: rgba(var(--device), 1);
 }
 
 .dev-div .lans-won {
-  background-color: rgba(191, 0, 0, 0.7);
+  background-color: rgba(var(--device), 0.7);
 }
 
 .dev-div .lans-played {
-  background-color: rgba(191, 0, 0, 0.4);
+  background-color: rgba(var(--device), 0.4);
 }
 
 .major-win:before {
@@ -331,11 +336,11 @@ h3 {
 }
 
 .s1-detailed-stat {
-  background-color: rgba(0, 185, 191, 0.7);
+  background-color: rgba(var(--s1mple), 0.7);
 }
 
 .dev-detailed-stat {
-  background-color: rgba(191, 0, 0, 1);
+  background-color: rgba(var(--device), 1);
 }
 
 .five-dig {
