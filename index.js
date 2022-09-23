@@ -4,17 +4,14 @@ const majorPopup = document.getElementById("major-popup");
 const majorMainPopup = document.getElementById("major-main-popup");
 const bigEventsPopup = document.getElementById("big-events-popup");
 const bigEventsMainPopup = document.getElementById("big-events-main-popup");
-let overlays = document.getElementsByClassName("popup-overlay");
-let overlayIndex = [];
-for (let i = 0; i < overlays.length; ++i) {
-  overlayIndex[i] = overlays[i];
-  console.log(overlayIndex);
-}
+let overlay = document.getElementById('popup-overlay')
+
 const body = document.body;
 
 const auxOpenPopup = () => {
   body.style.overflow = "hidden";
   window.scroll(0, 0);
+  overlay.style.display = 'block'
 };
 
 // MAJOR POPUP
@@ -24,7 +21,6 @@ majorButton.addEventListener("click", () => {
   majorMainPopup.style.cssText =
     "animation:slide-in .5s; animation-fill-mode: forwards";
   auxOpenPopup();
-  overlayIndex[0].style.display = "block";
 });
 
 majorPopup.addEventListener("click", (event) => {
@@ -46,7 +42,7 @@ majorPopup.addEventListener("click", (event) => {
     setTimeout(() => {
       majorPopup.style.display = "none";
       body.style.overflow = "auto";
-      overlayIndex[0].style.display = "none";
+      overlay.style.display = "none";
     }, 500);
   }
 });
@@ -57,7 +53,6 @@ bigEventsButton.addEventListener("click", () => {
   bigEventsMainPopup.style.cssText =
     "animation:slide-in .5s; animation-fill-mode: forwards";
   auxOpenPopup();
-  overlayIndex[1];
 });
 
 bigEventsPopup.addEventListener("click", (event) => {
@@ -68,12 +63,17 @@ bigEventsPopup.addEventListener("click", (event) => {
   );
 
   if (shouldClosePopUp) {
-    bigEventsMainPopup.style.cssText =
-      "animation:slide-out .5s; animation-fill-mode: forwards";
+    if (window.innerWidth < 1600) {
+      bigEventsMainPopup.style.cssText =
+        "animation:slide-out .5s; animation-fill-mode: forwards";
+    } else {
+      bigEventsMainPopup.style.cssText =
+        "animation:slide-out200 .5s; animation-fill-mode: forwards";
+    }
     setTimeout(() => {
       bigEventsPopup.style.display = "none";
       body.style.overflow = "auto";
-      overlayIndex[1].style.display = "none";
+      overlay.style.display = "none";
     }, 500);
   }
 });
