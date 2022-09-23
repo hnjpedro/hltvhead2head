@@ -4,12 +4,13 @@ const majorPopup = document.getElementById("major-popup");
 const majorMainPopup = document.getElementById("major-main-popup");
 const bigEventsPopup = document.getElementById("big-events-popup");
 const bigEventsMainPopup = document.getElementById("big-events-main-popup");
-const allPopups = document.querySelectorAll('.popup');
+
 let overlay = document.getElementById('popup-overlay')
 
 const body = document.body;
 
 const auxOpenPopup = () => {
+  const allPopups = document.querySelectorAll('.popup');
   for (const popup of allPopups) {
     popup.style.top = `${window.pageYOffset + 10}px`
 };
