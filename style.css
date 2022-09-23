@@ -248,9 +248,21 @@ h3 {
   .close-btn {
     top: 0px !important
   }
+}
 
+@media screen and (max-width: 1000px) {
+   .popup {
+    top: 12.5vh !important;
+    height: 67vh !important;
+  }
 
+  .details-title {
+    top:-30px !important;
+  }
 
+  .close-btn {
+    top: 0px !important
+  }
 }
 
 .close-btn {

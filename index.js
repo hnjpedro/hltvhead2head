@@ -5,18 +5,18 @@ const majorMainPopup = document.getElementById("major-main-popup");
 const bigEventsPopup = document.getElementById("big-events-popup");
 const bigEventsMainPopup = document.getElementById("big-events-main-popup");
 
-let overlay = document.getElementById('popup-overlay')
+let overlay = document.getElementById("popup-overlay");
 
 const body = document.body;
 
 const auxOpenPopup = () => {
-  const allPopups = document.querySelectorAll('.popup');
+  const allPopups = document.querySelectorAll(".popup");
   for (const popup of allPopups) {
-    popup.style.top = `${window.pageYOffset + 10}px`
-};
-overlay.style.top = `${window.pageYOffset}px`
+    popup.style.top = `${window.pageYOffset + 10}px`;
+  }
+  overlay.style.top = `${window.pageYOffset}px`;
   body.style.overflow = "hidden";
-  overlay.style.display = 'block'
+  overlay.style.display = "block";
 };
 
 // MAJOR POPUP
