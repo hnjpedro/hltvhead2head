@@ -26,20 +26,18 @@ info();
 // TOOLTIPS ON MOBILE
 
 $(document).ready(function () {
-//  if (Window.innerWidth < 1000) {
-    $("h4[title]").click(function () {
-      var $titles = $(document).find(".title");
-      var $title = $(this).find(".title");
-      if (!$title.length) {
-        $titles.remove();
-        $(this).append(
-          '<span class="title">' + $(this).attr("title") + "</span>"
-        );
-      } else {
-        $title.remove();
-      }
-    });
-  // }
+  $("h4[title]").click(function () {
+    var $titles = $(document).find(".title");
+    var $title = $(this).find(".title");
+    if (!$title.length) {
+      $titles.remove();
+      $(this).append(
+        '<span class="title">' + $(this).attr("title") + "</span>"
+      );
+    } else {
+      $title.remove();
+    }
+  });
 });
 
 const auxOpenPopup = () => {
