@@ -4,10 +4,22 @@ const majorPopup = document.getElementById("major-popup");
 const majorMainPopup = document.getElementById("major-main-popup");
 const bigEventsPopup = document.getElementById("big-events-popup");
 const bigEventsMainPopup = document.getElementById("big-events-main-popup");
-
 let overlay = document.getElementById("popup-overlay");
-
 const body = document.body;
+
+const info = () => {
+  var tooltips = document.querySelectorAll(".tooltip");
+  for (let i = 0; i < tooltips.length; ++i) {
+    var infoButton = document.createElement("span");
+    infoButton.innerHTML = `<span class='material-icons-outlined'>info</span>`;
+
+    while (infoButton.firstChild) {
+      tooltips[i].appendChild(infoButton.firstChild);
+    }
+  }
+}
+
+info();
 
 const auxOpenPopup = () => {
   const allPopups = document.querySelectorAll(".popup");

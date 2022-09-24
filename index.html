@@ -1,288 +1,337 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Exo+2">
-    </head>
-    <body>
-        <div class="popup-overlay" id="popup-overlay"></div>
-        <div class="header-div">
-            <img src="imgs/s1-header.png" class="s1-header" />
-            s1mple vs <br />
-            device
-            <img src="imgs/devve-header.png" />
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Exo+2"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="header-div">
+      <img src="imgs/s1-header.png" class="s1-header" />
+      s1mple vs <br />
+      device
+      <img src="imgs/devve-header.png" />
+    </div>
+    <div class="valve-majors all-lan">
+      <h2>VALVE MAJORS</h2>
+      <div class="stats-div">
+        <div class="s1-div each-div">
+          <h3 class="s1-stats">s1mple</h3>
+          <ul class="stats-block">
+            <li class="li-stats mvp">
+              <span class="number">1</span>
+              <span class="stats-text">MVP</span>
+            </li>
+            <li class="li-stats lans-won">
+              <span class="number">1</span>
+              <span class="stats-text">WON</span>
+            </li>
+            <li class="li-stats lans-played">
+              <span class="number">11</span>
+              <span class="stats-text">PLAYED</span>
+            </li>
+          </ul>
+          <ul class="comp-stat major-win">
+            11 Majors per win
+          </ul>
+          <ul class="comp-stat major-mvp">
+            11 Majors per MVP
+          </ul>
         </div>
-        <div class="valve-majors all-lan">
-            <h2>VALVE MAJORS</h2>
-            <div class="stats-div">
-            <div class="s1-div each-div">
-                <h3 class="s1-stats">s1mple</h3>
-                <ul class="stats-block">
-                    <li class="li-stats mvp">
-                        <span class="number">1</span>
-                        <span class="stats-text">MVP</span>
-                    </li>
-                    <li class="li-stats lans-won">
-                        <span class="number">1</span>
-                        <span class="stats-text">WON</span>
-                    </li>
-                    <li class="li-stats lans-played">
-                        <span class="number">11</span>
-                        <span class="stats-text">PLAYED</span>
-                    </li>
+        <div class="dev-div each-div">
+          <h3 class="dev-stats">device</h3>
+          <ul class="stats-block">
+            <li class="li-stats mvp">
+              <span class="number">2</span>
+              <span class="stats-text">MVP</span>
+            </li>
+            <li class="li-stats lans-won">
+              <span class="number">4</span>
+              <span class="stats-text">WON</span>
+            </li>
+            <li class="li-stats lans-played">
+              <span class="number">16</span>
+              <span class="stats-text">PLAYED</span>
+            </li>
+          </ul>
+          <ul class="comp-stat major-win">
+            4 Majors per win
+          </ul>
+          <ul class="comp-stat major-mvp">
+            8 Majors per MVP
+          </ul>
+        </div>
+      </div>
+      <button class="more-stats open-btn btn" id="stats-major">
+        MORE STATS
+      </button>
+      <div class="popup" id="major-popup">
+        <div class="main-popup" id="major-main-popup">
+          <div class="popup-content">
+            <span class="close-btn btn">x</span>
+            <div class="details-title">
+              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h2 class="detailed-stats">VALVE MAJORS</h2>
+              <h3 class="dev-details dev-stats">device</h3>
+            </div>
+            <div class="details-list">
+              <div class="details-list-container">
+                <h4 class="detail-list-title">maps</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">92</li>
+                  <li class="dev-detailed-stat">123</li>
                 </ul>
-                <ul class="comp-stat major-win">11 Majors per win</ul>
-                <ul class="comp-stat major-mvp">11 Majors per MVP</ul>
-            </div>
-            <div class="dev-div each-div">
-                <h3 class="dev-stats">device</h3>
-                <ul class="stats-block">
-                    <li class="li-stats mvp">
-                        <span class="number">2</span>
-                        <span class="stats-text">MVP</span>
-                    </li>
-                    <li class="li-stats lans-won">
-                        <span class="number">4</span>
-                        <span class="stats-text">WON</span>
-                    </li>
-                    <li class="li-stats lans-played">
-                        <span class="number">16</span>
-                        <span  class="stats-text">PLAYED</span>
-                    </li>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">rounds</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">2400</li>
+                  <li class="dev-detailed-stat">3184</li>
                 </ul>
-                <ul class="comp-stat major-win">4 Majors per win</ul>
-                <ul class="comp-stat major-mvp">8 Majors per MVP</ul>
-            </div>
-        </div>
-        <button class="more-stats open-btn btn" id="stats-major">MORE STATS</button>
-            <div class="popup" id="major-popup">
-            
-            <div class="main-popup" id="major-main-popup">
-                <div class="popup-content">
-                    <span class="close-btn btn">x</span>
-                    <div class="details-title">
-                        <h3 class="s1-details s1-stats">s1mple</h3>
-                        <h2 class="detailed-stats">VALVE MAJORS</h2>
-                        <h3 class="dev-details dev-stats">device</h3>
-                    </div>
-                    <div class="details-list">
-                        <div class="details-list-container">
-                        <h4 class="detail-list-title">maps</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">92</li>
-                            <li class="dev-detailed-stat">123</li>
-                        </ul>
-                        </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">rounds</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">2400</li>
-                            <li class="dev-detailed-stat">3184</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">kills</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1968</li>
-                            <li class="dev-detailed-stat">2442</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">deaths</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1464</li>
-                            <li class="dev-detailed-stat">1970</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">rating 1.0</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1.21</li>
-                            <li class="dev-detailed-stat">1.15</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">impact rating</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1.28</li>
-                            <li class="dev-detailed-stat">1.28</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Percentage of rounds in which the player either had a kill, assist, survived or was traded">kast</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat five-dig">76.1%</li>
-                            <li class="dev-detailed-stat five-dig">72.4%</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Average damage per round">adr</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">83.3</li>
-                            <li class="dev-detailed-stat">80.9</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">k/d ratio</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1.34</li>
-                            <li class="dev-detailed-stat">1.24</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Kills per round">kpr</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat ">0.82</li>
-                            <li class="dev-detailed-stat">0.77</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Deaths per round">dpr</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">0.61</li>
-                            <li class="dev-detailed-stat">0.62</li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="big-events all-lan">
-            <h2>BIG EVENTS</h2>
-            <div class="stats-div">
-            <div class="s1-div each-div">
-                <h3 class="s1-stats">s1mple</h3>
-                <ul class="stats-block">
-                    <li class="li-stats mvp">
-                        <span class="number">1.26</span>
-                        <span class="stats-text">RATING 1.0</span>
-                    </li>
-                    <li class="li-stats lans-won">
-                        <span class="number">11</span>
-                        <span class="stats-text">WON</span>
-                    </li>
-                    <li class="li-stats lans-played">
-                        <span class="number">56</span>
-                        <span class="stats-text">PLAYED</span>
-                    </li>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">kills</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1968</li>
+                  <li class="dev-detailed-stat">2442</li>
                 </ul>
-                <ul class="comp-stat major-win">5.09 Big Events per win</ul>
-            </div>
-            <div class="dev-div each-div">
-                <h3 class="dev-stats">device</h3>
-                <ul class="stats-block">
-                    <li class="li-stats mvp">
-                        <span class="number">1.17</span>
-                        <span class="stats-text">RATING 1.0</span>
-                    </li>
-                    <li class="li-stats lans-won">
-                        <span class="number">19</span>
-                        <span class="stats-text">WON</span>
-                    </li>
-                    <li class="li-stats lans-played">
-                        <span class="number">73</span>
-                        <span  class="stats-text">PLAYED</span>
-                    </li>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">deaths</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1464</li>
+                  <li class="dev-detailed-stat">1970</li>
                 </ul>
-                <ul class="comp-stat major-win">3.84 Big Events per win</ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">rating 1.0</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1.21</li>
+                  <li class="dev-detailed-stat">1.15</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">impact rating</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1.28</li>
+                  <li class="dev-detailed-stat">1.28</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4
+                  class="detail-list-title tooltip"
+                  title="Percentage of rounds in which the player either had a kill, assist, survived or was traded"
+                >
+                  kast
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat five-dig">76.1%</li>
+                  <li class="dev-detailed-stat five-dig">72.4%</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4
+                  class="detail-list-title tooltip"
+                  title="Average damage per round"
+                >
+                  adr
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">83.3</li>
+                  <li class="dev-detailed-stat">80.9</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">k/d ratio</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1.34</li>
+                  <li class="dev-detailed-stat">1.24</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title tooltip" title="Kills per round">
+                  kpr
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">0.82</li>
+                  <li class="dev-detailed-stat">0.77</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title tooltip" title="Deaths per round">
+                  dpr
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">0.61</li>
+                  <li class="dev-detailed-stat">0.62</li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-        <button class="more-stats open-btn btn" id="stats-big-events">MORE STATS</button>
-        <div class="popup" id="big-events-popup">
-            
-            <div class="main-popup" id="big-events-main-popup">
-                <div class="popup-content">
-                    <span class="close-btn btn">x</span>
-                    <div class="details-title">
-                        <h3 class="s1-details s1-stats">s1mple</h3>
-                        <h2 class="detailed-stats">BIG EVENTS</h2>
-                        <h3 class="dev-details dev-stats">device</h3>
-                    </div>
-                    <div class="details-list">
-                        <div class="details-list-container">
-                        <h4 class="detail-list-title">maps</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">517</li>
-                            <li class="dev-detailed-stat">586</li>
-                        </ul>
-                        </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">rounds</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat five-dig">13524</li>
-                            <li class="dev-detailed-stat five-dig">15226</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">kills</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat five-dig">11465</li>
-                            <li class="dev-detailed-stat five-dig">11781</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">deaths</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">8310</li>
-                            <li class="dev-detailed-stat">9317</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">rating 1.0</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat" id="s1-rating">1.26</li>
-                            <li class="dev-detailed-stat">1.17</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">impact rating</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1.35</li>
-                            <li class="dev-detailed-stat">1.29</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Percentage of rounds in which the player either had a kill, assist, survived or was traded">kast</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat five-dig">74.5%</li>
-                            <li class="dev-detailed-stat five-dig">71.6%</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Average damage per round">adr</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">86.2</li>
-                            <li class="dev-detailed-stat">80.8</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title">k/d ratio</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">1.38</li>
-                            <li class="dev-detailed-stat">1.26</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Kills per round">kpr</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat ">0.85</li>
-                            <li class="dev-detailed-stat">0.77</li>
-                        </ul>
-                    </div>
-                    <div class="details-list-container">
-                        <h4 class="detail-list-title" title="Deaths  per round">dpr</h4>
-                        <ul class="detail-list-stats">
-                            <li class="s1-detailed-stat">0.61</li>
-                            <li class="dev-detailed-stat">0.61</li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                </div>
+      </div>
+    </div>
+
+    <div class="big-events all-lan">
+      <h2>BIG EVENTS</h2>
+      <div class="stats-div">
+        <div class="s1-div each-div">
+          <h3 class="s1-stats">s1mple</h3>
+          <ul class="stats-block">
+            <li class="li-stats mvp">
+              <span class="number">1.26</span>
+              <span class="stats-text">RATING 1.0</span>
+            </li>
+            <li class="li-stats lans-won">
+              <span class="number">11</span>
+              <span class="stats-text">WON</span>
+            </li>
+            <li class="li-stats lans-played">
+              <span class="number">56</span>
+              <span class="stats-text">PLAYED</span>
+            </li>
+          </ul>
+          <ul class="comp-stat major-win">
+            5.09 Big Events per win
+          </ul>
+        </div>
+        <div class="dev-div each-div">
+          <h3 class="dev-stats">device</h3>
+          <ul class="stats-block">
+            <li class="li-stats mvp">
+              <span class="number">1.17</span>
+              <span class="stats-text">RATING 1.0</span>
+            </li>
+            <li class="li-stats lans-won">
+              <span class="number">19</span>
+              <span class="stats-text">WON</span>
+            </li>
+            <li class="li-stats lans-played">
+              <span class="number">73</span>
+              <span class="stats-text">PLAYED</span>
+            </li>
+          </ul>
+          <ul class="comp-stat major-win">
+            3.84 Big Events per win
+          </ul>
+        </div>
+      </div>
+      <button class="more-stats open-btn btn" id="stats-big-events">
+        MORE STATS
+      </button>
+      <div class="popup" id="big-events-popup">
+        <div class="main-popup" id="big-events-main-popup">
+          <div class="popup-content">
+            <span class="close-btn btn">x</span>
+            <div class="details-title">
+              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h2 class="detailed-stats">BIG EVENTS</h2>
+              <h3 class="dev-details dev-stats">device</h3>
             </div>
-        <script type="module" src="index.js"></script>
-    </body>
+            <div class="details-list">
+              <div class="details-list-container">
+                <h4 class="detail-list-title">maps</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">517</li>
+                  <li class="dev-detailed-stat">586</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">rounds</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat five-dig">13524</li>
+                  <li class="dev-detailed-stat five-dig">15226</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">kills</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat five-dig">11465</li>
+                  <li class="dev-detailed-stat five-dig">11781</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">deaths</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">8310</li>
+                  <li class="dev-detailed-stat">9317</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">rating 1.0</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat" id="s1-rating">1.26</li>
+                  <li class="dev-detailed-stat">1.17</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">impact rating</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1.35</li>
+                  <li class="dev-detailed-stat">1.29</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4
+                  class="detail-list-title tooltip"
+                  title="Percentage of rounds in which the player either had a kill, assist, survived or was traded"
+                >
+                  kast
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat five-dig">74.5%</li>
+                  <li class="dev-detailed-stat five-dig">71.6%</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4
+                  class="detail-list-title tooltip"
+                  title="Average damage per round"
+                >
+                  adr
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">86.2</li>
+                  <li class="dev-detailed-stat">80.8</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">k/d ratio</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">1.38</li>
+                  <li class="dev-detailed-stat">1.26</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title tooltip" title="Kills per round">
+                  kpr
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">0.85</li>
+                  <li class="dev-detailed-stat">0.77</li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title tooltip" title="Deaths  per round">
+                  dpr
+                </h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat">0.61</li>
+                  <li class="dev-detailed-stat">0.61</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
 </html>

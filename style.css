@@ -47,6 +47,25 @@ body {
   padding-top: 8px;
 }
 
+.material-icons-outlined {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  position: relative;
+  top: 3px;
+  color: rgba(0, 0, 0, 0.75);
+  transition:.3s;
+  cursor: pointer
+}
+
 h3,
 ul.comp-stat {
   font-weight: 100;
