@@ -24,7 +24,15 @@ const info = () => {
 info();
 
 // TOOLTIPS ON MOBILE
-/* $(document).ready(function () {
+/* const mobileTooltips = () => {
+  const tooltips = document.querySelectorAll(h4[title]);
+  for 
+  tooltips.addEventListener("click", (event) => {
+    event.appendChild('<span class="title">' + $(this).attr("title") + "</span>")
+  });
+} */
+
+$(document).ready(function () {
   $("h4[title]").click(function () {
     var $titles = $(document).find(".title");
     var $title = $(this).find(".title");
@@ -37,7 +45,7 @@ info();
       $title.remove();
     }
   });
-}); */
+}); 
 
 const auxOpenPopup = () => {
   const allPopups = document.querySelectorAll(".popup");
