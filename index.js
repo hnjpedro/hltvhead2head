@@ -24,15 +24,32 @@ const info = () => {
 info();
 
 // TOOLTIPS ON MOBILE
-/* const mobileTooltips = () => {
-  const tooltips = document.querySelectorAll(h4[title]);
-  for 
-  tooltips.addEventListener("click", (event) => {
-    event.appendChild('<span class="title">' + $(this).attr("title") + "</span>")
-  });
-} */
+if (window.innerWidth < 1000) {
+  const tooltips = document.querySelectorAll("h4[title]");
 
-$(document).ready(function () {
+  for (let i = 0; i < tooltips.length; ++i) {
+    tooltips[i].addEventListener("click", (event) => {
+      let activeTool = document.querySelectorAll(".title");
+      if (!activeTool.length) {
+        const toolTipText = document.createElement("span");
+
+        toolTipText.innerHTML =
+          '<span class="title">' +
+          tooltips[i].getAttribute("title") +
+          "</span>";
+        while (toolTipText.firstChild) {
+          tooltips[i].appendChild(toolTipText.firstChild);
+        }
+      } else {
+        activeTool[0].remove();
+      }
+    });
+  }
+}
+
+// }
+
+/* $(document).ready(function () {
   $("h4[title]").click(function () {
     var $titles = $(document).find(".title");
     var $title = $(this).find(".title");
@@ -45,7 +62,7 @@ $(document).ready(function () {
       $title.remove();
     }
   });
-}); 
+}); */
 
 const auxOpenPopup = () => {
   const allPopups = document.querySelectorAll(".popup");

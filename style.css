@@ -293,14 +293,14 @@ h3 {
     top: 0px !important;
   }
 
-  .details-list h4 .title {
+  .title {
     position: absolute;
     top: 20px;
     background: silver;
     padding: 4px;
     left: 0;
     text-transform: none;
-    max-width: 60vw;
+    max-width: 20vw;
   }
 }
 
