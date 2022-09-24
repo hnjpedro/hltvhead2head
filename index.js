@@ -42,6 +42,14 @@ if (window.innerWidth < 1000) {
         }
       } else {
         activeTool[0].remove();
+        const toolTipText = document.createElement("span");
+
+        toolTipText.innerHTML =
+          '<span class="title">' +
+          tooltips[i].getAttribute("title") +
+          "</span>";
+        while (toolTipText.firstChild) {
+          tooltips[i].appendChild(toolTipText.firstChild);}
       }
     });
   }
