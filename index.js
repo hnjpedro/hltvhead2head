@@ -7,19 +7,40 @@ const bigEventsMainPopup = document.getElementById("big-events-main-popup");
 let overlay = document.getElementById("popup-overlay");
 const body = document.body;
 
+// TOOLTIP ICONS
+
 const info = () => {
   var tooltips = document.querySelectorAll(".tooltip");
   for (let i = 0; i < tooltips.length; ++i) {
     var infoButton = document.createElement("span");
-    infoButton.innerHTML = `<span class='material-icons-outlined'>info</span>`;
+    infoButton.innerHTML = `<span class='material-icons-outlined info-icon'>info</span>`;
 
     while (infoButton.firstChild) {
       tooltips[i].appendChild(infoButton.firstChild);
     }
   }
-}
+};
 
 info();
+
+// TOOLTIPS ON MOBILE
+
+$(document).ready(function () {
+//  if (Window.innerWidth < 1000) {
+    $("h4[title]").click(function () {
+      var $titles = $(document).find(".title");
+      var $title = $(this).find(".title");
+      if (!$title.length) {
+        $titles.remove();
+        $(this).append(
+          '<span class="title">' + $(this).attr("title") + "</span>"
+        );
+      } else {
+        $title.remove();
+      }
+    });
+  // }
+});
 
 const auxOpenPopup = () => {
   const allPopups = document.querySelectorAll(".popup");
