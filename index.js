@@ -28,28 +28,29 @@ if (window.innerWidth < 1000) {
   const tooltips = document.querySelectorAll("h4[title]");
 
   for (let i = 0; i < tooltips.length; ++i) {
+    const auxTool = () => {
+      const toolTipText = document.createElement("span");
+
+      toolTipText.innerHTML =
+        '<span class="title">' + tooltips[i].getAttribute("title") + "</span>";
+      while (toolTipText.firstChild) {
+        tooltips[i].appendChild(toolTipText.firstChild);
+      }
+    }
     tooltips[i].addEventListener("click", (event) => {
       let activeTool = document.querySelectorAll(".title");
       if (!activeTool.length) {
-        const toolTipText = document.createElement("span");
-
-        toolTipText.innerHTML =
-          '<span class="title">' +
-          tooltips[i].getAttribute("title") +
-          "</span>";
-        while (toolTipText.firstChild) {
-          tooltips[i].appendChild(toolTipText.firstChild);
-        }
+        auxTool();
       } else {
-        activeTool[0].remove();
-        const toolTipText = document.createElement("span");
-
-        toolTipText.innerHTML =
-          '<span class="title">' +
-          tooltips[i].getAttribute("title") +
-          "</span>";
-        while (toolTipText.firstChild) {
-          tooltips[i].appendChild(toolTipText.firstChild);}
+        if (
+          event.target.className == "title" ||
+          event.target == activeTool[0].previousSibling
+        ) {
+          activeTool[0].remove();
+        } else {
+          activeTool[0].remove();
+          auxTool();
+        }
       }
     });
   }
