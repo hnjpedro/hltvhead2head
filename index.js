@@ -24,8 +24,7 @@ const info = () => {
 info();
 
 // TOOLTIPS ON MOBILE
-
-$(document).ready(function () {
+/* $(document).ready(function () {
   $("h4[title]").click(function () {
     var $titles = $(document).find(".title");
     var $title = $(this).find(".title");
@@ -38,7 +37,7 @@ $(document).ready(function () {
       $title.remove();
     }
   });
-});
+}); */
 
 const auxOpenPopup = () => {
   const allPopups = document.querySelectorAll(".popup");
