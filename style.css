@@ -15,6 +15,7 @@ body {
   color: white;
 }
 
+/* HEADER SETINGS */
 .header-div {
   display: flex;
   font: normal normal 900 30px "Exo 2";
@@ -35,6 +36,7 @@ body {
   max-height: 200px;
 }
 
+/* STATS BOXES SETTINGS */
 .all-lan {
   background-color: #333333;
   max-width: 800px;
