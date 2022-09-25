@@ -24,7 +24,6 @@ body {
   margin-left: 180px;
   position: relative;
   top: 20px;
-  z-index: -1;
 }
 
 .s1-header {
@@ -46,7 +45,7 @@ body {
 }
 
 .all-lan h2 {
-  padding-top: 8px;
+  padding-top: 18px;
 }
 
 .material-icons-outlined {
@@ -282,6 +281,9 @@ h3 {
 }
 
 @media screen and (max-width: 1000px) {
+  .btn {
+    color: black !important
+  }
   .popup {
     top: 12.5vh !important;
     height: 67vh !important;
