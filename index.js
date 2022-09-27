@@ -1,8 +1,68 @@
+const axios = require('axios')
 const overlay = document.getElementById("popup-overlay");
 const allPopups = document.querySelectorAll(".popup");
 const statsButtons = document.querySelectorAll(".open-btn");
 const mainPopup = document.querySelectorAll(".main-popup");
 const body = document.body;
+const s1Rating = document.getElementById("s1-rating");
+const s1Impact = document.getElementById("s1-impact");
+const s1Maps = document.getElementById("s1-maps");
+const s1Detail = document.querySelectorAll(".s1-detailed-stat");
+const devRating = document.getElementById("dev-rating");
+const devImpact = document.getElementById("dev-impact");
+const devMaps = document.getElementById("dev-maps");
+const devDetail = document.querySelectorAll(".dev-detailed-stat");
+const loading = document.querySelectorAll('.loading')
+
+
+// FIRST BOX - STATS FROM HLTV API
+const gets1mple = async () => {
+  for (let i = 0; i < loading.length; ++i) {
+    loading[i].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`
+  }  
+  try {
+    const response = await axios.get(
+      "https://hltvproxy.glitch.me/players/7998"
+    );
+    
+    s1Rating.innerHTML = response.data.rating;
+    s1Impact.innerHTML = response.data.impact;
+    s1Maps.innerHTML = response.data.mapsPlayed;
+    s1Detail[0].innerHTML = response.data.mapsPlayed;
+    s1Detail[1].innerHTML = response.data.rating;
+    s1Detail[2].innerHTML = response.data.impact;
+    s1Detail[3].innerHTML = response.data.kast + "%";
+    s1Detail[4].innerHTML = response.data.adr;
+    s1Detail[5].innerHTML = response.data.kpr;
+    s1Detail[6].innerHTML = response.data.dpr;
+  } catch (err) {
+    console.log(err);
+  }
+};
+gets1mple();
+
+const getDev = async () => {
+  try {
+    const response = await axios.get(
+      "https://hltvproxy.glitch.me/players/7592"
+    );
+    
+    devRating.innerHTML = response.data.rating;
+    devImpact.innerHTML = response.data.impact;
+    devMaps.innerHTML = response.data.mapsPlayed;
+    devDetail[0].innerHTML = response.data.mapsPlayed;
+    devDetail[1].innerHTML = response.data.rating;
+    devDetail[2].innerHTML = response.data.impact;
+    devDetail[3].innerHTML = response.data.kast + "%";
+    devDetail[4].innerHTML = response.data.adr;
+    devDetail[5].innerHTML = response.data.kpr;
+    devDetail[6].innerHTML = response.data.dpr;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getDev();
 
 // TOOLTIP ICONS
 const tooltips = document.querySelectorAll(".tooltip");
@@ -80,7 +140,7 @@ for (let i = 0; i < allPopups.length; ++i) {
   allPopups[i].addEventListener("click", (event) => {
     const classNameOfClickedElement = event.target.classList[0];
     const classNames = ["close-btn", "popup", "popup-overlay"];
-    console.log(classNameOfClickedElement);
+    
     const shouldClosePopUp = classNames.some(
       (className) => className === classNameOfClickedElement
     );
