@@ -39,7 +39,7 @@ var gets1mple = /*#__PURE__*/function () {
 
             _context.prev = 1;
             _context.next = 4;
-            return axios.get("https://hltvproxy.glitch.me/players/7998");
+            return axios.get("https://hltvproxy.glitch.me/players/7998/_");
 
           case 4:
             response = _context.sent;
@@ -85,7 +85,7 @@ var getDev = /*#__PURE__*/function () {
           case 0:
             _context2.prev = 0;
             _context2.next = 3;
-            return axios.get("https://hltvproxy.glitch.me/players/7592");
+            return axios.get("https://hltvproxy.glitch.me/players/7592/_");
 
           case 3:
             response = _context2.sent;

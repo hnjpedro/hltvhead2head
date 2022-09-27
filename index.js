@@ -23,7 +23,7 @@ const gets1mple = async () => {
   }
   try {
     const response = await axios.get(
-      "https://hltvproxy.glitch.me/players/7998"
+      "https://hltvproxy.glitch.me/players/7998/_"
     );
 
     s1Rating.innerHTML = response.data.rating;
@@ -45,7 +45,7 @@ gets1mple();
 const getDev = async () => {
   try {
     const response = await axios.get(
-      "https://hltvproxy.glitch.me/players/7592"
+      "https://hltvproxy.glitch.me/players/7592/_"
     );
 
     devRating.innerHTML = response.data.rating;
