@@ -9,7 +9,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var axios = require('axios');
+var axios = require("axios");
 
 var overlay = document.getElementById("popup-overlay");
 var allPopups = document.querySelectorAll(".popup");
@@ -24,7 +24,7 @@ var devRating = document.getElementById("dev-rating");
 var devImpact = document.getElementById("dev-impact");
 var devMaps = document.getElementById("dev-maps");
 var devDetail = document.querySelectorAll(".dev-detailed-stat");
-var loading = document.querySelectorAll('.loading'); // FIRST BOX - STATS FROM HLTV API
+var loading = document.querySelectorAll(".loading"); // FIRST BOX - STATS FROM HLTV API
 
 var gets1mple = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -174,7 +174,13 @@ if (window.innerWidth < 1000) {
 var _loop2 = function _loop2(_i2) {
   statsButtons[_i2].addEventListener("click", function () {
     allPopups[_i2].style.display = "flex";
-    allPopups[_i2].style.top = "".concat(window.pageYOffset + 10, "px");
+
+    if (window.innerWidth < 1600) {
+      allPopups[_i2].style.top = "".concat(window.pageYOffset + 10, "px");
+    } else {
+      allPopups[_i2].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
+    }
+
     mainPopup[_i2].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = "".concat(window.pageYOffset, "px");
     body.style.overflow = "hidden";

@@ -1,4 +1,4 @@
-const axios = require('axios')
+const axios = require("axios");
 const overlay = document.getElementById("popup-overlay");
 const allPopups = document.querySelectorAll(".popup");
 const statsButtons = document.querySelectorAll(".open-btn");
@@ -12,19 +12,20 @@ const devRating = document.getElementById("dev-rating");
 const devImpact = document.getElementById("dev-impact");
 const devMaps = document.getElementById("dev-maps");
 const devDetail = document.querySelectorAll(".dev-detailed-stat");
-const loading = document.querySelectorAll('.loading')
-
+const loading = document.querySelectorAll(".loading");
 
 // FIRST BOX - STATS FROM HLTV API
 const gets1mple = async () => {
   for (let i = 0; i < loading.length; ++i) {
-    loading[i].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`
-  }  
+    loading[
+      i
+    ].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
+  }
   try {
     const response = await axios.get(
       "https://hltvproxy.glitch.me/players/7998"
     );
-    
+
     s1Rating.innerHTML = response.data.rating;
     s1Impact.innerHTML = response.data.impact;
     s1Maps.innerHTML = response.data.mapsPlayed;
@@ -46,7 +47,7 @@ const getDev = async () => {
     const response = await axios.get(
       "https://hltvproxy.glitch.me/players/7592"
     );
-    
+
     devRating.innerHTML = response.data.rating;
     devImpact.innerHTML = response.data.impact;
     devMaps.innerHTML = response.data.mapsPlayed;
@@ -109,7 +110,11 @@ if (window.innerWidth < 1000) {
 for (let i = 0; i < statsButtons.length; ++i) {
   statsButtons[i].addEventListener("click", () => {
     allPopups[i].style.display = "flex";
-    allPopups[i].style.top = `${window.pageYOffset + 10}px`;
+    if (window.innerWidth < 1600) {
+      allPopups[i].style.top = `${window.pageYOffset + 10}px`;
+    } else {
+      allPopups[i].style.top = `calc(${window.pageYOffset}px + 15vh)`;
+    }
     mainPopup[i].style.cssText =
       "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = `${window.pageYOffset}px`;
@@ -140,7 +145,7 @@ for (let i = 0; i < allPopups.length; ++i) {
   allPopups[i].addEventListener("click", (event) => {
     const classNameOfClickedElement = event.target.classList[0];
     const classNames = ["close-btn", "popup", "popup-overlay"];
-    
+
     const shouldClosePopUp = classNames.some(
       (className) => className === classNameOfClickedElement
     );

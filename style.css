@@ -262,12 +262,7 @@ h3 {
 }
 
 @media screen and (min-width: 1600px) {
-  body {
-    overflow-y: hidden !important;
-  }
-
-  .popup {
-    top: 15vh !important;
+   .popup {
     height: 70vh !important;
   }
 
