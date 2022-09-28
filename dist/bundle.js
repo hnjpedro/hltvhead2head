@@ -120,7 +120,100 @@ var getDev = /*#__PURE__*/function () {
   };
 }();
 
-getDev(); // TOOLTIP ICONS
+getDev(); // SECOND BOX - STATS FROM HLTV
+
+var gets1mple2 = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+    var i, response;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            for (i = 0; i < loading.length; ++i) {
+              loading[i].innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
+            }
+
+            _context3.prev = 1;
+            _context3.next = 4;
+            return axios.get("https://hltvproxy.glitch.me/players/7998/Majors");
+
+          case 4:
+            response = _context3.sent;
+            s1Detail[7].innerHTML = response.data.mapsPlayed;
+            s1Detail[11].innerHTML = response.data.rating;
+            s1Detail[12].innerHTML = response.data.impact;
+            s1Detail[13].innerHTML = response.data.kast + "%";
+            s1Detail[14].innerHTML = response.data.adr;
+            s1Detail[16].innerHTML = response.data.kpr;
+            s1Detail[17].innerHTML = response.data.dpr;
+            _context3.next = 17;
+            break;
+
+          case 14:
+            _context3.prev = 14;
+            _context3.t0 = _context3["catch"](1);
+            console.log(_context3.t0);
+
+          case 17:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[1, 14]]);
+  }));
+
+  return function gets1mple2() {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+gets1mple2();
+
+var getDev2 = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+    var response;
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            _context4.next = 3;
+            return axios.get("https://hltvproxy.glitch.me/players/7592/Majors");
+
+          case 3:
+            response = _context4.sent;
+            devRating.innerHTML = response.data.rating;
+            devImpact.innerHTML = response.data.impact;
+            devMaps.innerHTML = response.data.mapsPlayed;
+            devDetail[7].innerHTML = response.data.mapsPlayed;
+            devDetail[11].innerHTML = response.data.rating;
+            devDetail[12].innerHTML = response.data.impact;
+            devDetail[13].innerHTML = response.data.kast + "%";
+            devDetail[14].innerHTML = response.data.adr;
+            devDetail[16].innerHTML = response.data.kpr;
+            devDetail[7].innerHTML = response.data.dpr;
+            _context4.next = 19;
+            break;
+
+          case 16:
+            _context4.prev = 16;
+            _context4.t0 = _context4["catch"](0);
+            console.log(_context4.t0);
+
+          case 19:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[0, 16]]);
+  }));
+
+  return function getDev2() {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
+getDev2(); // TOOLTIP ICONS
 
 var tooltips = document.querySelectorAll(".tooltip");
 

@@ -65,6 +65,54 @@ const getDev = async () => {
 
 getDev();
 
+// SECOND BOX - STATS FROM HLTV
+const gets1mple2 = async () => {
+  for (let i = 0; i < loading.length; ++i) {
+    loading[
+      i
+    ].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
+  }
+  try {
+    const response = await axios.get(
+      "https://hltvproxy.glitch.me/players/7998/Majors"
+    );
+
+        s1Detail[7].innerHTML = response.data.mapsPlayed;
+    s1Detail[11].innerHTML = response.data.rating;
+    s1Detail[12].innerHTML = response.data.impact;
+    s1Detail[13].innerHTML = response.data.kast + "%";
+    s1Detail[14].innerHTML = response.data.adr;
+    s1Detail[16].innerHTML = response.data.kpr;
+    s1Detail[17].innerHTML = response.data.dpr;
+  } catch (err) {
+    console.log(err);
+  }
+};
+gets1mple2();
+
+const getDev2 = async () => {
+  try {
+    const response = await axios.get(
+      "https://hltvproxy.glitch.me/players/7592/Majors"
+    );
+
+    devRating.innerHTML = response.data.rating;
+    devImpact.innerHTML = response.data.impact;
+    devMaps.innerHTML = response.data.mapsPlayed;
+    devDetail[7].innerHTML = response.data.mapsPlayed;
+    devDetail[11].innerHTML = response.data.rating;
+    devDetail[12].innerHTML = response.data.impact;
+    devDetail[13].innerHTML = response.data.kast + "%";
+    devDetail[14].innerHTML = response.data.adr;
+    devDetail[16].innerHTML = response.data.kpr;
+    devDetail[7].innerHTML = response.data.dpr;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+getDev2();
+
 // TOOLTIP ICONS
 const tooltips = document.querySelectorAll(".tooltip");
 for (let i = 0; i < tooltips.length; ++i) {
