@@ -24,196 +24,99 @@ var devRating = document.getElementById("dev-rating");
 var devImpact = document.getElementById("dev-impact");
 var devMaps = document.getElementById("dev-maps");
 var devDetail = document.querySelectorAll(".dev-detailed-stat");
-var loading = document.querySelectorAll(".loading"); // FIRST BOX - STATS FROM HLTV API
+var loading = document.querySelectorAll(".loading");
 
-var gets1mple = /*#__PURE__*/function () {
+var addLoad = function addLoad() {
+  for (var i = 0; i < loading.length; ++i) {
+    loading[i].innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
+  }
+};
+
+addLoad();
+var s1Endpoint = 'https://hltvproxy.glitch.me/players/7998/';
+var devEndpoint = 'https://hltvproxy.glitch.me/players/7592/';
+var s1All = "".concat(s1Endpoint, "_");
+var devAll = "".concat(devEndpoint, "_");
+var s1Majors = "".concat(s1Endpoint, "Majors");
+var devMajors = "".concat(devEndpoint, "Majors");
+var s1BigEvents = "".concat(s1Endpoint, "BigEvents");
+var devBigEvents = "".concat(devEndpoint, "BigEvents");
+var s1AllReq = axios.get(s1All);
+var devAllReq = axios.get(devAll);
+var s1MajorsReq = axios.get(s1Majors);
+var devMajorsReq = axios.get(devMajors);
+var s1BigEventsReq = axios.get(s1BigEvents);
+var devBigEventsReq = axios.get(devBigEvents);
+
+var getAll = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var i, response;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            for (i = 0; i < loading.length; ++i) {
-              loading[i].innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
+            try {
+              axios.all([s1AllReq, s1MajorsReq, s1BigEventsReq, devAllReq, devMajorsReq, devBigEventsReq]).then(axios.spread(function () {
+                for (var _len = arguments.length, responses = new Array(_len), _key = 0; _key < _len; _key++) {
+                  responses[_key] = arguments[_key];
+                }
+
+                s1Rating.innerHTML = responses[0].data.rating;
+                s1Impact.innerHTML = responses[0].data.impact;
+                s1Maps.innerHTML = responses[0].data.mapsPlayed;
+                devRating.innerHTML = responses[3].data.rating;
+                devImpact.innerHTML = responses[3].data.impact;
+                devMaps.innerHTML = responses[3].data.mapsPlayed;
+
+                for (var i = 0; i < devDetail.length; ++i) {
+                  var indice = Math.floor(i / 11);
+                  var indice2 = Math.floor(i / 33) + i % 11;
+                  s1Detail[i].innerHTML = Object.values(responses[indice].data)[indice2];
+                  s1Detail[6].innerHTML = "".concat(Object.values(responses[0].data)[6], "%");
+                  s1Detail[17].innerHTML = "".concat(Object.values(responses[1].data)[6], "%");
+                  s1Detail[28].innerHTML = "".concat(Object.values(responses[2].data)[6], "%");
+                  devDetail[i].innerHTML = Object.values(responses[indice + 3].data)[indice2];
+                  devDetail[6].innerHTML = "".concat(Object.values(responses[3].data)[6], "%");
+                  devDetail[17].innerHTML = "".concat(Object.values(responses[4].data)[6], "%");
+                  devDetail[28].innerHTML = "".concat(Object.values(responses[5].data)[6], "%");
+                }
+                /* for (let i = 0; i < 11; ++i) {
+                   let j = 11
+                   s1Detail[i+j].innerHTML = Object.values(responses[1].data)[i];
+                   s1Detail[6+j].innerHTML = `${Object.values(responses[1].data)[6]}%`;
+                   s1Detail[10+j].innerHTML = (Object.values(responses[1].data)[2] / Object.values(responses[2].data)[3]).toFixed(2)
+                   devDetail[i+j].innerHTML = Object.values(responses[5].data)[i];
+                   devDetail[6+j].innerHTML = `${Object.values(responses[5].data)[6]}%`;
+                   devDetail[10+j].innerHTML = (Object.values(responses[5].data)[2] / Object.values(responses[5].data)[3]).toFixed(2)
+                 }
+                 for (let i = 0; i < 11; ++i) {
+                   let j = 22
+                   s1Detail[i+j].innerHTML = Object.values(responses[2].data)[i];
+                   s1Detail[6+j].innerHTML = `${Object.values(responses[2].data)[6]}%`;
+                   s1Detail[10+j].innerHTML = (Object.values(responses[2].data)[2] / Object.values(responses[4].data)[3]).toFixed(2)
+                   devDetail[i+j].innerHTML = Object.values(responses[6].data)[i];
+                   devDetail[6+j].innerHTML = `${Object.values(responses[6].data)[6]}%`;
+                   devDetail[10+j].innerHTML = (Object.values(responses[6].data)[2] / Object.values(responses[6].data)[3]).toFixed(2)
+                 } */
+
+              }));
+            } catch (err) {
+              console.log(err);
             }
 
-            _context.prev = 1;
-            _context.next = 4;
-            return axios.get("https://hltvproxy.glitch.me/players/7998/_");
-
-          case 4:
-            response = _context.sent;
-            s1Rating.innerHTML = response.data.rating;
-            s1Impact.innerHTML = response.data.impact;
-            s1Maps.innerHTML = response.data.mapsPlayed;
-            s1Detail[0].innerHTML = response.data.mapsPlayed;
-            s1Detail[1].innerHTML = response.data.rating;
-            s1Detail[2].innerHTML = response.data.impact;
-            s1Detail[3].innerHTML = response.data.kast + "%";
-            s1Detail[4].innerHTML = response.data.adr;
-            s1Detail[5].innerHTML = response.data.kpr;
-            s1Detail[6].innerHTML = response.data.dpr;
-            _context.next = 20;
-            break;
-
-          case 17:
-            _context.prev = 17;
-            _context.t0 = _context["catch"](1);
-            console.log(_context.t0);
-
-          case 20:
+          case 1:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[1, 17]]);
+    }, _callee);
   }));
 
-  return function gets1mple() {
+  return function getAll() {
     return _ref.apply(this, arguments);
   };
 }();
 
-gets1mple();
-
-var getDev = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-    var response;
-    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
-            return axios.get("https://hltvproxy.glitch.me/players/7592/_");
-
-          case 3:
-            response = _context2.sent;
-            devRating.innerHTML = response.data.rating;
-            devImpact.innerHTML = response.data.impact;
-            devMaps.innerHTML = response.data.mapsPlayed;
-            devDetail[0].innerHTML = response.data.mapsPlayed;
-            devDetail[1].innerHTML = response.data.rating;
-            devDetail[2].innerHTML = response.data.impact;
-            devDetail[3].innerHTML = response.data.kast + "%";
-            devDetail[4].innerHTML = response.data.adr;
-            devDetail[5].innerHTML = response.data.kpr;
-            devDetail[6].innerHTML = response.data.dpr;
-            _context2.next = 19;
-            break;
-
-          case 16:
-            _context2.prev = 16;
-            _context2.t0 = _context2["catch"](0);
-            console.log(_context2.t0);
-
-          case 19:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2, null, [[0, 16]]);
-  }));
-
-  return function getDev() {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
-getDev(); // SECOND BOX - STATS FROM HLTV
-
-var gets1mple2 = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-    var i, response;
-    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            for (i = 0; i < loading.length; ++i) {
-              loading[i].innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
-            }
-
-            _context3.prev = 1;
-            _context3.next = 4;
-            return axios.get("https://hltvproxy.glitch.me/players/7998/Majors");
-
-          case 4:
-            response = _context3.sent;
-            s1Detail[7].innerHTML = response.data.mapsPlayed;
-            s1Detail[11].innerHTML = response.data.rating;
-            s1Detail[12].innerHTML = response.data.impact;
-            s1Detail[13].innerHTML = response.data.kast + "%";
-            s1Detail[14].innerHTML = response.data.adr;
-            s1Detail[16].innerHTML = response.data.kpr;
-            s1Detail[17].innerHTML = response.data.dpr;
-            _context3.next = 17;
-            break;
-
-          case 14:
-            _context3.prev = 14;
-            _context3.t0 = _context3["catch"](1);
-            console.log(_context3.t0);
-
-          case 17:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, _callee3, null, [[1, 14]]);
-  }));
-
-  return function gets1mple2() {
-    return _ref3.apply(this, arguments);
-  };
-}();
-
-gets1mple2();
-
-var getDev2 = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-    var response;
-    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-      while (1) {
-        switch (_context4.prev = _context4.next) {
-          case 0:
-            _context4.prev = 0;
-            _context4.next = 3;
-            return axios.get("https://hltvproxy.glitch.me/players/7592/Majors");
-
-          case 3:
-            response = _context4.sent;
-            devRating.innerHTML = response.data.rating;
-            devImpact.innerHTML = response.data.impact;
-            devMaps.innerHTML = response.data.mapsPlayed;
-            devDetail[7].innerHTML = response.data.mapsPlayed;
-            devDetail[11].innerHTML = response.data.rating;
-            devDetail[12].innerHTML = response.data.impact;
-            devDetail[13].innerHTML = response.data.kast + "%";
-            devDetail[14].innerHTML = response.data.adr;
-            devDetail[16].innerHTML = response.data.kpr;
-            devDetail[7].innerHTML = response.data.dpr;
-            _context4.next = 19;
-            break;
-
-          case 16:
-            _context4.prev = 16;
-            _context4.t0 = _context4["catch"](0);
-            console.log(_context4.t0);
-
-          case 19:
-          case "end":
-            return _context4.stop();
-        }
-      }
-    }, _callee4, null, [[0, 16]]);
-  }));
-
-  return function getDev2() {
-    return _ref4.apply(this, arguments);
-  };
-}();
-
-getDev2(); // TOOLTIP ICONS
+getAll(); // TOOLTIP ICONS
 
 var tooltips = document.querySelectorAll(".tooltip");
 

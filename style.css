@@ -394,7 +394,7 @@ h3 {
 
 .s1-detailed-stat::after {
   content: "\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0s1mple\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
-  right: 22px;
+  right: 21px;
 }
 
 .dev-detailed-stat::after {
@@ -433,11 +433,11 @@ h3 {
   }
 }
 
-#s1-rating, #dev-impact {
+#s1-rating, #dev-rating {
   font-size: 2.3rem
 }
 
-#s1-maps, #dev-impact {
+#s1-maps, #dev-maps {
   font-size: 2.5rem
 }
 
@@ -458,6 +458,12 @@ h3 {
 }
 
 .container-hltv {
-  margin-top: 5px;
-  color: silver
+  margin-top: 15px;
+  color: silver;
+  text-align: center;
+  margin-bottom: 15px
+}
+
+.container-hltv .almost {
+  opacity: .4
 }

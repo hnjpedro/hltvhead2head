@@ -14,104 +14,81 @@ const devMaps = document.getElementById("dev-maps");
 const devDetail = document.querySelectorAll(".dev-detailed-stat");
 const loading = document.querySelectorAll(".loading");
 
-// FIRST BOX - STATS FROM HLTV API
-const gets1mple = async () => {
+const addLoad = () => {
   for (let i = 0; i < loading.length; ++i) {
     loading[
       i
     ].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
   }
-  try {
-    const response = await axios.get(
-      "https://hltvproxy.glitch.me/players/7998/_"
-    );
-
-    s1Rating.innerHTML = response.data.rating;
-    s1Impact.innerHTML = response.data.impact;
-    s1Maps.innerHTML = response.data.mapsPlayed;
-    s1Detail[0].innerHTML = response.data.mapsPlayed;
-    s1Detail[1].innerHTML = response.data.rating;
-    s1Detail[2].innerHTML = response.data.impact;
-    s1Detail[3].innerHTML = response.data.kast + "%";
-    s1Detail[4].innerHTML = response.data.adr;
-    s1Detail[5].innerHTML = response.data.kpr;
-    s1Detail[6].innerHTML = response.data.dpr;
-  } catch (err) {
-    console.log(err);
-  }
-};
-gets1mple();
-
-const getDev = async () => {
-  try {
-    const response = await axios.get(
-      "https://hltvproxy.glitch.me/players/7592/_"
-    );
-
-    devRating.innerHTML = response.data.rating;
-    devImpact.innerHTML = response.data.impact;
-    devMaps.innerHTML = response.data.mapsPlayed;
-    devDetail[0].innerHTML = response.data.mapsPlayed;
-    devDetail[1].innerHTML = response.data.rating;
-    devDetail[2].innerHTML = response.data.impact;
-    devDetail[3].innerHTML = response.data.kast + "%";
-    devDetail[4].innerHTML = response.data.adr;
-    devDetail[5].innerHTML = response.data.kpr;
-    devDetail[6].innerHTML = response.data.dpr;
-  } catch (err) {
-    console.log(err);
-  }
 };
 
-getDev();
+addLoad();
+const s1Endpoint = 'https://hltvproxy.glitch.me/players/7998/'
+const devEndpoint = 'https://hltvproxy.glitch.me/players/7592/'
+const s1All = `${s1Endpoint}_`;
+const devAll = `${devEndpoint}_`;
+const s1Majors = `${s1Endpoint}Majors`;
+const devMajors = `${devEndpoint}Majors`;
+const s1BigEvents = `${s1Endpoint}BigEvents`
+const devBigEvents = `${devEndpoint}BigEvents`
 
-// SECOND BOX - STATS FROM HLTV
-const gets1mple2 = async () => {
-  for (let i = 0; i < loading.length; ++i) {
-    loading[
-      i
-    ].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
-  }
+const s1AllReq = axios.get(s1All);
+const devAllReq = axios.get(devAll);
+const s1MajorsReq = axios.get(s1Majors);
+const devMajorsReq = axios.get(devMajors);
+const s1BigEventsReq = axios.get(s1BigEvents);
+const devBigEventsReq = axios.get(devBigEvents)
+
+const getAll = async () => {
   try {
-    const response = await axios.get(
-      "https://hltvproxy.glitch.me/players/7998/Majors"
+    axios.all([s1AllReq, s1MajorsReq, s1BigEventsReq, devAllReq, devMajorsReq, devBigEventsReq]).then(
+      axios.spread((...responses) => {
+        s1Rating.innerHTML = responses[0].data.rating;
+        s1Impact.innerHTML = responses[0].data.impact;
+        s1Maps.innerHTML = responses[0].data.mapsPlayed;
+        devRating.innerHTML = responses[3].data.rating;
+        devImpact.innerHTML = responses[3].data.impact;
+        devMaps.innerHTML = responses[3].data.mapsPlayed;
+        
+        
+        for (let i = 0; i < devDetail.length; ++i) {
+          const indice = Math.floor(i / 11)
+          const indice2 = Math.floor(i / 33) + (i % 11)
+          s1Detail[i].innerHTML = Object.values(responses[indice].data)[indice2];
+          s1Detail[6].innerHTML = `${Object.values(responses[0].data)[6]}%`;
+          s1Detail[17].innerHTML = `${Object.values(responses[1].data)[6]}%`;
+          s1Detail[28].innerHTML = `${Object.values(responses[2].data)[6]}%`;
+          devDetail[i].innerHTML = Object.values(responses[(indice + 3)].data)[indice2];
+          devDetail[6].innerHTML = `${Object.values(responses[3].data)[6]}%`;
+          devDetail[17].innerHTML = `${Object.values(responses[4].data)[6]}%`;
+          devDetail[28].innerHTML = `${Object.values(responses[5].data)[6]}%`;
+        }
+       /* for (let i = 0; i < 11; ++i) {
+          let j = 11
+          s1Detail[i+j].innerHTML = Object.values(responses[1].data)[i];
+          s1Detail[6+j].innerHTML = `${Object.values(responses[1].data)[6]}%`;
+          s1Detail[10+j].innerHTML = (Object.values(responses[1].data)[2] / Object.values(responses[2].data)[3]).toFixed(2)
+          devDetail[i+j].innerHTML = Object.values(responses[5].data)[i];
+          devDetail[6+j].innerHTML = `${Object.values(responses[5].data)[6]}%`;
+          devDetail[10+j].innerHTML = (Object.values(responses[5].data)[2] / Object.values(responses[5].data)[3]).toFixed(2)
+        }
+        for (let i = 0; i < 11; ++i) {
+          let j = 22
+          s1Detail[i+j].innerHTML = Object.values(responses[2].data)[i];
+          s1Detail[6+j].innerHTML = `${Object.values(responses[2].data)[6]}%`;
+          s1Detail[10+j].innerHTML = (Object.values(responses[2].data)[2] / Object.values(responses[4].data)[3]).toFixed(2)
+          devDetail[i+j].innerHTML = Object.values(responses[6].data)[i];
+          devDetail[6+j].innerHTML = `${Object.values(responses[6].data)[6]}%`;
+          devDetail[10+j].innerHTML = (Object.values(responses[6].data)[2] / Object.values(responses[6].data)[3]).toFixed(2)
+        } */
+      })
     );
-
-        s1Detail[7].innerHTML = response.data.mapsPlayed;
-    s1Detail[11].innerHTML = response.data.rating;
-    s1Detail[12].innerHTML = response.data.impact;
-    s1Detail[13].innerHTML = response.data.kast + "%";
-    s1Detail[14].innerHTML = response.data.adr;
-    s1Detail[16].innerHTML = response.data.kpr;
-    s1Detail[17].innerHTML = response.data.dpr;
-  } catch (err) {
-    console.log(err);
-  }
-};
-gets1mple2();
-
-const getDev2 = async () => {
-  try {
-    const response = await axios.get(
-      "https://hltvproxy.glitch.me/players/7592/Majors"
-    );
-
-    devRating.innerHTML = response.data.rating;
-    devImpact.innerHTML = response.data.impact;
-    devMaps.innerHTML = response.data.mapsPlayed;
-    devDetail[7].innerHTML = response.data.mapsPlayed;
-    devDetail[11].innerHTML = response.data.rating;
-    devDetail[12].innerHTML = response.data.impact;
-    devDetail[13].innerHTML = response.data.kast + "%";
-    devDetail[14].innerHTML = response.data.adr;
-    devDetail[16].innerHTML = response.data.kpr;
-    devDetail[7].innerHTML = response.data.dpr;
   } catch (err) {
     console.log(err);
   }
 };
 
-getDev2();
+getAll();
 
 // TOOLTIP ICONS
 const tooltips = document.querySelectorAll(".tooltip");
