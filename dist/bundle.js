@@ -11,20 +11,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var axios = require("axios");
 
+var body = document.body;
 var overlay = document.getElementById("popup-overlay");
 var allPopups = document.querySelectorAll(".popup");
 var statsButtons = document.querySelectorAll(".open-btn");
 var mainPopup = document.querySelectorAll(".main-popup");
-var body = document.body;
-var s1Rating = document.getElementById("s1-rating");
-var s1Impact = document.getElementById("s1-impact");
-var s1Maps = document.getElementById("s1-maps");
+var s1Rating = document.querySelectorAll(".s1-main-rating");
+var s1Impact = document.querySelectorAll(".s1-main-impact");
+var s1Maps = document.querySelectorAll(".s1-main-maps");
 var s1Detail = document.querySelectorAll(".s1-detailed-stat");
-var devRating = document.getElementById("dev-rating");
-var devImpact = document.getElementById("dev-impact");
-var devMaps = document.getElementById("dev-maps");
+var s1RatingBig = document.getElementById("s1-rating-bigevents");
+var devRating = document.querySelectorAll(".dev-main-rating");
+var devImpact = document.querySelectorAll(".dev-main-impact");
+var devMaps = document.querySelectorAll(".dev-main-maps");
 var devDetail = document.querySelectorAll(".dev-detailed-stat");
+var devRatingBig = document.getElementById("dev-rating-bigevents");
 var loading = document.querySelectorAll(".loading");
+var s1Endpoint = "https://hltvproxy.glitch.me/players/7998/";
+var devEndpoint = "https://hltvproxy.glitch.me/players/7592/";
+var s1All = "".concat(s1Endpoint, "_");
+var devAll = "".concat(devEndpoint, "_");
+var s1Majors = "".concat(s1Endpoint, "Majors");
+var devMajors = "".concat(devEndpoint, "Majors");
+var s1BigEvents = "".concat(s1Endpoint, "BigEvents");
+var devBigEvents = "".concat(devEndpoint, "BigEvents");
+var s1Online = "".concat(s1Endpoint, "Online");
+var s1LAN = "".concat(s1Endpoint, "Lan");
+var devOnline = "".concat(devEndpoint, "Online");
+var devLAN = "".concat(devEndpoint, "Lan");
+var s1AllReq = axios.get(s1All);
+var devAllReq = axios.get(devAll);
+var s1MajorsReq = axios.get(s1Majors);
+var devMajorsReq = axios.get(devMajors);
+var s1BigEventsReq = axios.get(s1BigEvents);
+var devBigEventsReq = axios.get(devBigEvents);
+var s1OnlineReq = axios.get(s1Online);
+var s1LANReq = axios.get(s1LAN);
+var devOnlineReq = axios.get(devOnline);
+var devLANReq = axios.get(devLAN); // ADD LOADING ICONS
 
 var addLoad = function addLoad() {
   for (var i = 0; i < loading.length; ++i) {
@@ -32,21 +56,7 @@ var addLoad = function addLoad() {
   }
 };
 
-addLoad();
-var s1Endpoint = 'https://hltvproxy.glitch.me/players/7998/';
-var devEndpoint = 'https://hltvproxy.glitch.me/players/7592/';
-var s1All = "".concat(s1Endpoint, "_");
-var devAll = "".concat(devEndpoint, "_");
-var s1Majors = "".concat(s1Endpoint, "Majors");
-var devMajors = "".concat(devEndpoint, "Majors");
-var s1BigEvents = "".concat(s1Endpoint, "BigEvents");
-var devBigEvents = "".concat(devEndpoint, "BigEvents");
-var s1AllReq = axios.get(s1All);
-var devAllReq = axios.get(devAll);
-var s1MajorsReq = axios.get(s1Majors);
-var devMajorsReq = axios.get(devMajors);
-var s1BigEventsReq = axios.get(s1BigEvents);
-var devBigEventsReq = axios.get(devBigEvents);
+addLoad(); // GET ALL PARSEABLE STATS
 
 var getAll = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -55,49 +65,43 @@ var getAll = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             try {
-              axios.all([s1AllReq, s1MajorsReq, s1BigEventsReq, devAllReq, devMajorsReq, devBigEventsReq]).then(axios.spread(function () {
+              axios.all([s1AllReq, s1LANReq, s1OnlineReq, s1MajorsReq, s1BigEventsReq, devAllReq, devLANReq, devOnlineReq, devMajorsReq, devBigEventsReq]).then(axios.spread(function () {
                 for (var _len = arguments.length, responses = new Array(_len), _key = 0; _key < _len; _key++) {
                   responses[_key] = arguments[_key];
                 }
 
-                s1Rating.innerHTML = responses[0].data.rating;
-                s1Impact.innerHTML = responses[0].data.impact;
-                s1Maps.innerHTML = responses[0].data.mapsPlayed;
-                devRating.innerHTML = responses[3].data.rating;
-                devImpact.innerHTML = responses[3].data.impact;
-                devMaps.innerHTML = responses[3].data.mapsPlayed;
+                // ADD ALL PARSEABLE FACE STATS
+                s1RatingBig.innerHTML = responses[4].data.rating;
+                devRatingBig.innerHTML = responses[9].data.rating;
 
-                for (var i = 0; i < devDetail.length; ++i) {
-                  var indice = Math.floor(i / 11);
-                  var indice2 = Math.floor(i / 33) + i % 11;
-                  s1Detail[i].innerHTML = Object.values(responses[indice].data)[indice2];
-                  s1Detail[6].innerHTML = "".concat(Object.values(responses[0].data)[6], "%");
-                  s1Detail[17].innerHTML = "".concat(Object.values(responses[1].data)[6], "%");
-                  s1Detail[28].innerHTML = "".concat(Object.values(responses[2].data)[6], "%");
-                  devDetail[i].innerHTML = Object.values(responses[indice + 3].data)[indice2];
-                  devDetail[6].innerHTML = "".concat(Object.values(responses[3].data)[6], "%");
-                  devDetail[17].innerHTML = "".concat(Object.values(responses[4].data)[6], "%");
-                  devDetail[28].innerHTML = "".concat(Object.values(responses[5].data)[6], "%");
+                for (var i = 0; i < s1Rating.length; ++i) {
+                  s1Rating[i].innerHTML = responses[i].data.rating;
+                  s1Impact[i].innerHTML = responses[i].data.impact;
+                  s1Maps[i].innerHTML = responses[i].data.mapsPlayed;
+                  devRating[i].innerHTML = responses[i + 5].data.rating;
+                  devImpact[i].innerHTML = responses[i + 5].data.impact;
+                  devMaps[i].innerHTML = responses[i + 5].data.mapsPlayed;
                 }
-                /* for (let i = 0; i < 11; ++i) {
-                   let j = 11
-                   s1Detail[i+j].innerHTML = Object.values(responses[1].data)[i];
-                   s1Detail[6+j].innerHTML = `${Object.values(responses[1].data)[6]}%`;
-                   s1Detail[10+j].innerHTML = (Object.values(responses[1].data)[2] / Object.values(responses[2].data)[3]).toFixed(2)
-                   devDetail[i+j].innerHTML = Object.values(responses[5].data)[i];
-                   devDetail[6+j].innerHTML = `${Object.values(responses[5].data)[6]}%`;
-                   devDetail[10+j].innerHTML = (Object.values(responses[5].data)[2] / Object.values(responses[5].data)[3]).toFixed(2)
-                 }
-                 for (let i = 0; i < 11; ++i) {
-                   let j = 22
-                   s1Detail[i+j].innerHTML = Object.values(responses[2].data)[i];
-                   s1Detail[6+j].innerHTML = `${Object.values(responses[2].data)[6]}%`;
-                   s1Detail[10+j].innerHTML = (Object.values(responses[2].data)[2] / Object.values(responses[4].data)[3]).toFixed(2)
-                   devDetail[i+j].innerHTML = Object.values(responses[6].data)[i];
-                   devDetail[6+j].innerHTML = `${Object.values(responses[6].data)[6]}%`;
-                   devDetail[10+j].innerHTML = (Object.values(responses[6].data)[2] / Object.values(responses[6].data)[3]).toFixed(2)
-                 } */
 
+                for (var _i = 0; _i < devDetail.length; ++_i) {
+                  var indice = Math.floor(_i / 11);
+                  var indice2 = _i % 11; // ALL S1MPLE DETAILED STATS
+
+                  s1Detail[_i].innerHTML = Object.values(responses[indice].data)[indice2]; // ALL DEVICE DETAILED STATS
+
+                  devDetail[_i].innerHTML = Object.values(responses[indice + 5].data)[indice2];
+                } // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
+
+
+                for (var j = 0; j < s1Detail.length; j += 11) {
+                  var iconSpan = document.createElement("span");
+                  iconSpan.innerHTML = "%";
+
+                  while (iconSpan.firstChild) {
+                    s1Detail[6 + j].appendChild(iconSpan.firstChild);
+                    devDetail[6 + j].appendChild(iconSpan.firstChild);
+                  }
+                }
               }));
             } catch (err) {
               console.log(err);
@@ -134,17 +138,17 @@ if (window.innerWidth < 1000) {
   (function () {
     var tooltips = document.querySelectorAll("h4[title]");
 
-    var _loop = function _loop(_i) {
+    var _loop = function _loop(_i2) {
       var auxTool = function auxTool() {
         var toolTipText = document.createElement("span");
-        toolTipText.innerHTML = '<span class="title">' + tooltips[_i].getAttribute("title") + "</span>";
+        toolTipText.innerHTML = '<span class="title">' + tooltips[_i2].getAttribute("title") + "</span>";
 
         while (toolTipText.firstChild) {
-          tooltips[_i].appendChild(toolTipText.firstChild);
+          tooltips[_i2].appendChild(toolTipText.firstChild);
         }
       };
 
-      tooltips[_i].addEventListener("click", function (event) {
+      tooltips[_i2].addEventListener("click", function (event) {
         var activeTool = document.querySelectorAll(".title");
 
         if (!activeTool.length) {
@@ -160,57 +164,57 @@ if (window.innerWidth < 1000) {
       });
     };
 
-    for (var _i = 0; _i < tooltips.length; ++_i) {
-      _loop(_i);
+    for (var _i2 = 0; _i2 < tooltips.length; ++_i2) {
+      _loop(_i2);
     }
   })();
 } // OPEN POPUPS
 
 
-var _loop2 = function _loop2(_i2) {
-  statsButtons[_i2].addEventListener("click", function () {
-    allPopups[_i2].style.display = "flex";
+var _loop2 = function _loop2(_i3) {
+  statsButtons[_i3].addEventListener("click", function () {
+    allPopups[_i3].style.display = "flex";
 
     if (window.innerWidth < 1600) {
-      allPopups[_i2].style.top = "".concat(window.pageYOffset + 10, "px");
+      allPopups[_i3].style.top = "".concat(window.pageYOffset + 10, "px");
     } else {
-      allPopups[_i2].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
+      allPopups[_i3].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
     }
 
-    mainPopup[_i2].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
+    mainPopup[_i3].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = "".concat(window.pageYOffset, "px");
     body.style.overflow = "hidden";
     overlay.style.display = "block";
   });
 };
 
-for (var _i2 = 0; _i2 < statsButtons.length; ++_i2) {
-  _loop2(_i2);
+for (var _i3 = 0; _i3 < statsButtons.length; ++_i3) {
+  _loop2(_i3);
 } // CLOSE POPUPS
 
 
 var closePopUpAux = function closePopUpAux() {
-  var _loop3 = function _loop3(_i3) {
+  var _loop3 = function _loop3(_i4) {
     if (window.innerWidth < 1000 || window.innerWidth > 1600) {
-      mainPopup[_i3].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
+      mainPopup[_i4].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
     } else {
-      mainPopup[_i3].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
+      mainPopup[_i4].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
     }
 
     setTimeout(function () {
-      allPopups[_i3].style.display = "none";
+      allPopups[_i4].style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
     }, 500);
   };
 
-  for (var _i3 = 0; _i3 < allPopups.length; ++_i3) {
-    _loop3(_i3);
+  for (var _i4 = 0; _i4 < allPopups.length; ++_i4) {
+    _loop3(_i4);
   }
 };
 
-for (var _i4 = 0; _i4 < allPopups.length; ++_i4) {
-  allPopups[_i4].addEventListener("click", function (event) {
+for (var _i5 = 0; _i5 < allPopups.length; ++_i5) {
+  allPopups[_i5].addEventListener("click", function (event) {
     var classNameOfClickedElement = event.target.classList[0];
     var classNames = ["close-btn", "popup", "popup-overlay"];
     var shouldClosePopUp = classNames.some(function (className) {

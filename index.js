@@ -1,19 +1,44 @@
 const axios = require("axios");
+const body = document.body;
 const overlay = document.getElementById("popup-overlay");
 const allPopups = document.querySelectorAll(".popup");
 const statsButtons = document.querySelectorAll(".open-btn");
 const mainPopup = document.querySelectorAll(".main-popup");
-const body = document.body;
-const s1Rating = document.getElementById("s1-rating");
-const s1Impact = document.getElementById("s1-impact");
-const s1Maps = document.getElementById("s1-maps");
+const s1Rating = document.querySelectorAll(".s1-main-rating");
+const s1Impact = document.querySelectorAll(".s1-main-impact");
+const s1Maps = document.querySelectorAll(".s1-main-maps");
 const s1Detail = document.querySelectorAll(".s1-detailed-stat");
-const devRating = document.getElementById("dev-rating");
-const devImpact = document.getElementById("dev-impact");
-const devMaps = document.getElementById("dev-maps");
+const s1RatingBig = document.getElementById("s1-rating-bigevents");
+const devRating = document.querySelectorAll(".dev-main-rating");
+const devImpact = document.querySelectorAll(".dev-main-impact");
+const devMaps = document.querySelectorAll(".dev-main-maps");
 const devDetail = document.querySelectorAll(".dev-detailed-stat");
+const devRatingBig = document.getElementById("dev-rating-bigevents");
 const loading = document.querySelectorAll(".loading");
+const s1Endpoint = "https://hltvproxy.glitch.me/players/7998/";
+const devEndpoint = "https://hltvproxy.glitch.me/players/7592/";
+const s1All = `${s1Endpoint}_`;
+const devAll = `${devEndpoint}_`;
+const s1Majors = `${s1Endpoint}Majors`;
+const devMajors = `${devEndpoint}Majors`;
+const s1BigEvents = `${s1Endpoint}BigEvents`;
+const devBigEvents = `${devEndpoint}BigEvents`;
+const s1Online = `${s1Endpoint}Online`;
+const s1LAN = `${s1Endpoint}Lan`;
+const devOnline = `${devEndpoint}Online`;
+const devLAN = `${devEndpoint}Lan`;
+const s1AllReq = axios.get(s1All);
+const devAllReq = axios.get(devAll);
+const s1MajorsReq = axios.get(s1Majors);
+const devMajorsReq = axios.get(devMajors);
+const s1BigEventsReq = axios.get(s1BigEvents);
+const devBigEventsReq = axios.get(devBigEvents);
+const s1OnlineReq = axios.get(s1Online);
+const s1LANReq = axios.get(s1LAN);
+const devOnlineReq = axios.get(devOnline);
+const devLANReq = axios.get(devLAN);
 
+// ADD LOADING ICONS
 const addLoad = () => {
   for (let i = 0; i < loading.length; ++i) {
     loading[
@@ -23,66 +48,57 @@ const addLoad = () => {
 };
 
 addLoad();
-const s1Endpoint = 'https://hltvproxy.glitch.me/players/7998/'
-const devEndpoint = 'https://hltvproxy.glitch.me/players/7592/'
-const s1All = `${s1Endpoint}_`;
-const devAll = `${devEndpoint}_`;
-const s1Majors = `${s1Endpoint}Majors`;
-const devMajors = `${devEndpoint}Majors`;
-const s1BigEvents = `${s1Endpoint}BigEvents`
-const devBigEvents = `${devEndpoint}BigEvents`
 
-const s1AllReq = axios.get(s1All);
-const devAllReq = axios.get(devAll);
-const s1MajorsReq = axios.get(s1Majors);
-const devMajorsReq = axios.get(devMajors);
-const s1BigEventsReq = axios.get(s1BigEvents);
-const devBigEventsReq = axios.get(devBigEvents)
-
+// GET ALL PARSEABLE STATS
 const getAll = async () => {
   try {
-    axios.all([s1AllReq, s1MajorsReq, s1BigEventsReq, devAllReq, devMajorsReq, devBigEventsReq]).then(
-      axios.spread((...responses) => {
-        s1Rating.innerHTML = responses[0].data.rating;
-        s1Impact.innerHTML = responses[0].data.impact;
-        s1Maps.innerHTML = responses[0].data.mapsPlayed;
-        devRating.innerHTML = responses[3].data.rating;
-        devImpact.innerHTML = responses[3].data.impact;
-        devMaps.innerHTML = responses[3].data.mapsPlayed;
-        
-        
-        for (let i = 0; i < devDetail.length; ++i) {
-          const indice = Math.floor(i / 11)
-          const indice2 = Math.floor(i / 33) + (i % 11)
-          s1Detail[i].innerHTML = Object.values(responses[indice].data)[indice2];
-          s1Detail[6].innerHTML = `${Object.values(responses[0].data)[6]}%`;
-          s1Detail[17].innerHTML = `${Object.values(responses[1].data)[6]}%`;
-          s1Detail[28].innerHTML = `${Object.values(responses[2].data)[6]}%`;
-          devDetail[i].innerHTML = Object.values(responses[(indice + 3)].data)[indice2];
-          devDetail[6].innerHTML = `${Object.values(responses[3].data)[6]}%`;
-          devDetail[17].innerHTML = `${Object.values(responses[4].data)[6]}%`;
-          devDetail[28].innerHTML = `${Object.values(responses[5].data)[6]}%`;
-        }
-       /* for (let i = 0; i < 11; ++i) {
-          let j = 11
-          s1Detail[i+j].innerHTML = Object.values(responses[1].data)[i];
-          s1Detail[6+j].innerHTML = `${Object.values(responses[1].data)[6]}%`;
-          s1Detail[10+j].innerHTML = (Object.values(responses[1].data)[2] / Object.values(responses[2].data)[3]).toFixed(2)
-          devDetail[i+j].innerHTML = Object.values(responses[5].data)[i];
-          devDetail[6+j].innerHTML = `${Object.values(responses[5].data)[6]}%`;
-          devDetail[10+j].innerHTML = (Object.values(responses[5].data)[2] / Object.values(responses[5].data)[3]).toFixed(2)
-        }
-        for (let i = 0; i < 11; ++i) {
-          let j = 22
-          s1Detail[i+j].innerHTML = Object.values(responses[2].data)[i];
-          s1Detail[6+j].innerHTML = `${Object.values(responses[2].data)[6]}%`;
-          s1Detail[10+j].innerHTML = (Object.values(responses[2].data)[2] / Object.values(responses[4].data)[3]).toFixed(2)
-          devDetail[i+j].innerHTML = Object.values(responses[6].data)[i];
-          devDetail[6+j].innerHTML = `${Object.values(responses[6].data)[6]}%`;
-          devDetail[10+j].innerHTML = (Object.values(responses[6].data)[2] / Object.values(responses[6].data)[3]).toFixed(2)
-        } */
-      })
-    );
+    axios
+      .all([
+        s1AllReq,
+        s1LANReq,
+        s1OnlineReq,
+        s1MajorsReq,
+        s1BigEventsReq,
+        devAllReq,
+        devLANReq,
+        devOnlineReq,
+        devMajorsReq,
+        devBigEventsReq,
+      ])
+      .then(
+        axios.spread((...responses) => {
+          // ADD ALL PARSEABLE FACE STATS
+          s1RatingBig.innerHTML = responses[4].data.rating;
+          devRatingBig.innerHTML = responses[9].data.rating;
+          for (let i = 0; i < s1Rating.length; ++i) {
+            s1Rating[i].innerHTML = responses[i].data.rating;
+            s1Impact[i].innerHTML = responses[i].data.impact;
+            s1Maps[i].innerHTML = responses[i].data.mapsPlayed;
+            devRating[i].innerHTML = responses[i + 5].data.rating;
+            devImpact[i].innerHTML = responses[i + 5].data.impact;
+            devMaps[i].innerHTML = responses[i + 5].data.mapsPlayed;
+          }
+          for (let i = 0; i < devDetail.length; ++i) {
+            const indice = Math.floor(i / 11);
+            const indice2 = i % 11;
+            // ALL S1MPLE DETAILED STATS
+            s1Detail[i].innerHTML = Object.values(responses[indice].data)[
+              indice2
+            ];
+            // ALL DEVICE DETAILED STATS
+            devDetail[i].innerHTML = Object.values(responses[indice + 5].data)[indice2];
+          }
+          // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
+          for (let j = 0; j < s1Detail.length; j += 11) {
+            const iconSpan = document.createElement("span");
+            iconSpan.innerHTML = `%`;
+            while (iconSpan.firstChild) {
+              s1Detail[6 + j].appendChild(iconSpan.firstChild);
+              devDetail[6 + j].appendChild(iconSpan.firstChild);
+            }
+          }
+        })
+      );
   } catch (err) {
     console.log(err);
   }
