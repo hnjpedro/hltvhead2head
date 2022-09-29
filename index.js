@@ -88,15 +88,35 @@ const getAll = async () => {
             // ALL DEVICE DETAILED STATS
             devDetail[i].innerHTML = Object.values(responses[indice + 5].data)[indice2];
           }
+          // CHANGE COLOR ON GREATER STAT
+          for (let k = 0; k < s1Detail.length; ++k) {
+            if (k != 3 && k != 14 && k != 25 && k != 36 && k != 47) {
+            if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
+              s1Detail[k].style.color = 'lightgreen'
+            } else {
+              devDetail[k].style.color = 'lightgreen'
+            }} else {
+              if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
+                devDetail[k].style.color = 'lightgreen'
+              } else {
+                s1Detail[k].style.color = 'lightgreen'
+              }
+            }
+          }
           // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
           for (let j = 0; j < s1Detail.length; j += 11) {
             const iconSpan = document.createElement("span");
+            const iconSpan2 = document.createElement("span");
             iconSpan.innerHTML = `%`;
+            iconSpan2.innerHTML = `%`;
             while (iconSpan.firstChild) {
               s1Detail[6 + j].appendChild(iconSpan.firstChild);
-              devDetail[6 + j].appendChild(iconSpan.firstChild);
+            }
+            while (iconSpan2.firstChild) {
+              devDetail[6 + j].appendChild(iconSpan2.firstChild);
             }
           }
+          
         })
       );
   } catch (err) {
