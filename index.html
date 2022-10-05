@@ -15,16 +15,59 @@
   <body>
     <div class="popup-overlay" id="popup-overlay"></div>
     <div class="header-div">
-      <img src="imgs/s1-header.png" class="s1-header" />
-      s1mple vs <br />
-      device
-      <img src="imgs/devve-header.png" />
+      <div class="player-pics">
+        <img
+          src="https://img-cdn.hltv.org/teamlogo/9iMirAi7ArBLNU8p3kqUTZ.svg?ixlib=java-2.1.0&s=4dd8635be16122656093ae9884675d0c"
+          class="team-logo"
+        />
+        <img
+          src="https://img-cdn.hltv.org/playerbodyshot/Q2u6AgnDNYQ3dyObwN4JBX.png?ixlib=java-2.1.0&w=400&s=5e19fa63867872bd78409f6e757ff6c3"
+          class="s1-header player-pic"
+        />
+      </div>
+      <div class="player-names">
+        <span class="player-name">s1mple</span> vs <br />
+        <span class="player-name">device</span>
+      </div>
+      <div class="player-pics">
+        <img
+          src="https://img-cdn.hltv.org/teamlogo/mbY2YeFKUAbL9NyO6ab7-c.png?ixlib=java-2.1.0&w=200&s=1c4343c7ff32e9e75f9321b91d443d07"
+          class="team-logo"
+        />
+        <img
+          src="https://img-cdn.hltv.org/playerbodyshot/e-VpY--MZr_3XFDmj8DBd6.png?ixlib=java-2.1.0&w=400&s=f659f480569596b71f8c7d6fffc27ad7"
+          class="player-pic"
+        />
+      </div>
+    </div>
+    <div class="new-header">
+      <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete">
+          <input
+            id="input-1"
+            type="text"
+            placeholder="Input HLTV player ID"
+            value="s1mple"
+          />
+        </div>
+      </form>
+      <button class="btn" id="search-players">SEARCH</button>
+      <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete">
+          <input
+            id="input-2"
+            type="text"
+            placeholder="Input HLTV player ID"
+            value="device"
+          />
+        </div>
+      </form>
     </div>
     <div class="valve-majors all-lan">
       <h2>ALL EVENTS</h2>
       <div class="stats-div">
         <div class="s1-div each-div">
-          <h3 class="s1-stats">s1mple</h3>
+          <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
               <span class="number loading s1-main-maps"></span>
@@ -41,7 +84,7 @@
           </ul>
         </div>
         <div class="dev-div each-div">
-          <h3 class="dev-stats">device</h3>
+          <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
               <span class="number loading dev-main-maps"></span>
@@ -58,7 +101,7 @@
           </ul>
         </div>
       </div>
-      
+
       <button class="more-stats open-btn btn" id="stats-major">
         MORE STATS
       </button>
@@ -67,9 +110,9 @@
           <div class="popup-content">
             <span class="close-btn btn">x</span>
             <div class="details-title">
-              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h3 class="s1-details s1-stats left">s1mple</h3>
               <h2 class="detailed-stats">ALL EVENTS</h2>
-              <h3 class="dev-details dev-stats">device</h3>
+              <h3 class="dev-details dev-stats right">device</h3>
             </div>
             <div class="details-list">
               <div class="details-list-container">
@@ -173,7 +216,7 @@
       <h2>LAN EVENTS</h2>
       <div class="stats-div">
         <div class="s1-div each-div">
-          <h3 class="s1-stats">s1mple</h3>
+          <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
               <span class="number loading s1-main-maps"></span>
@@ -190,7 +233,7 @@
           </ul>
         </div>
         <div class="dev-div each-div">
-          <h3 class="dev-stats">device</h3>
+          <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
               <span class="number loading dev-main-maps"></span>
@@ -207,18 +250,16 @@
           </ul>
         </div>
       </div>
-      
-      <button class="more-stats open-btn btn">
-        MORE STATS
-      </button>
+
+      <button class="more-stats open-btn btn">MORE STATS</button>
       <div class="popup" id="major-popup">
         <div class="main-popup" id="major-main-popup">
           <div class="popup-content">
             <span class="close-btn btn">x</span>
             <div class="details-title">
-              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h3 class="s1-details s1-stats left">s1mple</h3>
               <h2 class="detailed-stats">LAN EVENTS</h2>
-              <h3 class="dev-details dev-stats">device</h3>
+              <h3 class="dev-details dev-stats right">device</h3>
             </div>
             <div class="details-list">
               <div class="details-list-container">
@@ -322,7 +363,7 @@
       <h2>ONLINE EVENTS</h2>
       <div class="stats-div">
         <div class="s1-div each-div">
-          <h3 class="s1-stats">s1mple</h3>
+          <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
               <span class="number loading s1-main-maps"></span>
@@ -339,7 +380,7 @@
           </ul>
         </div>
         <div class="dev-div each-div">
-          <h3 class="dev-stats">device</h3>
+          <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
               <span class="number loading dev-main-maps"></span>
@@ -356,18 +397,16 @@
           </ul>
         </div>
       </div>
-      
-      <button class="more-stats open-btn btn">
-        MORE STATS
-      </button>
+
+      <button class="more-stats open-btn btn">MORE STATS</button>
       <div class="popup">
         <div class="main-popup">
           <div class="popup-content">
             <span class="close-btn btn">x</span>
             <div class="details-title">
-              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h3 class="s1-details s1-stats left">s1mple</h3>
               <h2 class="detailed-stats">ONLINE EVENTS</h2>
-              <h3 class="dev-details dev-stats">device</h3>
+              <h3 class="dev-details dev-stats right">device</h3>
             </div>
             <div class="details-list">
               <div class="details-list-container">
@@ -471,49 +510,37 @@
       <h2>VALVE MAJORS</h2>
       <div class="stats-div">
         <div class="s1-div each-div">
-          <h3 class="s1-stats">s1mple</h3>
+          <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number">1</span>
-              <span class="stats-text">MVP</span>
+              <span class="number loading s1-main-maps"></span>
+              <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number">1</span>
-              <span class="stats-text">WON</span>
+              <span class="number loading s1-main-rating"></span>
+              <span class="stats-text rating-text">RATING 1.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number">11</span>
-              <span class="stats-text">PLAYED</span>
+              <span class="number loading s1-main-impact"></span>
+              <span class="stats-text">IMPACT</span>
             </li>
-          </ul>
-          <ul class="comp-stat major-win">
-            11 Majors per win
-          </ul>
-          <ul class="comp-stat major-mvp">
-            11 Majors per MVP
           </ul>
         </div>
         <div class="dev-div each-div">
-          <h3 class="dev-stats">device</h3>
+          <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number">2</span>
-              <span class="stats-text">MVP</span>
+              <span class="number loading dev-main-maps"></span>
+              <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number">4</span>
-              <span class="stats-text">WON</span>
+              <span class="number loading dev-main-rating"></span>
+              <span class="stats-text rating-text">RATING 1.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number">16</span>
-              <span class="stats-text">PLAYED</span>
+              <span class="number loading dev-main-impact"></span>
+              <span class="stats-text">IMPACT</span>
             </li>
-          </ul>
-          <ul class="comp-stat major-win">
-            4 Majors per win
-          </ul>
-          <ul class="comp-stat major-mvp">
-            8 Majors per MVP
           </ul>
         </div>
       </div>
@@ -525,9 +552,9 @@
           <div class="popup-content">
             <span class="close-btn btn">x</span>
             <div class="details-title">
-              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h3 class="s1-details s1-stats left">s1mple</h3>
               <h2 class="detailed-stats">VALVE MAJORS</h2>
-              <h3 class="dev-details dev-stats">device</h3>
+              <h3 class="dev-details dev-stats right">device</h3>
             </div>
             <div class="details-list">
               <div class="details-list-container">
@@ -541,7 +568,7 @@
                 <h4 class="detail-list-title">rounds</h4>
                 <ul class="detail-list-stats">
                   <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"l></li>
+                  <li class="dev-detailed-stat loading" l></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -632,43 +659,37 @@
       <h2>BIG EVENTS</h2>
       <div class="stats-div">
         <div class="s1-div each-div">
-          <h3 class="s1-stats">s1mple</h3>
+          <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading" id="s1-rating-bigevents"></span>
-              <span class="stats-text">RATING 1.0</span>
+              <span class="number loading s1-main-maps"></span>
+              <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number">11</span>
-              <span class="stats-text">WON</span>
+              <span class="number loading s1-main-rating"></span>
+              <span class="stats-text rating-text">RATING 1.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number">56</span>
-              <span class="stats-text">PLAYED</span>
+              <span class="number loading s1-main-impact"></span>
+              <span class="stats-text">IMPACT</span>
             </li>
-          </ul>
-          <ul class="comp-stat major-win">
-            5.09 Big Events per win
           </ul>
         </div>
         <div class="dev-div each-div">
-          <h3 class="dev-stats">device</h3>
+          <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading" id="dev-rating-bigevents"></span>
-              <span class="stats-text">RATING 1.0</span>
+              <span class="number loading dev-main-maps"></span>
+              <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number">19</span>
-              <span class="stats-text">WON</span>
+              <span class="number loading dev-main-rating"></span>
+              <span class="stats-text rating-text">RATING 1.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number">73</span>
-              <span class="stats-text">PLAYED</span>
+              <span class="number loading dev-main-impact"></span>
+              <span class="stats-text">IMPACT</span>
             </li>
-          </ul>
-          <ul class="comp-stat major-win">
-            3.84 Big Events per win
           </ul>
         </div>
       </div>
@@ -680,9 +701,9 @@
           <div class="popup-content">
             <span class="close-btn btn">x</span>
             <div class="details-title">
-              <h3 class="s1-details s1-stats">s1mple</h3>
+              <h3 class="s1-details s1-stats left">s1mple</h3>
               <h2 class="detailed-stats">BIG EVENTS</h2>
-              <h3 class="dev-details dev-stats">device</h3>
+              <h3 class="dev-details dev-stats right">device</h3>
             </div>
             <div class="details-list">
               <div class="details-list-container">
@@ -783,7 +804,7 @@
     </div>
 
     <div class="container-hltv">
-      <span class="almost">(almost)</span> All stats are taken from HLTV.org in real time
+      All stats are taken from HLTV.org in real time
     </div>
     <script type="module" src="dist/bundle.js"></script>
   </body>

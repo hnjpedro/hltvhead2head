@@ -1,7 +1,34 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.playerIDs = exports.namesIDs = exports.flagLinks = exports.countryFlags = exports.allNames = void 0;
+var countryFlags = ["https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/MY.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/AR.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/BA.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/MN.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/HU.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/MN.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/EE.gif", "https://www.hltv.org/img/static/flags/30x20/CL.gif", "https://www.hltv.org/img/static/flags/30x20/BA.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/UY.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/KR.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/TH.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/SK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/RO.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/LV.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BE.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BY.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/ID.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/RO.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/IL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/IL.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/MX.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/CH.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/UY.gif", "https://www.hltv.org/img/static/flags/30x20/ZA.gif", "https://www.hltv.org/img/static/flags/30x20/AR.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/LT.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/IL.gif", "https://www.hltv.org/img/static/flags/30x20/GT.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/NL.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/MN.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/HU.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/LT.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/XK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/LV.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/NL.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/MN.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/HK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/XK.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/RO.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/MN.gif", "https://www.hltv.org/img/static/flags/30x20/TH.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/ME.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/LT.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/AR.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/EE.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/HU.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/MK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/TH.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/JO.gif", "https://www.hltv.org/img/static/flags/30x20/EE.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/AR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/SK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/EE.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/AR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/EE.gif", "https://www.hltv.org/img/static/flags/30x20/AR.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BY.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/MK.gif", "https://www.hltv.org/img/static/flags/30x20/TH.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/RO.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/LV.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/BY.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/LT.gif", "https://www.hltv.org/img/static/flags/30x20/XK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/ZA.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/LT.gif", "https://www.hltv.org/img/static/flags/30x20/SK.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BE.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/ZA.gif", "https://www.hltv.org/img/static/flags/30x20/TH.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/SK.gif", "https://www.hltv.org/img/static/flags/30x20/NZ.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/SK.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/BE.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/LV.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/CZ.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/ZA.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/PT.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/MK.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/MK.gif", "https://www.hltv.org/img/static/flags/30x20/XK.gif", "https://www.hltv.org/img/static/flags/30x20/TR.gif", "https://www.hltv.org/img/static/flags/30x20/NL.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/RS.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/UZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/BG.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/NO.gif", "https://www.hltv.org/img/static/flags/30x20/US.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/BR.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/RO.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/AU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/GB.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/HU.gif", "https://www.hltv.org/img/static/flags/30x20/KZ.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/RO.gif", "https://www.hltv.org/img/static/flags/30x20/ES.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/FI.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/CA.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/SE.gif", "https://www.hltv.org/img/static/flags/30x20/PL.gif", "https://www.hltv.org/img/static/flags/30x20/UA.gif", "https://www.hltv.org/img/static/flags/30x20/DE.gif", "https://www.hltv.org/img/static/flags/30x20/FR.gif", "https://www.hltv.org/img/static/flags/30x20/CN.gif", "https://www.hltv.org/img/static/flags/30x20/RU.gif", "https://www.hltv.org/img/static/flags/30x20/DK.gif"];
+exports.countryFlags = countryFlags;
+var countryNames = ["Ukraine", "France", "Russia", "Russia", "Australia", "Malaysia", "Russia", "Denmark", "Brazil", "Argentina", "Ukraine", "New Zealand", "Russia", "China", "China", "Bosnia and Herzegovina", "United Kingdom", "Denmark", "Russia", "Russia", "New Zealand", "Turkey", "Mongolia", "Australia", "Hungary", "Poland", "Finland", "Brazil", "Australia", "Brazil", "Czech Republic", "United States", "United States", "Mongolia", "Brazil", "Brazil", "Estonia", "Chile", "Bosnia and Herzegovina", "Russia", "Spain", "Uruguay", "Brazil", "Brazil", "New Zealand", "Poland", "Ukraine", "Korea", "Czech Republic", "Denmark", "Russia", "Thailand", "Australia", "Russia", "Brazil", "Australia", "Australia", "Canada", "Russia", "Denmark", "United States", "Slovakia", "United States", "United States", "Bulgaria", "Germany", "Czech Republic", "Romania", "Brazil", "Latvia", "United Kingdom", "United States", "Turkey", "Brazil", "Kazakhstan", "United States", "Brazil", "United States", "Belgium", "Russia", "Bulgaria", "Sweden", "Belarus", "Sweden", "Finland", "Indonesia", "France", "Russia", "Romania", "Norway", "United States", "China", "Ukraine", "Denmark", "Israel", "Poland", "Australia", "Bulgaria", "Poland", "Israel", "Sweden", "United States", "Denmark", "Brazil", "Finland", "Finland", "Canada", "Germany", "China", "Brazil", "Poland", "New Zealand", "Australia", "Mexico", "Brazil", "Poland", "Ukraine", "Russia", "Switzerland", "Denmark", "United States", "United States", "Australia", "Uruguay", "South Africa", "Argentina", "Germany", "Denmark", "France", "Brazil", "Poland", "Lithuania", "Russia", "United Kingdom", "Israel", "Guatemala", "Brazil", "Denmark", "Germany", "Netherlands", "Finland", "Mongolia", "Russia", "Australia", "Bulgaria", "Turkey", "United States", "Sweden", "Hungary", "United States", "Lithuania", "Denmark", "Australia", "Denmark", "Russia", "Bulgaria", "Brazil", "United States", "Kosovo", "Brazil", "Brazil", "Brazil", "United States", "Bulgaria", "Norway", "Latvia", "Brazil", "Denmark", "Australia", "Canada", "Australia", "Netherlands", "Denmark", "Mongolia", "Australia", "Germany", "Canada", "China", "Brazil", "Hong Kong", "United States", "United States", "Brazil", "Denmark", "Poland", "Ukraine", "France", "China", "United States", "Poland", "Russia", "Bulgaria", "Canada", "Finland", "Australia", "China", "France", "Russia", "Belgium", "Denmark", "Brazil", "Kosovo", "China", "Bulgaria", "Romania", "Poland", "Poland", "China", "Russia", "Australia", "Brazil", "Brazil", "United States", "United States", "Kazakhstan", "Australia", "Serbia", "Australia", "Spain", "France", "Denmark", "Sweden", "France", "Bulgaria", "Serbia", "Denmark", "Russia", "Sweden", "Brazil", "Canada", "United States", "Australia", "Sweden", "Ukraine", "Mongolia", "Thailand", "Finland", "Montenegro", "Portugal", "Lithuania", "France", "Sweden", "Canada", "Kazakhstan", "Poland", "Poland", "Brazil", "United States", "Sweden", "Denmark", "United States", "Argentina", "Kazakhstan", "Brazil", "China", "Finland", "China", "Denmark", "Sweden", "Sweden", "Norway", "Portugal", "Germany", "Portugal", "Denmark", "New Zealand", "Denmark", "Estonia", "Poland", "Brazil", "Ukraine", "Australia", "Australia", "Russia", "Portugal", "Serbia", "United States", "Australia", "Portugal", "Kazakhstan", "Finland", "China", "Russia", "Australia", "Denmark", "Russia", "Hungary", "Ukraine", "Finland", "Denmark", "Brazil", "North Macedonia", "Sweden", "Russia", "Canada", "Germany", "Germany", "Sweden", "Portugal", "Sweden", "Thailand", "Poland", "Poland", "Serbia", "Sweden", "Poland", "Spain", "Australia", "Sweden", "Jordan", "Estonia", "Poland", "Sweden", "Russia", "Denmark", "Denmark", "Brazil", "United States", "Australia", "Denmark", "Brazil", "Canada", "Finland", "Brazil", "Brazil", "Argentina", "Brazil", "United States", "Brazil", "Slovakia", "Brazil", "Estonia", "Czech Republic", "Denmark", "Turkey", "Finland", "Russia", "Sweden", "Russia", "Poland", "Russia", "Russia", "Sweden", "Brazil", "United States", "Russia", "Brazil", "Brazil", "Brazil", "Sweden", "Brazil", "United States", "Norway", "Kazakhstan", "United States", "Sweden", "Spain", "United States", "Russia", "Russia", "Portugal", "Russia", "Brazil", "Turkey", "Denmark", "Australia", "Poland", "Poland", "Denmark", "Sweden", "Brazil", "Brazil", "Kazakhstan", "Brazil", "Denmark", "Sweden", "Germany", "Denmark", "Argentina", "Denmark", "Russia", "France", "Brazil", "United States", "Brazil", "United States", "Estonia", "Argentina", "United States", "Russia", "Sweden", "Belarus", "Czech Republic", "Denmark", "France", "Sweden", "Poland", "Denmark", "North Macedonia", "Thailand", "United States", "France", "Poland", "United States", "Finland", "France", "Romania", "Ukraine", "New Zealand", "Russia", "Bulgaria", "Latvia", "Sweden", "Czech Republic", "Russia", "Norway", "Portugal", "Belarus", "Brazil", "Sweden", "Australia", "Russia", "Lithuania", "Kosovo", "Sweden", "Norway", "United States", "South Africa", "China", "Ukraine", "Russia", "Ukraine", "United States", "Sweden", "Germany", "Denmark", "Sweden", "United States", "Poland", "Brazil", "Finland", "United States", "Lithuania", "Slovakia", "Denmark", "Sweden", "Belgium", "Turkey", "South Africa", "Thailand", "United States", "Finland", "Brazil", "Ukraine", "Sweden", "Australia", "Sweden", "Russia", "Brazil", "Germany", "Denmark", "Denmark", "Bulgaria", "France", "France", "United Kingdom", "Brazil", "Brazil", "Slovakia", "New Zealand", "Brazil", "Poland", "Poland", "Ukraine", "Canada", "Denmark", "Denmark", "Czech Republic", "Poland", "Slovakia", "Denmark", "Poland", "Germany", "Denmark", "Bulgaria", "Poland", "United States", "Poland", "Poland", "Belgium", "Germany", "United States", "Bulgaria", "Brazil", "Australia", "Spain", "Russia", "Denmark", "Australia", "Russia", "Kazakhstan", "Poland", "Latvia", "Australia", "China", "Poland", "Russia", "Poland", "United States", "Russia", "Spain", "Poland", "Turkey", "Denmark", "Norway", "Denmark", "France", "United Kingdom", "Bulgaria", "Norway", "Norway", "France", "France", "Sweden", "Sweden", "Denmark", "Finland", "Russia", "Bulgaria", "Denmark", "United States", "Finland", "France", "Serbia", "United States", "Australia", "Finland", "Kazakhstan", "Australia", "Czech Republic", "Bulgaria", "South Africa", "Denmark", "Australia", "Poland", "France", "Poland", "Bulgaria", "Brazil", "Finland", "Poland", "Russia", "Denmark", "Ukraine", "Canada", "Finland", "Kazakhstan", "Denmark", "Bulgaria", "Portugal", "Denmark", "North Macedonia", "Brazil", "China", "Poland", "Denmark", "Sweden", "Brazil", "Poland", "North Macedonia", "Kosovo", "Turkey", "Netherlands", "Ukraine", "Russia", "Spain", "United Kingdom", "Serbia", "Serbia", "Sweden", "Denmark", "Bulgaria", "Sweden", "Russia", "Uzbekistan", "Denmark", "United States", "Bulgaria", "United States", "France", "Germany", "Ukraine", "Norway", "United States", "Kazakhstan", "Brazil", "Finland", "Kazakhstan", "Denmark", "Romania", "France", "United Kingdom", "Poland", "Australia", "Sweden", "Kazakhstan", "United Kingdom", "Poland", "Hungary", "Kazakhstan", "Russia", "Sweden", "Romania", "Spain", "Russia", "Denmark", "Finland", "Sweden", "Poland", "Germany", "Canada", "Denmark", "Poland", "Sweden", "Poland", "Ukraine", "Germany", "France", "China", "Russia", "Denmark"];
+var playerIDs = ["7998", "11893", "16920", "20113", "11140", "8950", "17306", "15165", "18835", "19869", "18227", "12591", "13776", "16207", "19645", "3741", "11271", "7592", "8789", "13281", "12877", "7938", "18638", "17384", "18072", "16847", "14087", "15631", "11139", "9219", "15821", "8738", "13249", "11141", "12553", "16816", "11816", "18865", "3972", "16555", "19164", "14736", "18141", "15698", "9102", "10981", "16885", "9172", "19069", "14419", "12733", "10664", "14505", "15662", "17861", "14294", "8745", "8520", "8918", "9895", "14619", "9960", "12713", "9136", "20097", "7266", "798", "14759", "18743", "13915", "18462", "16546", "8574", "10566", "8528", "15090", "8568", "10671", "19059", "12732", "12126", "9255", "13980", "13670", "8576", "7131", "9656", "14273", "9626", "8248", "15839", "15683", "19614", "9612", "18221", "5388", "18736", "13466", "16080", "16693", "9277", "15007", "10994", "5736", "11283", "1378", "10394", "14932", "8605", "8565", "15203", "8767", "8771", "10892", "11739", "17504", "18987", "14175", "12708", "9031", "19846", "8707", "9115", "12092", "8711", "14737", "5794", "8848", "13138", "8564", "16848", "13679", "20101", "13018", "11815", "11617", "19045", "9032", "15370", "11954", "695", "15072", "17011", "13054", "17145", "15835", "14494", "13666", "12317", "16647", "19206", "9078", "11162", "10330", "16948", "11343", "16817", "13578", "17147", "17585", "16314", "11337", "20333", "15369", "12840", "18053", "11154", "12018", "17385", "12271", "4679", "7996", "13602", "9521", "16323", "19899", "12113", "16872", "18717", "10774", "17353", "16599", "9483", "13300", "15940", "12731", "7167", "8601", "12937", "9574", "19673", "8412", "18838", "11916", "12715", "8552", "19926", "13982", "8138", "7398", "14394", "19725", "7028", "11219", "12945", "12699", "7356", "8604", "16612", "12872", "11163", "9216", "14614", "13230", "964", "12086", "9618", "19732", "8371", "13497", "11258", "15501", "147", "13464", "12379", "14148", "17508", "9811", "2544", "17372", "10470", "18738", "29", "14171", "10870", "10705", "13396", "11777", "11205", "12030", "8374", "16726", "7253", "13239", "15428", "14684", "2023", "13182", "19021", "13843", "8735", "17039", "17793", "18676", "10168", "4076", "15419", "7964", "7528", "9278", "14602", "8998", "8800", "630", "5287", "20086", "20090", "12269", "19044", "12521", "19590", "11485", "19190", "19236", "16102", "3732", "15255", "20244", "629", "11942", "9271", "11574", "16946", "17402", "10610", "8125", "16495", "19733", "9818", "8891", "11922", "19677", "9279", "12027", "17510", "12782", "14929", "14218", "9416", "9766", "9289", "17113", "11276", "4576", "7700", "16820", "3997", "9680", "16029", "10449", "16859", "2553", "16487", "13157", "8095", "20380", "6593", "19128", "2007", "9294", "14445", "12102", "15565", "11748", "7383", "2161", "14390", "13186", "555", "6904", "10557", "16415", "16435", "11995", "9353", "7248", "19232", "9257", "13155", "8570", "7403", "11654", "20133", "9482", "18295", "11498", "10840", "16769", "10570", "15569", "17553", "12089", "8183", "19823", "16318", "1146", "9254", "9056", "18317", "8726", "2241", "12004", "2529", "8575", "4954", "9636", "3669", "19114", "11996", "1045", "17132", "10560", "13240", "10818", "8611", "9261", "11701", "8394", "12094", "16723", "10590", "9616", "9220", "13589", "11329", "14495", "8994", "9221", "18761", "8124", "9911", "13976", "12810", "10264", "7168", "3849", "8323", "9896", "20066", "10666", "8503", "19738", "15204", "8797", "15563", "1225", "17116", "8786", "9686", "16947", "15385", "11250", "15096", "8488", "16921", "9298", "15885", "11926", "10842", "10784", "12593", "17305", "19015", "18120", "17936", "14311", "17930", "10611", "10192", "2131", "19882", "12244", "17918", "3055", "12781", "17956", "10463", "8523", "8324", "11213", "5479", "19705", "9410", "2757", "15349", "17937", "15117", "19187", "16811", "12129", "14799", "9819", "18140", "18240", "9256", "10588", "7443", "16870", "10827", "19284", "2898", "9903", "10697", "7322", "4959", "9019", "20219", "12822", "14388", "12590", "11747", "8539", "8242", "18456", "17929", "2469", "7965", "16432", "2826", "8413", "7412", "5386", "7499", "13749", "7834", "14221", "11039", "8327", "4829", "12304", "7511", "12088", "16412", "16645", "14957", "13093", "11840", "13170", "9103", "3459", "17792", "11287", "14205", "14290", "12490", "9916", "14161", "11891", "13179", "7716", "4373", "973", "150", "8871", "10397", "8875", "19739", "8184", "16410", "16462", "13148", "284", "14176", "15639", "19310", "8151", "15180", "7594", "18697", "7156", "7687", "9816", "7169", "4216", "14203", "8082", "18558", "11940", "16529", "11199", "14380", "11630", "922", "12588", "8321", "13042", "11286", "11217", "8566", "971", "15697", "15071", "10443", "18156", "8507", "9325", "14359", "10961", "10762", "2260", "19038", "16186", "18875", "16778", "8231", "13718", "16486", "7382", "8549", "18788", "15778", "9857", "2730", "19617", "12016", "356", "18219", "2476", "5351", "885", "5061", "8917", "39", "3347", "11716", "10938", "7805", "2799", "13250", "10569", "5796", "16563", "8837", "19707", "19967", "9217", "7537", "18752", "16731", "8453", "15120", "20128", "11278", "17390", "3329", "334", "8983", "9798", "14202", "12161", "9081", "7148", "1206", "19509", "7796", "429", "7821", "11110", "165", "8212", "8521", "10096", "161", "12572", "15726", "9348", "7218", "8047", "8600", "13779", "7415"];
+exports.playerIDs = playerIDs;
+var allNames = ["s1mple", "ZywOo", "sh1ro", "deko", "INS", "Kaze", "degster", "blameF", "saffee", "try", "SENSEi", "sterling", "Jame", "DANK1NG", "JamYoung", "NiKo", "smooya", "device", "mir", "El1an", "chelleos", "XANTARES", "sk0R", "Vexite", "torzsi", "mhL", "Jamppi", "KSCERATO", "aliStair", "felps", "NEOFRAG", "EliGE", "oSee", "erkaSt", "yuurih", "vsm", "ropz", "dav1deuS", "huNter-", "Ax1Le", "SunPayus", "dgt", "biguzera", "dumau", "Sico", "mantuu", "Woro2k", "XigN", "forsyy", "roeJ", "xsepower", "Olivia", "ekul", "zorte", "JOTA", "hazr", "Rickeh", "NAF", "electroNic", "mertz", "Infinite", "frozen", "floppy", "Brehze", "h4rn", "syrsoN", "oskar", "iM", "nython", "YEKINDAR", "mezii", "cynic", "woxic", "chelo", "HObbit", "PwnAlone", "boltz", "Ethan", "ritchiEE", "FL1T", "poizon", "draken", "lollipop21k", "nawwk", "ZOREE", "BnTeT", "hAdji", "iDISBALANCE", "XELLOW", "jkaem", "Xeppaa", "SLOWLY", "s4ltovsk1yy", "Bubzkji", "Spinx", "rallen", "pz", "dennyslaw", "dycha", "flameZ", "FREDDyFROG", "Cooper", "stavn", "kNgV-", "ottoNd", "zehN", "Twistzz", "faveN", "somebody", "HEN1", "reiko", "ofnu", "USTILO", "MarKE", "shz", "KEi", "b1t", "Aunkere", "rigoN", "valde", "CLASIA", "ptr", "dexter", "max", "Sonic", "meyern", "tabseN", "Ryxxo", "Maka", "fer", "hades", "nukkye", "fame", "Thomas", "anarkez", "malbsMd", "latto", "Magisk", "slaxz-", "FASHR", "allu", "nin9", "shalfey", "zeph", "Rainwaker", "imoRR", "junior", "Brollan", "fleav", "Bwills", "jL", "k0nfig", "Hatz", "acoR", "TRAVIS", "SHiPZ", "hardzao", "Grim", "juanflatroo", "b4rtiN", "pancc", "RCF", "jeorgesnorts", "REDSTAR", "hallzerk", "broky", "exit", "TeSeS", "DannyG", "moose", "jks", "CRUC1AL", "nicoodoz", "dobu", "Valiance", "Krimbo", "Jonji", "flying", "Lucaozy", "Freeman", "cxzi", "Swisher", "DeStiNy", "Farlig", "Sobol", "sdy", "kennyS", "zhokiNg", "WolfY", "snatchie", "Patsi", "dream3r", "HexT", "sergej", "BL1TZ", "Attacker", "afro", "Forester", "Davidp", "dupreeh", "Tuurtle", "gxx-", "Summer", "CeRq", "Blytz", "STOMP", "MICHU", "aumaN", "n0rb3r7", "apocdud", "trk", "coldzera", "oBo", "motm", "mou", "HUGHMUNGUS", "nexa", "versa", "alex", "Lucky", "fr0slev", "b0denmaster", "SIXER", "mar", "Impulse", "sjuush", "glowiing", "PlesseN", "remix", "FaNg", "mitch", "Roflko", "f0rest", "rAge", "kabal", "Kntz", "hoody", "Maden", "stadodo", "EspiranTo", "bodyy", "phzy", "steel", "Qikert", "Goofy", "jedqr", "FalleN", "xCeeD", "chawzyyy", "Lucky", "autimatic", "deco", "smiley", "skullz", "bottle", "Aerial", "Viva", "cadiaN", "KRIMZ", "REZ", "Marcelious", "JUST", "stfN", "MUTiRiS", "TENZKI", "ADDICT", "Zyphon", "Jyo", "F1KU", "arT", "byr9", "malta", "Liki", "KENSI", "NOPEEJ", "DiMKE", "Swahn", "SaVage", "fox", "buster", "sLowi", "xiaosaGe", "Polt", "bedonka", "refrezh", "Dimaoneshot", "kory", "DemQQ", "uli", "Nodios", "ALLE", "kyxsan", "Relaxa", "Krad", "J0LZ", "kressy", "JDC", "Plopski", "obj", "hampus", "qqGOD", "szejn", "Markoś", "dEE", "robiin", "siuhy", "loWel", "Noobster", "HEAP", "ISSAA", "shokz", "Snax", "eraa", "Jerry", "aizy", "J3nsyy", "PKL", "SLIGHT", "ap0c", "NaToSaphiX", "kai", "djay", "spargo", "raafa", "zqkS", "Noktse", "WOOD7", "cam", "BIT", "STYKO", "land1n", "supra", "capseN", "TMB", "paz", "xseveN", "JIaYm", "freddieb", "speed4k", "GruBy", "WorldEdit", "almazer", "Svedjehed", "NEKIZ", "jitter", "NickelBack", "tatazin", "realz1n", "dzt", "Sapec", "pesadelo", "vanity", "rain", "dukefissura", "bew", "dennis", "mopoz", "koosta", "magixx", "facecrack", "rmn", "clax", "Maluk3", "Calyx", "Xyp9x", "BURNRUOk", "innocent", "Kylar", "Daffu", "Maikelele", "Leomonster", "yel", "Lack1", "iDk", "es3tag", "Lekr0", "mirbit", "Kjaerbye", "1962", "Cabbi", "fenvicious", "AMANEK", "SHOOWTiME", "Spongey", "leo_drk", "droid", "HS", "reversive", "viz", "DavCost", "kreaz", "boX", "SHOCK", "niko", "NBK-", "JW", "mouz", "b0RUP", "aidKiT", "MAIROLLS", "fl0m", "Djoko", "Vegi", "Stewie2K", "SADDYX", "shox", "ragga", "jR", "Gratisfaction", "Perfecto", "KalubeR", "Flarich", "grux", "ZEDKO", "nafany", "truth", "pr", "mds", "KHTEX", "RuStY", "J1rah", "FinigaN", "Bymas", "sinnopsyy", "bq", "H4RR3", "wiz", "Fadey", "DeStRoYeR", "bondik", "Norwi", "Sergiz", "nosraC", "flusha", "k1to", "jabbi", "Baaten", "tarik", "morelz", "delboNi", "suNny", "chop", "kalinka", "GuardiaN", "maNkz", "isak", "Keoz", "xfl0ud", "MisteM", "stk", "brett", "doto", "f4stzin", "Smash", "disco doplan", "Liazz", "twist", "ProbLeM", "prt", "prosus", "raalz", "notaN", "blocker", "apEX", "kioShiMa", "Surreal", "xns", "VINI", "The eLiVe", "soju_j", "jnt", "leman", "reatz", "fostar", "Walco", "cajunb", "larsen", "manguss", "MINISE", "Zero", "gla1ve", "byali", "Spiidi", "Queenix", "v1c7oR", "kaper", "JazzPimp", "Furlan", "mynio", "Stev0se", "denis", "ryann", "rafftu", "drg", "Mayker", "DeathZz", "Boombl4", "kwezz", "rbz", "kinqie", "ice", "darko", "R0b3n", "SkulL", "expro", "mono", "RAiLWAY", "phr", "RZU", "chopper", "EasTor", "SZPERO", "MAJ3R", "Lukki", "cromen", "gade", "Ex3rcice", "ALEX", "Duplicate", "Grus", "Radifaction", "JACKZ", "misutaaa", "dezon", "LNZ", "AcilioN", "Twixie", "flamie", "oxygeN", "MSL", "nitr0", "Aleksib", "RpK", "LETN1", "Shakezullah", "AZR", "jemi", "neaLaN", "Llamas", "beastik", "Patrick", "JT", "Snappi", "BRACE", "oskarish", "LOGAN", "ponczek", "SPELLAN", "LUCAS1", "KHRN", "Sidney", "interz", "Basso", "7oX1C", "stanislaw", "arvid", "w1nt3r", "Kristou", "Rock1nG", "RIZZZ", "PR1mE", "stYleEeZ", "RICIOLI", "B1NGO", "matty", "birdfromsky", "ztr", "steel", "EXUS", "dan1", "SENER1", "ngiN", "chrisJ", "amster", "svyat", "arki", "Adam9130", "emi", "aVN", "olofmeister", "PERCY", "niki1", "GeT_RiGhT", "seized", "SANJI", "kiR", "RUSH", "bubble", "ben1337", "devoduvek", "tiziaN", "Psycho", "akez", "grape", "sorrow", "TACO", "xartE", "kade0", "IceBerg", "SEMINTE", "JiNKZ", "dobbo", "TOAO", "ADK", "quix", "AdreN", "MiGHTYMAX", "lunAtic", "coolio", "KrizzeN", "S0tF1k", "friberg", "BTN", "dav1g", "wayLander", "karrigan", "sAw", "Golden", "NEO", "ScrunK", "daps", "HooXi", "TaZ", "djL", "nawrot", "crush", "kRYSTAL", "Lambert", "advent", "PASHANOJ", "HUNDEN"];
+exports.allNames = allNames;
+var flagLinks = countryFlags.map(function (flag) {
+  return "<img src='".concat(flag, "' />");
+});
+exports.flagLinks = flagLinks;
+var namesIDs = [];
+exports.namesIDs = namesIDs;
+
+for (var i = 0; i < allNames.length; ++i) {
+  namesIDs.push("".concat(playerIDs[i], " ").concat(allNames[i]));
+}
+
+},{}],2:[function(require,module,exports){
+"use strict";
+
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+var _allplayers = require("./allplayers");
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 
@@ -20,91 +47,225 @@ var s1Rating = document.querySelectorAll(".s1-main-rating");
 var s1Impact = document.querySelectorAll(".s1-main-impact");
 var s1Maps = document.querySelectorAll(".s1-main-maps");
 var s1Detail = document.querySelectorAll(".s1-detailed-stat");
-var s1RatingBig = document.getElementById("s1-rating-bigevents");
 var devRating = document.querySelectorAll(".dev-main-rating");
 var devImpact = document.querySelectorAll(".dev-main-impact");
 var devMaps = document.querySelectorAll(".dev-main-maps");
 var devDetail = document.querySelectorAll(".dev-detailed-stat");
-var devRatingBig = document.getElementById("dev-rating-bigevents");
 var loading = document.querySelectorAll(".loading");
-var s1Endpoint = "https://hltvproxy.glitch.me/players/7998/";
-var devEndpoint = "https://hltvproxy.glitch.me/players/7592/";
-var s1All = "".concat(s1Endpoint, "_");
-var devAll = "".concat(devEndpoint, "_");
-var s1Majors = "".concat(s1Endpoint, "Majors");
-var devMajors = "".concat(devEndpoint, "Majors");
-var s1BigEvents = "".concat(s1Endpoint, "BigEvents");
-var devBigEvents = "".concat(devEndpoint, "BigEvents");
-var s1Online = "".concat(s1Endpoint, "Online");
-var s1LAN = "".concat(s1Endpoint, "Lan");
-var devOnline = "".concat(devEndpoint, "Online");
-var devLAN = "".concat(devEndpoint, "Lan");
-var s1AllReq = axios.get(s1All);
-var devAllReq = axios.get(devAll);
-var s1MajorsReq = axios.get(s1Majors);
-var devMajorsReq = axios.get(devMajors);
-var s1BigEventsReq = axios.get(s1BigEvents);
-var devBigEventsReq = axios.get(devBigEvents);
-var s1OnlineReq = axios.get(s1Online);
-var s1LANReq = axios.get(s1LAN);
-var devOnlineReq = axios.get(devOnline);
-var devLANReq = axios.get(devLAN); // ADD LOADING ICONS
+var endpoint = "http://52.67.71.89:5501/players/";
+var input1 = document.getElementById("input-1");
+var input2 = document.getElementById("input-2");
+var input = document.querySelectorAll("input");
+var playerNames = document.querySelectorAll(".player-name");
+var playerPics = document.querySelectorAll(".player-pic");
+var teamLogos = document.querySelectorAll(".team-logo");
+var h3Left = document.querySelectorAll("h3.left");
+var h3Right = document.querySelectorAll("h3.right"); // ADD LOADING ICONS
 
 var addLoad = function addLoad() {
-  for (var i = 0; i < loading.length; ++i) {
-    loading[i].innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
+  loading.forEach(function (item) {
+    item.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
+  });
+}; // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
+
+
+var autocomplete = function autocomplete(inp, arr) {
+  var currentFocus;
+  inp.addEventListener("input", function (e) {
+    var a,
+        b,
+        i,
+        val = this.value; // CLOSE ANY OPEN SUGGESTIONS
+
+    closeAllLists();
+
+    if (!val) {
+      return false;
+    }
+
+    currentFocus = -1; // CREATE DIV FOR ALL THE SUGGESTIONS
+
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "-autocomplete-list");
+    a.setAttribute("class", "autocomplete-items"); // APPEND DIV AS CONTAINER'S CHILD
+
+    this.parentNode.appendChild(a); // LOOP SETTINGS
+
+    for (i = 0; i < arr.length; i++) {
+      // CHECK IF ANY ITEM CONTAINS SEARCH QUERY
+      if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+        // CREATE DIV FOR ANY MATCHED ITEM
+        b = document.createElement("DIV"); // ADD FLAG TO THESE ITEMS
+
+        b.setAttribute('class', 'each-item');
+        b.setAttribute("style", "--bg-image: url('".concat(_allplayers.countryFlags[i], "')")); // MAKE MATCHING LETTERS BOLD
+
+        b.innerHTML = "<strong style=\"\n          margin-left: 5px;\">" + arr[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += arr[i].substr(val.length); // HIDDEN INPUT THAT WILL HOLD THE VALUE
+
+        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>"; // SEND VALUE TO ACTUAL INPUT WHEN ITEM IS CLICKED AND CLOSE SUGGESTIONS
+
+        b.addEventListener("click", function (e) {
+          inp.value = this.getElementsByTagName("input")[0].value;
+          closeAllLists();
+        });
+        a.appendChild(b);
+      }
+    }
+  }); // FUNCTIONS WHEN KEY IS PRESSED
+
+  inp.addEventListener("keydown", function (e) {
+    var x = document.getElementById(this.id + "-autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+
+    if (e.keyCode == 40) {
+      /*If the arrow DOWN key is pressed,
+      increase the currentFocus variable:*/
+      currentFocus++;
+      /*and make the current item more visible:*/
+
+      addActive(x);
+    } else if (e.keyCode == 38) {
+      //up
+
+      /*If the arrow UP key is pressed,
+      decrease the currentFocus variable:*/
+      currentFocus--;
+      /*and and make the current item more visible:*/
+
+      addActive(x);
+    } else if (e.keyCode == 13) {
+      /*If the ENTER key is pressed, prevent the form from being submitted,*/
+      e.preventDefault();
+
+      if (currentFocus > -1) {
+        /*and simulate a click on the "active" item:*/
+        if (x) x[currentFocus].click();
+      }
+    }
+  });
+
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = x.length - 1;
+    /*add class "autocomplete-active":*/
+
+    x[currentFocus].classList.add("autocomplete-active");
   }
+
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+
+
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
 };
 
-addLoad(); // GET ALL PARSEABLE STATS
+var playerList = [];
 
-var getAll = /*#__PURE__*/function () {
+for (var i = 0; i < _allplayers.flagLinks.length; ++i) {
+  var span = document.createElement('span');
+  span.innerHTML = "".concat(_allplayers.flagLinks[i], " ").concat(_allplayers.allNames[i]);
+  playerList.push(span);
+}
+
+input.forEach(function (item) {
+  autocomplete(item, _allplayers.allNames);
+}); // GET DEFAULT INFO AND IDs FROM INPUT
+
+var searchPlayers = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var allEndpoints;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            addLoad();
+            allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents")];
+
             try {
-              axios.all([s1AllReq, s1LANReq, s1OnlineReq, s1MajorsReq, s1BigEventsReq, devAllReq, devLANReq, devOnlineReq, devMajorsReq, devBigEventsReq]).then(axios.spread(function () {
+              axios.all(allEndpoints.map(function (eachEnd) {
+                return axios.get(eachEnd);
+              })).then(axios.spread(function () {
                 for (var _len = arguments.length, responses = new Array(_len), _key = 0; _key < _len; _key++) {
                   responses[_key] = arguments[_key];
                 }
 
                 // ADD ALL PARSEABLE FACE STATS
-                s1RatingBig.innerHTML = responses[4].data.rating;
-                devRatingBig.innerHTML = responses[9].data.rating;
 
-                for (var i = 0; i < s1Rating.length; ++i) {
-                  s1Rating[i].innerHTML = responses[i].data.rating;
-                  s1Impact[i].innerHTML = responses[i].data.impact;
-                  s1Maps[i].innerHTML = responses[i].data.mapsPlayed;
-                  devRating[i].innerHTML = responses[i + 5].data.rating;
-                  devImpact[i].innerHTML = responses[i + 5].data.impact;
-                  devMaps[i].innerHTML = responses[i + 5].data.mapsPlayed;
+                /* s1RatingBig.innerHTML = responses[4].data[0].rating;
+                devRatingBig.innerHTML = responses[9].data[0].rating; */
+                for (var _i = 0; _i < playerNames.length; ++_i) {
+                  playerNames[_i].innerHTML = responses[_i * 5].data[1].nickname;
+
+                  playerPics[_i].setAttribute("src", responses[_i * 5].data[1].image);
+
+                  teamLogos[_i].setAttribute("src", responses[_i * 5].data[1].teamLogo);
                 }
 
-                for (var _i = 0; _i < devDetail.length; ++_i) {
-                  var indice = Math.floor(_i / 11);
-                  var indice2 = _i % 11; // ALL S1MPLE DETAILED STATS
+                for (var _i2 = 0; _i2 < h3Left.length; ++_i2) {
+                  h3Left[_i2].innerHTML = responses[0].data[1].nickname;
+                  h3Right[_i2].innerHTML = responses[5].data[1].nickname;
+                }
 
-                  s1Detail[_i].innerHTML = Object.values(responses[indice].data)[indice2]; // ALL DEVICE DETAILED STATS
+                for (var _i3 = 0; _i3 < s1Rating.length; ++_i3) {
+                  s1Rating[_i3].innerHTML = responses[_i3].data[0].rating;
+                  s1Impact[_i3].innerHTML = responses[_i3].data[0].impact;
+                  s1Maps[_i3].innerHTML = responses[_i3].data[0].mapsPlayed;
+                  devRating[_i3].innerHTML = responses[_i3 + 5].data[0].rating;
+                  devImpact[_i3].innerHTML = responses[_i3 + 5].data[0].impact;
+                  devMaps[_i3].innerHTML = responses[_i3 + 5].data[0].mapsPlayed;
+                }
 
-                  devDetail[_i].innerHTML = Object.values(responses[indice + 5].data)[indice2];
+                for (var _i4 = 0; _i4 < devDetail.length; ++_i4) {
+                  var indice = Math.floor(_i4 / 11);
+                  var indice2 = _i4 % 11; // ALL S1MPLE DETAILED STATS
+
+                  s1Detail[_i4].innerHTML = Object.values(responses[indice].data[0])[indice2]; // ALL DEVICE DETAILED STATS
+
+                  devDetail[_i4].innerHTML = Object.values(responses[indice + 5].data[0])[indice2];
                 } // CHANGE COLOR ON GREATER STAT
 
 
                 for (var k = 0; k < s1Detail.length; ++k) {
-                  if (k != 3 && k != 14 && k != 25 && k != 36 && k != 47) {
+                  if (k % 11 != 3) {
                     if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-                      s1Detail[k].style.color = 'lightgreen';
+                      s1Detail[k].style.color = "lightgreen";
+                      devDetail[k].style.color = "white";
                     } else {
-                      devDetail[k].style.color = 'lightgreen';
+                      devDetail[k].style.color = "lightgreen";
+                      s1Detail[k].style.color = "white";
                     }
                   } else {
                     if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-                      devDetail[k].style.color = 'lightgreen';
+                      devDetail[k].style.color = "lightgreen";
+                      s1Detail[k].style.color = "white";
                     } else {
-                      s1Detail[k].style.color = 'lightgreen';
+                      s1Detail[k].style.color = "lightgreen";
+                      devDetail[k].style.color = "white";
                     }
                   }
                 } // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
@@ -124,12 +285,16 @@ var getAll = /*#__PURE__*/function () {
                     devDetail[6 + j].appendChild(iconSpan2.firstChild);
                   }
                 }
+
+                input.forEach(function (input) {
+                  input.value = "";
+                });
               }));
             } catch (err) {
               console.log(err);
             }
 
-          case 1:
+          case 3:
           case "end":
             return _context.stop();
         }
@@ -137,21 +302,36 @@ var getAll = /*#__PURE__*/function () {
     }, _callee);
   }));
 
-  return function getAll() {
+  return function searchPlayers() {
     return _ref.apply(this, arguments);
   };
 }();
 
-getAll(); // TOOLTIP ICONS
+searchPlayers(); // ADD FUNCTION TO 'ENTER' KEY ON INPUTS AND TO 'SEARCH' BUTTON
+
+input.forEach(function (item) {
+  return item.onkeydown = function (event) {
+    if (event.key === "Enter") {
+      if (input1.value && input2.value) {
+        searchPlayers();
+      }
+    }
+  };
+});
+document.getElementById("search-players").addEventListener("click", function () {
+  if (input1.value && input2.value) {
+    searchPlayers();
+  }
+}); // TOOLTIP ICONS
 
 var tooltips = document.querySelectorAll(".tooltip");
 
-for (var i = 0; i < tooltips.length; ++i) {
+for (var _i5 = 0; _i5 < tooltips.length; ++_i5) {
   var infoButton = document.createElement("span");
   infoButton.innerHTML = "<span class='material-icons-outlined info-icon'>info</span>";
 
   while (infoButton.firstChild) {
-    tooltips[i].appendChild(infoButton.firstChild);
+    tooltips[_i5].appendChild(infoButton.firstChild);
   }
 } // TOOLTIPS ON MOBILE
 
@@ -160,17 +340,17 @@ if (window.innerWidth < 1000) {
   (function () {
     var tooltips = document.querySelectorAll("h4[title]");
 
-    var _loop = function _loop(_i2) {
+    var _loop = function _loop(_i6) {
       var auxTool = function auxTool() {
         var toolTipText = document.createElement("span");
-        toolTipText.innerHTML = '<span class="title">' + tooltips[_i2].getAttribute("title") + "</span>";
+        toolTipText.innerHTML = '<span class="title">' + tooltips[_i6].getAttribute("title") + "</span>";
 
         while (toolTipText.firstChild) {
-          tooltips[_i2].appendChild(toolTipText.firstChild);
+          tooltips[_i6].appendChild(toolTipText.firstChild);
         }
       };
 
-      tooltips[_i2].addEventListener("click", function (event) {
+      tooltips[_i6].addEventListener("click", function (event) {
         var activeTool = document.querySelectorAll(".title");
 
         if (!activeTool.length) {
@@ -186,57 +366,57 @@ if (window.innerWidth < 1000) {
       });
     };
 
-    for (var _i2 = 0; _i2 < tooltips.length; ++_i2) {
-      _loop(_i2);
+    for (var _i6 = 0; _i6 < tooltips.length; ++_i6) {
+      _loop(_i6);
     }
   })();
 } // OPEN POPUPS
 
 
-var _loop2 = function _loop2(_i3) {
-  statsButtons[_i3].addEventListener("click", function () {
-    allPopups[_i3].style.display = "flex";
+var _loop2 = function _loop2(_i7) {
+  statsButtons[_i7].addEventListener("click", function () {
+    allPopups[_i7].style.display = "flex";
 
     if (window.innerWidth < 1600) {
-      allPopups[_i3].style.top = "".concat(window.pageYOffset + 10, "px");
+      allPopups[_i7].style.top = "".concat(window.pageYOffset + 10, "px");
     } else {
-      allPopups[_i3].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
+      allPopups[_i7].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
     }
 
-    mainPopup[_i3].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
+    mainPopup[_i7].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = "".concat(window.pageYOffset, "px");
     body.style.overflow = "hidden";
     overlay.style.display = "block";
   });
 };
 
-for (var _i3 = 0; _i3 < statsButtons.length; ++_i3) {
-  _loop2(_i3);
+for (var _i7 = 0; _i7 < statsButtons.length; ++_i7) {
+  _loop2(_i7);
 } // CLOSE POPUPS
 
 
 var closePopUpAux = function closePopUpAux() {
-  var _loop3 = function _loop3(_i4) {
+  var _loop3 = function _loop3(_i8) {
     if (window.innerWidth < 1000 || window.innerWidth > 1600) {
-      mainPopup[_i4].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
+      mainPopup[_i8].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
     } else {
-      mainPopup[_i4].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
+      mainPopup[_i8].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
     }
 
     setTimeout(function () {
-      allPopups[_i4].style.display = "none";
+      allPopups[_i8].style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
     }, 500);
   };
 
-  for (var _i4 = 0; _i4 < allPopups.length; ++_i4) {
-    _loop3(_i4);
+  for (var _i8 = 0; _i8 < allPopups.length; ++_i8) {
+    _loop3(_i8);
   }
 };
 
-for (var _i5 = 0; _i5 < allPopups.length; ++_i5) {
-  allPopups[_i5].addEventListener("click", function (event) {
+for (var _i9 = 0; _i9 < allPopups.length; ++_i9) {
+  allPopups[_i9].addEventListener("click", function (event) {
     var classNameOfClickedElement = event.target.classList[0];
     var classNames = ["close-btn", "popup", "popup-overlay"];
     var shouldClosePopUp = classNames.some(function (className) {
@@ -256,9 +436,9 @@ window.onkeydown = function (event) {
   }
 };
 
-},{"axios":2}],2:[function(require,module,exports){
+},{"./allplayers":1,"axios":3}],3:[function(require,module,exports){
 module.exports = require('./lib/axios');
-},{"./lib/axios":4}],3:[function(require,module,exports){
+},{"./lib/axios":5}],4:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -482,7 +662,7 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-},{"../cancel/CanceledError":6,"../core/AxiosError":9,"../core/buildFullPath":11,"../defaults/transitional":17,"../helpers/parseProtocol":29,"./../core/settle":14,"./../helpers/buildURL":20,"./../helpers/cookies":22,"./../helpers/isURLSameOrigin":25,"./../helpers/parseHeaders":28,"./../utils":33}],4:[function(require,module,exports){
+},{"../cancel/CanceledError":7,"../core/AxiosError":10,"../core/buildFullPath":12,"../defaults/transitional":18,"../helpers/parseProtocol":30,"./../core/settle":15,"./../helpers/buildURL":21,"./../helpers/cookies":23,"./../helpers/isURLSameOrigin":26,"./../helpers/parseHeaders":29,"./../utils":34}],5:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -548,7 +728,7 @@ module.exports = axios;
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
 
-},{"../lib/core/AxiosError":9,"./cancel/CancelToken":5,"./cancel/CanceledError":6,"./cancel/isCancel":7,"./core/Axios":8,"./core/mergeConfig":13,"./defaults":16,"./env/data":18,"./helpers/bind":19,"./helpers/isAxiosError":24,"./helpers/spread":30,"./helpers/toFormData":31,"./utils":33}],5:[function(require,module,exports){
+},{"../lib/core/AxiosError":10,"./cancel/CancelToken":6,"./cancel/CanceledError":7,"./cancel/isCancel":8,"./core/Axios":9,"./core/mergeConfig":14,"./defaults":17,"./env/data":19,"./helpers/bind":20,"./helpers/isAxiosError":25,"./helpers/spread":31,"./helpers/toFormData":32,"./utils":34}],6:[function(require,module,exports){
 'use strict';
 
 var CanceledError = require('./CanceledError');
@@ -669,7 +849,7 @@ CancelToken.source = function source() {
 
 module.exports = CancelToken;
 
-},{"./CanceledError":6}],6:[function(require,module,exports){
+},{"./CanceledError":7}],7:[function(require,module,exports){
 'use strict';
 
 var AxiosError = require('../core/AxiosError');
@@ -693,14 +873,14 @@ utils.inherits(CanceledError, AxiosError, {
 
 module.exports = CanceledError;
 
-},{"../core/AxiosError":9,"../utils":33}],7:[function(require,module,exports){
+},{"../core/AxiosError":10,"../utils":34}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = function isCancel(value) {
   return !!(value && value.__CANCEL__);
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -862,7 +1042,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = Axios;
 
-},{"../helpers/buildURL":20,"../helpers/validator":32,"./../utils":33,"./InterceptorManager":10,"./buildFullPath":11,"./dispatchRequest":12,"./mergeConfig":13}],9:[function(require,module,exports){
+},{"../helpers/buildURL":21,"../helpers/validator":33,"./../utils":34,"./InterceptorManager":11,"./buildFullPath":12,"./dispatchRequest":13,"./mergeConfig":14}],10:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -950,7 +1130,7 @@ AxiosError.from = function(error, code, config, request, response, customProps) 
 
 module.exports = AxiosError;
 
-},{"../utils":33}],10:[function(require,module,exports){
+},{"../utils":34}],11:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1006,7 +1186,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 module.exports = InterceptorManager;
 
-},{"./../utils":33}],11:[function(require,module,exports){
+},{"./../utils":34}],12:[function(require,module,exports){
 'use strict';
 
 var isAbsoluteURL = require('../helpers/isAbsoluteURL');
@@ -1028,7 +1208,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
   return requestedURL;
 };
 
-},{"../helpers/combineURLs":21,"../helpers/isAbsoluteURL":23}],12:[function(require,module,exports){
+},{"../helpers/combineURLs":22,"../helpers/isAbsoluteURL":24}],13:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1117,7 +1297,7 @@ module.exports = function dispatchRequest(config) {
   });
 };
 
-},{"../cancel/CanceledError":6,"../cancel/isCancel":7,"../defaults":16,"./../utils":33,"./transformData":15}],13:[function(require,module,exports){
+},{"../cancel/CanceledError":7,"../cancel/isCancel":8,"../defaults":17,"./../utils":34,"./transformData":16}],14:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -1219,7 +1399,7 @@ module.exports = function mergeConfig(config1, config2) {
   return config;
 };
 
-},{"../utils":33}],14:[function(require,module,exports){
+},{"../utils":34}],15:[function(require,module,exports){
 'use strict';
 
 var AxiosError = require('./AxiosError');
@@ -1246,7 +1426,7 @@ module.exports = function settle(resolve, reject, response) {
   }
 };
 
-},{"./AxiosError":9}],15:[function(require,module,exports){
+},{"./AxiosError":10}],16:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1270,7 +1450,7 @@ module.exports = function transformData(data, headers, fns) {
   return data;
 };
 
-},{"../defaults":16,"./../utils":33}],16:[function(require,module,exports){
+},{"../defaults":17,"./../utils":34}],17:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -1420,7 +1600,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this)}).call(this,require('_process'))
-},{"../adapters/http":3,"../adapters/xhr":3,"../core/AxiosError":9,"../helpers/normalizeHeaderName":26,"../helpers/toFormData":31,"../utils":33,"./env/FormData":27,"./transitional":17,"_process":37}],17:[function(require,module,exports){
+},{"../adapters/http":4,"../adapters/xhr":4,"../core/AxiosError":10,"../helpers/normalizeHeaderName":27,"../helpers/toFormData":32,"../utils":34,"./env/FormData":28,"./transitional":18,"_process":38}],18:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -1429,11 +1609,11 @@ module.exports = {
   clarifyTimeoutError: false
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = {
   "version": "0.27.2"
 };
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -1446,7 +1626,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1518,7 +1698,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
   return url;
 };
 
-},{"./../utils":33}],21:[function(require,module,exports){
+},{"./../utils":34}],22:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1534,7 +1714,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
     : baseURL;
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1589,7 +1769,7 @@ module.exports = (
     })()
 );
 
-},{"./../utils":33}],23:[function(require,module,exports){
+},{"./../utils":34}],24:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1605,7 +1785,7 @@ module.exports = function isAbsoluteURL(url) {
   return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1620,7 +1800,7 @@ module.exports = function isAxiosError(payload) {
   return utils.isObject(payload) && (payload.isAxiosError === true);
 };
 
-},{"./../utils":33}],25:[function(require,module,exports){
+},{"./../utils":34}],26:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1690,7 +1870,7 @@ module.exports = (
     })()
 );
 
-},{"./../utils":33}],26:[function(require,module,exports){
+},{"./../utils":34}],27:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -1704,11 +1884,11 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
   });
 };
 
-},{"../utils":33}],27:[function(require,module,exports){
+},{"../utils":34}],28:[function(require,module,exports){
 // eslint-disable-next-line strict
 module.exports = null;
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var utils = require('./../utils');
@@ -1763,7 +1943,7 @@ module.exports = function parseHeaders(headers) {
   return parsed;
 };
 
-},{"./../utils":33}],29:[function(require,module,exports){
+},{"./../utils":34}],30:[function(require,module,exports){
 'use strict';
 
 module.exports = function parseProtocol(url) {
@@ -1771,7 +1951,7 @@ module.exports = function parseProtocol(url) {
   return match && match[1] || '';
 };
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 /**
@@ -1800,7 +1980,7 @@ module.exports = function spread(callback) {
   };
 };
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function (Buffer){(function (){
 'use strict';
 
@@ -1876,7 +2056,7 @@ function toFormData(obj, formData) {
 module.exports = toFormData;
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"../utils":33,"buffer":35}],32:[function(require,module,exports){
+},{"../utils":34,"buffer":36}],33:[function(require,module,exports){
 'use strict';
 
 var VERSION = require('../env/data').version;
@@ -1964,7 +2144,7 @@ module.exports = {
   validators: validators
 };
 
-},{"../core/AxiosError":9,"../env/data":18}],33:[function(require,module,exports){
+},{"../core/AxiosError":10,"../env/data":19}],34:[function(require,module,exports){
 'use strict';
 
 var bind = require('./helpers/bind');
@@ -2436,7 +2616,7 @@ module.exports = {
   isFileList: isFileList
 };
 
-},{"./helpers/bind":19}],34:[function(require,module,exports){
+},{"./helpers/bind":20}],35:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -2588,7 +2768,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 (function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
@@ -4369,7 +4549,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":34,"buffer":35,"ieee754":36}],36:[function(require,module,exports){
+},{"base64-js":35,"buffer":36,"ieee754":37}],37:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -4456,7 +4636,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -4642,4 +4822,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[1]);
+},{}]},{},[2]);

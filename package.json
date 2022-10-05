@@ -47,5 +47,6 @@
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
     "babelify": "^10.0.0"
-  }
+  },
+  "keywords": []
 }

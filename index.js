@@ -1,3 +1,5 @@
+import {allNames, flagLinks, playerIDs, countryFlags, namesIDs} from './allplayers'
+
 const axios = require("axios");
 const body = document.body;
 const overlay = document.getElementById("popup-overlay");
@@ -8,123 +10,256 @@ const s1Rating = document.querySelectorAll(".s1-main-rating");
 const s1Impact = document.querySelectorAll(".s1-main-impact");
 const s1Maps = document.querySelectorAll(".s1-main-maps");
 const s1Detail = document.querySelectorAll(".s1-detailed-stat");
-const s1RatingBig = document.getElementById("s1-rating-bigevents");
 const devRating = document.querySelectorAll(".dev-main-rating");
 const devImpact = document.querySelectorAll(".dev-main-impact");
 const devMaps = document.querySelectorAll(".dev-main-maps");
 const devDetail = document.querySelectorAll(".dev-detailed-stat");
-const devRatingBig = document.getElementById("dev-rating-bigevents");
 const loading = document.querySelectorAll(".loading");
-const s1Endpoint = "https://hltvproxy.glitch.me/players/7998/";
-const devEndpoint = "https://hltvproxy.glitch.me/players/7592/";
-const s1All = `${s1Endpoint}_`;
-const devAll = `${devEndpoint}_`;
-const s1Majors = `${s1Endpoint}Majors`;
-const devMajors = `${devEndpoint}Majors`;
-const s1BigEvents = `${s1Endpoint}BigEvents`;
-const devBigEvents = `${devEndpoint}BigEvents`;
-const s1Online = `${s1Endpoint}Online`;
-const s1LAN = `${s1Endpoint}Lan`;
-const devOnline = `${devEndpoint}Online`;
-const devLAN = `${devEndpoint}Lan`;
-const s1AllReq = axios.get(s1All);
-const devAllReq = axios.get(devAll);
-const s1MajorsReq = axios.get(s1Majors);
-const devMajorsReq = axios.get(devMajors);
-const s1BigEventsReq = axios.get(s1BigEvents);
-const devBigEventsReq = axios.get(devBigEvents);
-const s1OnlineReq = axios.get(s1Online);
-const s1LANReq = axios.get(s1LAN);
-const devOnlineReq = axios.get(devOnline);
-const devLANReq = axios.get(devLAN);
+const endpoint = "http://52.67.71.89:5501/players/";
+const input1 = document.getElementById("input-1");
+const input2 = document.getElementById("input-2");
+const input = document.querySelectorAll("input");
+const playerNames = document.querySelectorAll(".player-name");
+const playerPics = document.querySelectorAll(".player-pic");
+const teamLogos = document.querySelectorAll(".team-logo");
+const h3Left = document.querySelectorAll("h3.left");
+const h3Right = document.querySelectorAll("h3.right");
 
 // ADD LOADING ICONS
 const addLoad = () => {
-  for (let i = 0; i < loading.length; ++i) {
-    loading[
-      i
-    ].innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
-  }
+  loading.forEach((item) => {
+    item.innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
+  });
 };
 
-addLoad();
+// ADD AUTOCOMPLETE SUGGESTIONS TO FORM
+const autocomplete = (inp, arr) => {
+  let currentFocus;
+  inp.addEventListener("input", function(e) {
+      let a, b, i, val = this.value;
+      // CLOSE ANY OPEN SUGGESTIONS
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      // CREATE DIV FOR ALL THE SUGGESTIONS
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "-autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");      
+      // APPEND DIV AS CONTAINER'S CHILD
+      this.parentNode.appendChild(a);
+      // LOOP SETTINGS
+      for (i = 0; i < arr.length; i++) {
+        // CHECK IF ANY ITEM CONTAINS SEARCH QUERY
+        if ((arr[i].toUpperCase().includes(val.toUpperCase()))) {
+          // CREATE DIV FOR ANY MATCHED ITEM
+          b = document.createElement("DIV");
+          // ADD FLAG TO THESE ITEMS
+          b.setAttribute('class', 'each-item')
+          b.setAttribute("style", `--bg-image: url('${countryFlags[i]}')`)
+          // MAKE MATCHING LETTERS BOLD
+          b.innerHTML = `<strong style="
+          margin-left: 5px;">` + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          // HIDDEN INPUT THAT WILL HOLD THE VALUE
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          // SEND VALUE TO ACTUAL INPUT WHEN ITEM IS CLICKED AND CLOSE SUGGESTIONS
+              b.addEventListener("click", function(e) {
+              inp.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  // FUNCTIONS WHEN KEY IS PRESSED
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "-autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
 
-// GET ALL PARSEABLE STATS
-const getAll = async () => {
+let playerList = []
+
+for (let i = 0; i < flagLinks.length; ++i) {
+    let span = document.createElement('span')
+    span.innerHTML = `${flagLinks[i]} ${allNames[i]}`
+    playerList.push(span)
+}
+
+input.forEach(item => {
+  autocomplete(item, allNames)
+})
+
+// GET DEFAULT INFO AND IDs FROM INPUT
+const searchPlayers = async () => {
+  addLoad();
+  const allEndpoints = [
+    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/_`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/Lan`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/Online`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/Majors`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/BigEvents`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/_`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/Lan`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/Online`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/Majors`,
+    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/BigEvents`,
+  ];
+
   try {
-    axios
-      .all([
-        s1AllReq,
-        s1LANReq,
-        s1OnlineReq,
-        s1MajorsReq,
-        s1BigEventsReq,
-        devAllReq,
-        devLANReq,
-        devOnlineReq,
-        devMajorsReq,
-        devBigEventsReq,
-      ])
-      .then(
-        axios.spread((...responses) => {
-          // ADD ALL PARSEABLE FACE STATS
-          s1RatingBig.innerHTML = responses[4].data.rating;
-          devRatingBig.innerHTML = responses[9].data.rating;
-          for (let i = 0; i < s1Rating.length; ++i) {
-            s1Rating[i].innerHTML = responses[i].data.rating;
-            s1Impact[i].innerHTML = responses[i].data.impact;
-            s1Maps[i].innerHTML = responses[i].data.mapsPlayed;
-            devRating[i].innerHTML = responses[i + 5].data.rating;
-            devImpact[i].innerHTML = responses[i + 5].data.impact;
-            devMaps[i].innerHTML = responses[i + 5].data.mapsPlayed;
-          }
-          for (let i = 0; i < devDetail.length; ++i) {
-            const indice = Math.floor(i / 11);
-            const indice2 = i % 11;
-            // ALL S1MPLE DETAILED STATS
-            s1Detail[i].innerHTML = Object.values(responses[indice].data)[
-              indice2
-            ];
-            // ALL DEVICE DETAILED STATS
-            devDetail[i].innerHTML = Object.values(responses[indice + 5].data)[indice2];
-          }
-          // CHANGE COLOR ON GREATER STAT
-          for (let k = 0; k < s1Detail.length; ++k) {
-            if (k != 3 && k != 14 && k != 25 && k != 36 && k != 47) {
+    axios.all(allEndpoints.map((eachEnd) => axios.get(eachEnd))).then(
+      axios.spread((...responses) => {
+        
+        // ADD ALL PARSEABLE FACE STATS
+        /* s1RatingBig.innerHTML = responses[4].data[0].rating;
+        devRatingBig.innerHTML = responses[9].data[0].rating; */
+
+        for (let i = 0; i < playerNames.length; ++i) {
+          playerNames[i].innerHTML = responses[i * 5].data[1].nickname;
+          playerPics[i].setAttribute("src", responses[i * 5].data[1].image);
+          teamLogos[i].setAttribute(
+            "src",
+            responses[i * 5].data[1].teamLogo
+          );
+        }
+
+        for (let i = 0; i < h3Left.length; ++i) {
+          h3Left[i].innerHTML = responses[0].data[1].nickname;
+          h3Right[i].innerHTML = responses[5].data[1].nickname;
+        }
+
+        for (let i = 0; i < s1Rating.length; ++i) {
+          s1Rating[i].innerHTML = responses[i].data[0].rating;
+          s1Impact[i].innerHTML = responses[i].data[0].impact;
+          s1Maps[i].innerHTML = responses[i].data[0].mapsPlayed;
+          devRating[i].innerHTML = responses[i + 5].data[0].rating;
+          devImpact[i].innerHTML = responses[i + 5].data[0].impact;
+          devMaps[i].innerHTML = responses[i + 5].data[0].mapsPlayed;
+        }
+        for (let i = 0; i < devDetail.length; ++i) {
+          const indice = Math.floor(i / 11);
+          const indice2 = i % 11;
+          // ALL S1MPLE DETAILED STATS
+          s1Detail[i].innerHTML = Object.values(responses[indice].data[0])[
+            indice2
+          ];
+          // ALL DEVICE DETAILED STATS
+          devDetail[i].innerHTML = Object.values(
+            responses[indice + 5].data[0]
+          )[indice2];
+        }
+        // CHANGE COLOR ON GREATER STAT
+        for (let k = 0; k < s1Detail.length; ++k) {
+          if (k % 11 != 3) {
             if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-              s1Detail[k].style.color = 'lightgreen'
+              s1Detail[k].style.color = "lightgreen";
+              devDetail[k].style.color = "white";
             } else {
-              devDetail[k].style.color = 'lightgreen'
-            }} else {
-              if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-                devDetail[k].style.color = 'lightgreen'
-              } else {
-                s1Detail[k].style.color = 'lightgreen'
-              }
+              devDetail[k].style.color = "lightgreen";
+              s1Detail[k].style.color = "white";
+            }
+          } else {
+            if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
+              devDetail[k].style.color = "lightgreen";
+              s1Detail[k].style.color = "white";
+            } else {
+              s1Detail[k].style.color = "lightgreen";
+              devDetail[k].style.color = "white";
             }
           }
-          // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
-          for (let j = 0; j < s1Detail.length; j += 11) {
-            const iconSpan = document.createElement("span");
-            const iconSpan2 = document.createElement("span");
-            iconSpan.innerHTML = `%`;
-            iconSpan2.innerHTML = `%`;
-            while (iconSpan.firstChild) {
-              s1Detail[6 + j].appendChild(iconSpan.firstChild);
-            }
-            while (iconSpan2.firstChild) {
-              devDetail[6 + j].appendChild(iconSpan2.firstChild);
-            }
+        }
+        // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
+        for (let j = 0; j < s1Detail.length; j += 11) {
+          const iconSpan = document.createElement("span");
+          const iconSpan2 = document.createElement("span");
+          iconSpan.innerHTML = `%`;
+          iconSpan2.innerHTML = `%`;
+          while (iconSpan.firstChild) {
+            s1Detail[6 + j].appendChild(iconSpan.firstChild);
           }
-          
-        })
-      );
+          while (iconSpan2.firstChild) {
+            devDetail[6 + j].appendChild(iconSpan2.firstChild);
+          }
+        }
+        input.forEach((input) => {
+          input.value = "";
+        }); 
+      })
+    );
   } catch (err) {
     console.log(err);
   }
 };
 
-getAll();
+searchPlayers();
+
+// ADD FUNCTION TO 'ENTER' KEY ON INPUTS AND TO 'SEARCH' BUTTON
+input.forEach(
+  (item) =>
+    (item.onkeydown = (event) => {
+      if (event.key === "Enter") {
+        if (input1.value && input2.value){
+        searchPlayers();
+        }
+      }
+    })
+);
+
+document.getElementById("search-players").addEventListener("click", () => {
+  if (input1.value && input2.value){
+  searchPlayers();
+}
+});
 
 // TOOLTIP ICONS
 const tooltips = document.querySelectorAll(".tooltip");
@@ -206,7 +341,6 @@ for (let i = 0; i < allPopups.length; ++i) {
   allPopups[i].addEventListener("click", (event) => {
     const classNameOfClickedElement = event.target.classList[0];
     const classNames = ["close-btn", "popup", "popup-overlay"];
-
     const shouldClosePopUp = classNames.some(
       (className) => className === classNameOfClickedElement
     );
