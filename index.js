@@ -1,4 +1,10 @@
-import {allNames, flagLinks, playerIDs, countryFlags, namesIDs} from './allplayers'
+import {
+  allNames,
+  flagLinks,
+  playerIDs,
+  countryFlags,
+  namesIDs,
+} from "./allplayers";
 
 const axios = require("axios");
 const body = document.body;
@@ -35,66 +41,75 @@ const addLoad = () => {
 // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
 const autocomplete = (inp, arr) => {
   let currentFocus;
-  inp.addEventListener("input", function(e) {
-      let a, b, i, val = this.value;
-      // CLOSE ANY OPEN SUGGESTIONS
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      // CREATE DIV FOR ALL THE SUGGESTIONS
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "-autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");      
-      // APPEND DIV AS CONTAINER'S CHILD
-      this.parentNode.appendChild(a);
-      // LOOP SETTINGS
-      for (i = 0; i < arr.length; i++) {
-        // CHECK IF ANY ITEM CONTAINS SEARCH QUERY
-        if ((arr[i].toUpperCase().includes(val.toUpperCase()))) {
-          // CREATE DIV FOR ANY MATCHED ITEM
-          b = document.createElement("DIV");
-          // ADD FLAG TO THESE ITEMS
-          b.setAttribute('class', 'each-item')
-          b.setAttribute("style", `--bg-image: url('${countryFlags[i]}')`)
-          // MAKE MATCHING LETTERS BOLD
-          b.innerHTML = `<strong style="
-          margin-left: 5px;">` + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          // HIDDEN INPUT THAT WILL HOLD THE VALUE
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-          // SEND VALUE TO ACTUAL INPUT WHEN ITEM IS CLICKED AND CLOSE SUGGESTIONS
-              b.addEventListener("click", function(e) {
-              inp.value = this.getElementsByTagName("input")[0].value;
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
+  inp.addEventListener("input", function (e) {
+    let a,
+      b,
+      i,
+      val = this.value;
+    // CLOSE ANY OPEN SUGGESTIONS
+    closeAllLists();
+    if (!val) {
+      return false;
+    }
+    currentFocus = -1;
+    // CREATE DIV FOR ALL THE SUGGESTIONS
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "-autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    // APPEND DIV AS CONTAINER'S CHILD
+    this.parentNode.appendChild(a);
+    // LOOP SETTINGS
+    for (i = 0; i < arr.length; i++) {
+      // CHECK IF ANY ITEM CONTAINS SEARCH QUERY
+      if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+        // CREATE DIV FOR ANY MATCHED ITEM
+        b = document.createElement("DIV");
+        // ADD FLAG TO THESE ITEMS
+        b.setAttribute("class", "each-item");
+        b.setAttribute("style", `--bg-image: url('${countryFlags[i]}')`);
+        // MAKE MATCHING LETTERS BOLD
+        b.innerHTML =
+          `<strong style="
+          margin-left: 5px;">` +
+          arr[i].substr(0, val.length) +
+          "</strong>";
+        b.innerHTML += arr[i].substr(val.length);
+        // HIDDEN INPUT THAT WILL HOLD THE VALUE
+        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+        // SEND VALUE TO ACTUAL INPUT WHEN ITEM IS CLICKED AND CLOSE SUGGESTIONS
+        b.addEventListener("click", function (e) {
+          inp.value = this.getElementsByTagName("input")[0].value;
+          closeAllLists();
+        });
+        a.appendChild(b);
       }
+    }
   });
   // FUNCTIONS WHEN KEY IS PRESSED
-  inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "-autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-        /*If the arrow DOWN key is pressed,
+  inp.addEventListener("keydown", function (e) {
+    var x = document.getElementById(this.id + "-autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
+      /*If the arrow DOWN key is pressed,
         increase the currentFocus variable:*/
-        currentFocus++;
-        /*and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-        /*If the arrow UP key is pressed,
+      currentFocus++;
+      /*and make the current item more visible:*/
+      addActive(x);
+    } else if (e.keyCode == 38) {
+      //up
+      /*If the arrow UP key is pressed,
         decrease the currentFocus variable:*/
-        currentFocus--;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 13) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        e.preventDefault();
-        if (currentFocus > -1) {
-          /*and simulate a click on the "active" item:*/
-          if (x) x[currentFocus].click();
-        }
+      currentFocus--;
+      /*and and make the current item more visible:*/
+      addActive(x);
+    } else if (e.keyCode == 13) {
+      /*If the ENTER key is pressed, prevent the form from being submitted,*/
+      e.preventDefault();
+      if (currentFocus > -1) {
+        /*and simulate a click on the "active" item:*/
+        if (x) x[currentFocus].click();
       }
+    }
   });
   function addActive(x) {
     /*a function to classify an item as "active":*/
@@ -102,7 +117,7 @@ const autocomplete = (inp, arr) => {
     /*start by removing the "active" class on all items:*/
     removeActive(x);
     if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
+    if (currentFocus < 0) currentFocus = x.length - 1;
     /*add class "autocomplete-active":*/
     x[currentFocus].classList.add("autocomplete-active");
   }
@@ -118,124 +133,128 @@ const autocomplete = (inp, arr) => {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
-      x[i].parentNode.removeChild(x[i]);
+        x[i].parentNode.removeChild(x[i]);
+      }
     }
   }
-}
-/*execute a function when someone clicks in the document:*/
-document.addEventListener("click", function (e) {
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
     closeAllLists(e.target);
-});
-}
+  });
+};
 
-let playerList = []
+let playerList = [];
 
 for (let i = 0; i < flagLinks.length; ++i) {
-    let span = document.createElement('span')
-    span.innerHTML = `${flagLinks[i]} ${allNames[i]}`
-    playerList.push(span)
+  let span = document.createElement("span");
+  span.innerHTML = `${flagLinks[i]} ${allNames[i]}`;
+  playerList.push(span);
 }
 
-input.forEach(item => {
-  autocomplete(item, allNames)
-})
+input.forEach((item) => {
+  autocomplete(item, allNames);
+});
 
 // GET DEFAULT INFO AND IDs FROM INPUT
 const searchPlayers = async () => {
   addLoad();
   const allEndpoints = [
-    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/_`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/Lan`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/Online`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/Majors`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input1.value))]}/BigEvents`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/_`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/Lan`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/Online`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/Majors`,
-    `${endpoint}${playerIDs[(allNames.indexOf(input2.value))]}/BigEvents`,
+    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/_`,
+    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/Lan`,
+    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/Online`,
+    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/Majors`,
+    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/BigEvents`,
+    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/_`,
+    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/Lan`,
+    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/Online`,
+    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/Majors`,
+    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/BigEvents`,
   ];
 
   try {
-    axios.all(allEndpoints.map((eachEnd) => axios.get(eachEnd))).then(
-      axios.spread((...responses) => {
-        
-        // ADD ALL PARSEABLE FACE STATS
-        /* s1RatingBig.innerHTML = responses[4].data[0].rating;
-        devRatingBig.innerHTML = responses[9].data[0].rating; */
+    /* const resp0 = await axios.get(allEndpoints[0])
+   console.log(resp0.data) */
 
-        for (let i = 0; i < playerNames.length; ++i) {
-          playerNames[i].innerHTML = responses[i * 5].data[1].nickname;
-          playerPics[i].setAttribute("src", responses[i * 5].data[1].image);
-          teamLogos[i].setAttribute(
-            "src",
-            responses[i * 5].data[1].teamLogo
-          );
-        }
+    let responses = [];
 
-        for (let i = 0; i < h3Left.length; ++i) {
-          h3Left[i].innerHTML = responses[0].data[1].nickname;
-          h3Right[i].innerHTML = responses[5].data[1].nickname;
-        }
+    for (let i = 0; i < allEndpoints.length; ++i) {
+      let resp = await axios.get(allEndpoints[i]);
+      responses.push(resp.data);
+    }
 
-        for (let i = 0; i < s1Rating.length; ++i) {
-          s1Rating[i].innerHTML = responses[i].data[0].rating;
-          s1Impact[i].innerHTML = responses[i].data[0].impact;
-          s1Maps[i].innerHTML = responses[i].data[0].mapsPlayed;
-          devRating[i].innerHTML = responses[i + 5].data[0].rating;
-          devImpact[i].innerHTML = responses[i + 5].data[0].impact;
-          devMaps[i].innerHTML = responses[i + 5].data[0].mapsPlayed;
+    
+
+    for (let i = 0; i < playerNames.length; ++i) {
+      playerNames[i].innerHTML = responses[i * 5][1].nickname;
+      if (Object.keys(responses[i*5][1]).length > 2){
+      playerPics[i].setAttribute("src", responses[i * 5][1].image);
+      teamLogos[i].setAttribute("src", responses[i * 5][1].teamLogo);
+      teamLogos[i].style.visibility = 'initial' }
+      else {
+        playerPics[i].setAttribute("src", responses[i * 5][1].teamLogo)
+        teamLogos[i].style.visibility = 'hidden'
+      }
+    }
+
+    for (let i = 0; i < h3Left.length; ++i) {
+      h3Left[i].innerHTML = responses[0][1].nickname;
+      h3Right[i].innerHTML = responses[5][1].nickname;
+    }
+
+    for (let i = 0; i < s1Rating.length; ++i) {
+      s1Rating[i].innerHTML = responses[i][0].rating;
+      s1Impact[i].innerHTML = responses[i][0].impact;
+      s1Maps[i].innerHTML = responses[i][0].mapsPlayed;
+      devRating[i].innerHTML = responses[i + 5][0].rating;
+      devImpact[i].innerHTML = responses[i + 5][0].impact;
+      devMaps[i].innerHTML = responses[i + 5][0].mapsPlayed;
+    }
+    for (let i = 0; i < devDetail.length; ++i) {
+      const indice = Math.floor(i / 11);
+      const indice2 = i % 11;
+      // ALL S1MPLE DETAILED STATS
+      s1Detail[i].innerHTML = Object.values(responses[indice][0])[indice2];
+      // ALL DEVICE DETAILED STATS
+      devDetail[i].innerHTML = Object.values(responses[indice + 5][0])[
+        indice2
+      ];
+    }
+    // CHANGE COLOR ON GREATER STAT
+    for (let k = 0; k < s1Detail.length; ++k) {
+      if (k % 11 != 3) {
+        if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
+          s1Detail[k].style.color = "lightgreen";
+          devDetail[k].style.color = "white";
+        } else {
+          devDetail[k].style.color = "lightgreen";
+          s1Detail[k].style.color = "white";
         }
-        for (let i = 0; i < devDetail.length; ++i) {
-          const indice = Math.floor(i / 11);
-          const indice2 = i % 11;
-          // ALL S1MPLE DETAILED STATS
-          s1Detail[i].innerHTML = Object.values(responses[indice].data[0])[
-            indice2
-          ];
-          // ALL DEVICE DETAILED STATS
-          devDetail[i].innerHTML = Object.values(
-            responses[indice + 5].data[0]
-          )[indice2];
+      } else {
+        if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
+          devDetail[k].style.color = "lightgreen";
+          s1Detail[k].style.color = "white";
+        } else {
+          s1Detail[k].style.color = "lightgreen";
+          devDetail[k].style.color = "white";
         }
-        // CHANGE COLOR ON GREATER STAT
-        for (let k = 0; k < s1Detail.length; ++k) {
-          if (k % 11 != 3) {
-            if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-              s1Detail[k].style.color = "lightgreen";
-              devDetail[k].style.color = "white";
-            } else {
-              devDetail[k].style.color = "lightgreen";
-              s1Detail[k].style.color = "white";
-            }
-          } else {
-            if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-              devDetail[k].style.color = "lightgreen";
-              s1Detail[k].style.color = "white";
-            } else {
-              s1Detail[k].style.color = "lightgreen";
-              devDetail[k].style.color = "white";
-            }
-          }
-        }
-        // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
-        for (let j = 0; j < s1Detail.length; j += 11) {
-          const iconSpan = document.createElement("span");
-          const iconSpan2 = document.createElement("span");
-          iconSpan.innerHTML = `%`;
-          iconSpan2.innerHTML = `%`;
-          while (iconSpan.firstChild) {
-            s1Detail[6 + j].appendChild(iconSpan.firstChild);
-          }
-          while (iconSpan2.firstChild) {
-            devDetail[6 + j].appendChild(iconSpan2.firstChild);
-          }
-        }
-        input.forEach((input) => {
-          input.value = "";
-        }); 
-      })
-    );
+      }
+    }
+    // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
+    for (let j = 0; j < s1Detail.length; j += 11) {
+      const iconSpan = document.createElement("span");
+      const iconSpan2 = document.createElement("span");
+      iconSpan.innerHTML = `%`;
+      iconSpan2.innerHTML = `%`;
+      while (iconSpan.firstChild) {
+        s1Detail[6 + j].appendChild(iconSpan.firstChild);
+      }
+      while (iconSpan2.firstChild) {
+        devDetail[6 + j].appendChild(iconSpan2.firstChild);
+      }
+    }
+    input.forEach((input) => {
+      input.value = "";
+    }); 
   } catch (err) {
     console.log(err);
   }
@@ -248,17 +267,17 @@ input.forEach(
   (item) =>
     (item.onkeydown = (event) => {
       if (event.key === "Enter") {
-        if (input1.value && input2.value){
-        searchPlayers();
+        if (input1.value && input2.value) {
+          searchPlayers();
         }
       }
     })
 );
 
 document.getElementById("search-players").addEventListener("click", () => {
-  if (input1.value && input2.value){
-  searchPlayers();
-}
+  if (input1.value && input2.value) {
+    searchPlayers();
+  }
 });
 
 // TOOLTIP ICONS
