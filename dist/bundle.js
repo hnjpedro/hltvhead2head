@@ -334,19 +334,27 @@ var searchPlayers = /*#__PURE__*/function () {
 
 searchPlayers(); // ADD FUNCTION TO 'ENTER' KEY ON INPUTS AND TO 'SEARCH' BUTTON
 
+var verifyAndSearch = function verifyAndSearch() {
+  if (input1.value && input2.value) {
+    searchPlayers();
+  } else if (input1.value && !input2.value) {
+    alert('Please add second player!');
+  } else if (!input1.value && input2.value) {
+    alert('Please add first player!');
+  } else {
+    alert('Please add players!');
+  }
+};
+
 input.forEach(function (item) {
   return item.onkeydown = function (event) {
     if (event.key === "Enter") {
-      if (input1.value && input2.value) {
-        searchPlayers();
-      }
+      verifyAndSearch();
     }
   };
 });
 document.getElementById("search-players").addEventListener("click", function () {
-  if (input1.value && input2.value) {
-    searchPlayers();
-  }
+  verifyAndSearch();
 }); // TOOLTIP ICONS
 
 var tooltips = document.querySelectorAll(".tooltip");

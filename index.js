@@ -263,21 +263,29 @@ const searchPlayers = async () => {
 searchPlayers();
 
 // ADD FUNCTION TO 'ENTER' KEY ON INPUTS AND TO 'SEARCH' BUTTON
+const verifyAndSearch = () => {
+  if (input1.value && input2.value) {
+    searchPlayers();
+  } else if (input1.value && !input2.value) {
+    alert('Please add second player!')
+  } else if (!input1.value && input2.value) {
+    alert('Please add first player!')
+  } else {
+    alert('Please add players!')
+  }
+}
+
 input.forEach(
   (item) =>
     (item.onkeydown = (event) => {
       if (event.key === "Enter") {
-        if (input1.value && input2.value) {
-          searchPlayers();
-        }
+        verifyAndSearch()
       }
     })
 );
 
 document.getElementById("search-players").addEventListener("click", () => {
-  if (input1.value && input2.value) {
-    searchPlayers();
-  }
+  verifyAndSearch()
 });
 
 // TOOLTIP ICONS
