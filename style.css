@@ -404,6 +404,7 @@ h3 {
   right: 0;
   text-transform: uppercase;
   z-index: 999;
+  border-radius: 0
 }
 
 .close-btn:hover {
