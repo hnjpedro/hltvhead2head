@@ -202,7 +202,7 @@ input.forEach(function (item) {
 
 var searchPlayers = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var select, date, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, _i2, resp, _i3, _i4, indice, indice2, k, j, iconSpan, iconSpan2;
+    var select, date, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, _i2, resp, _i3, indice, indice2, k, j, iconSpan, iconSpan2;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
@@ -265,68 +265,72 @@ var searchPlayers = /*#__PURE__*/function () {
             allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd)];
             _context.prev = 24;
             responses = [];
+            h3Left.forEach(function (item) {
+              item.innerHTML = input1.value;
+            });
+            h3Right.forEach(function (item) {
+              item.innerHTML = input2.value;
+            });
+            playerNames[0].innerHTML = input1.value;
+            playerNames[1].innerHTML = input2.value;
             _i2 = 0;
 
-          case 27:
+          case 31:
             if (!(_i2 < s1Detail.length)) {
-              _context.next = 37;
+              _context.next = 42;
               break;
             }
 
             if (!(_i2 < allEndpoints.length)) {
-              _context.next = 33;
+              _context.next = 37;
               break;
             }
 
-            _context.next = 31;
+            _context.next = 35;
             return axios.get(allEndpoints[_i2]);
 
-          case 31:
+          case 35:
             resp = _context.sent;
             responses.push(resp.data);
 
-          case 33:
-            if (_i2 < 5) {
-              s1Rating[_i2].innerHTML = responses[_i2][0].rating;
-              s1Impact[_i2].innerHTML = responses[_i2][0].impact;
-              s1Maps[_i2].innerHTML = responses[_i2][0].mapsPlayed;
-              h3Left[_i2].innerHTML = responses[0][1].nickname;
-            } else if (_i2 < 10) {
-              devRating[_i2 - 5].innerHTML = responses[_i2][0].rating;
-              devImpact[_i2 - 5].innerHTML = responses[_i2][0].impact;
-              devMaps[_i2 - 5].innerHTML = responses[_i2][0].mapsPlayed;
-              h3Right[_i2 - 5].innerHTML = responses[5][1].nickname;
-            }
-
-          case 34:
-            ++_i2;
-            _context.next = 27;
-            break;
-
           case 37:
-            for (_i3 = 0; _i3 < playerNames.length; ++_i3) {
-              playerNames[_i3].innerHTML = responses[_i3 * 5][1].nickname;
+            if (_i2 == 0 || _i2 == 5) {
+              if (Object.keys(responses[_i2][1]).length > 2) {
+                playerPics[_i2 / 5].setAttribute("src", responses[_i2][1].image);
 
-              if (Object.keys(responses[_i3 * 5][1]).length > 2) {
-                playerPics[_i3].setAttribute("src", responses[_i3 * 5][1].image);
+                teamLogos[_i2 / 5].setAttribute("src", responses[_i2][1].teamLogo);
 
-                teamLogos[_i3].setAttribute("src", responses[_i3 * 5][1].teamLogo);
-
-                teamLogos[_i3].style.visibility = "initial";
+                teamLogos[_i2 / 5].style.visibility = "initial";
               } else {
-                playerPics[_i3].setAttribute("src", responses[_i3 * 5][1].teamLogo);
+                playerPics[_i2 / 5].setAttribute("src", responses[_i2][1].teamLogo);
 
-                teamLogos[_i3].style.visibility = "hidden";
+                teamLogos[_i2 / 5].style.visibility = "hidden";
               }
             }
 
-            for (_i4 = 0; _i4 < devDetail.length; ++_i4) {
-              indice = Math.floor(_i4 / 11);
-              indice2 = _i4 % 11; // ALL S1MPLE DETAILED STATS
+            if (_i2 < s1Rating.length) {
+              s1Rating[_i2].innerHTML = responses[_i2][0].rating;
+              s1Impact[_i2].innerHTML = responses[_i2][0].impact;
+              s1Maps[_i2].innerHTML = responses[_i2][0].mapsPlayed;
+            } else if (_i2 < devRating.length + 5) {
+              devRating[_i2 - 5].innerHTML = responses[_i2][0].rating;
+              devImpact[_i2 - 5].innerHTML = responses[_i2][0].impact;
+              devMaps[_i2 - 5].innerHTML = responses[_i2][0].mapsPlayed;
+            }
 
-              s1Detail[_i4].innerHTML = Object.values(responses[indice][0])[indice2]; // ALL DEVICE DETAILED STATS
+          case 39:
+            ++_i2;
+            _context.next = 31;
+            break;
 
-              devDetail[_i4].innerHTML = Object.values(responses[indice + 5][0])[indice2];
+          case 42:
+            for (_i3 = 0; _i3 < devDetail.length; ++_i3) {
+              indice = Math.floor(_i3 / 11);
+              indice2 = _i3 % 11; // ALL S1MPLE DETAILED STATS
+
+              s1Detail[_i3].innerHTML = Object.values(responses[indice][0])[indice2]; // ALL DEVICE DETAILED STATS
+
+              devDetail[_i3].innerHTML = Object.values(responses[indice + 5][0])[indice2];
             } // CHANGE COLOR ON GREATER STAT
 
 
@@ -366,20 +370,20 @@ var searchPlayers = /*#__PURE__*/function () {
               }
             }
 
-            _context.next = 46;
+            _context.next = 50;
             break;
 
-          case 43:
-            _context.prev = 43;
+          case 47:
+            _context.prev = 47;
             _context.t1 = _context["catch"](24);
             console.log(_context.t1);
 
-          case 46:
+          case 50:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[24, 43]]);
+    }, _callee, null, [[24, 47]]);
   }));
 
   return function searchPlayers() {
@@ -419,12 +423,12 @@ document.getElementById("search-players").addEventListener("click", function () 
 
 var tooltips = document.querySelectorAll(".tooltip");
 
-for (var _i5 = 0; _i5 < tooltips.length; ++_i5) {
+for (var _i4 = 0; _i4 < tooltips.length; ++_i4) {
   var infoButton = document.createElement("span");
   infoButton.innerHTML = "<span class='material-icons-outlined info-icon'>info</span>";
 
   while (infoButton.firstChild) {
-    tooltips[_i5].appendChild(infoButton.firstChild);
+    tooltips[_i4].appendChild(infoButton.firstChild);
   }
 } // TOOLTIPS ON MOBILE
 
@@ -433,17 +437,17 @@ if (window.innerWidth < 1000) {
   (function () {
     var tooltips = document.querySelectorAll("h4[title]");
 
-    var _loop = function _loop(_i6) {
+    var _loop = function _loop(_i5) {
       var auxTool = function auxTool() {
         var toolTipText = document.createElement("span");
-        toolTipText.innerHTML = '<span class="title">' + tooltips[_i6].getAttribute("title") + "</span>";
+        toolTipText.innerHTML = '<span class="title">' + tooltips[_i5].getAttribute("title") + "</span>";
 
         while (toolTipText.firstChild) {
-          tooltips[_i6].appendChild(toolTipText.firstChild);
+          tooltips[_i5].appendChild(toolTipText.firstChild);
         }
       };
 
-      tooltips[_i6].addEventListener("click", function (event) {
+      tooltips[_i5].addEventListener("click", function (event) {
         var activeTool = document.querySelectorAll(".title");
 
         if (!activeTool.length) {
@@ -459,57 +463,57 @@ if (window.innerWidth < 1000) {
       });
     };
 
-    for (var _i6 = 0; _i6 < tooltips.length; ++_i6) {
-      _loop(_i6);
+    for (var _i5 = 0; _i5 < tooltips.length; ++_i5) {
+      _loop(_i5);
     }
   })();
 } // OPEN POPUPS
 
 
-var _loop2 = function _loop2(_i7) {
-  statsButtons[_i7].addEventListener("click", function () {
-    allPopups[_i7].style.display = "flex";
+var _loop2 = function _loop2(_i6) {
+  statsButtons[_i6].addEventListener("click", function () {
+    allPopups[_i6].style.display = "flex";
 
     if (window.innerWidth < 1600) {
-      allPopups[_i7].style.top = "".concat(window.pageYOffset + 10, "px");
+      allPopups[_i6].style.top = "".concat(window.pageYOffset + 10, "px");
     } else {
-      allPopups[_i7].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
+      allPopups[_i6].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
     }
 
-    mainPopup[_i7].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
+    mainPopup[_i6].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = "".concat(window.pageYOffset, "px");
     body.style.overflow = "hidden";
     overlay.style.display = "block";
   });
 };
 
-for (var _i7 = 0; _i7 < statsButtons.length; ++_i7) {
-  _loop2(_i7);
+for (var _i6 = 0; _i6 < statsButtons.length; ++_i6) {
+  _loop2(_i6);
 } // CLOSE POPUPS
 
 
 var closePopUpAux = function closePopUpAux() {
-  var _loop3 = function _loop3(_i8) {
+  var _loop3 = function _loop3(_i7) {
     if (window.innerWidth < 1000 || window.innerWidth > 1600) {
-      mainPopup[_i8].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
+      mainPopup[_i7].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
     } else {
-      mainPopup[_i8].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
+      mainPopup[_i7].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
     }
 
     setTimeout(function () {
-      allPopups[_i8].style.display = "none";
+      allPopups[_i7].style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
     }, 500);
   };
 
-  for (var _i8 = 0; _i8 < allPopups.length; ++_i8) {
-    _loop3(_i8);
+  for (var _i7 = 0; _i7 < allPopups.length; ++_i7) {
+    _loop3(_i7);
   }
 };
 
-for (var _i9 = 0; _i9 < allPopups.length; ++_i9) {
-  allPopups[_i9].addEventListener("click", function (event) {
+for (var _i8 = 0; _i8 < allPopups.length; ++_i8) {
+  allPopups[_i8].addEventListener("click", function (event) {
     var classNameOfClickedElement = event.target.classList[0];
     var classNames = ["close-btn", "popup", "popup-overlay"];
     var shouldClosePopUp = classNames.some(function (className) {

@@ -237,31 +237,37 @@ const searchPlayers = async () => {
 
   try {
     let responses = [];
+    h3Left.forEach((item) => {
+      item.innerHTML = input1.value;
+    });
+    h3Right.forEach((item) => {
+      item.innerHTML = input2.value;
+    });
+    playerNames[0].innerHTML = input1.value;
+    playerNames[1].innerHTML = input2.value;
     for (let i = 0; i < s1Detail.length; ++i) {
-      if (i < allEndpoints.length) {let resp = await axios.get(allEndpoints[i]);
-      responses.push(resp.data);}
-      if (i < 5) {
+      if (i < allEndpoints.length) {
+        let resp = await axios.get(allEndpoints[i]);
+        responses.push(resp.data);
+      }
+        if (i == 0 || i == 5) {
+        if (Object.keys(responses[i][1]).length > 2) {
+          playerPics[i/5].setAttribute("src", responses[i][1].image);
+          teamLogos[i/5].setAttribute("src", responses[i][1].teamLogo);
+          teamLogos[i/5].style.visibility = "initial";
+        } else {
+          playerPics[i/5].setAttribute("src", responses[i][1].teamLogo);
+          teamLogos[i/5].style.visibility = "hidden";
+        }
+      }
+      if (i < s1Rating.length) {
         s1Rating[i].innerHTML = responses[i][0].rating;
         s1Impact[i].innerHTML = responses[i][0].impact;
         s1Maps[i].innerHTML = responses[i][0].mapsPlayed;
-        h3Left[i].innerHTML = responses[0][1].nickname;
-        } else if (i < 10) {
+      } else if (i < (devRating.length + 5)) {
         devRating[i - 5].innerHTML = responses[i][0].rating;
         devImpact[i - 5].innerHTML = responses[i][0].impact;
         devMaps[i - 5].innerHTML = responses[i][0].mapsPlayed;
-        h3Right[i - 5].innerHTML = responses[5][1].nickname;
-      }
-    }
-
-    for (let i = 0; i < playerNames.length; ++i) {
-      playerNames[i].innerHTML = responses[i * 5][1].nickname;
-      if (Object.keys(responses[i * 5][1]).length > 2) {
-        playerPics[i].setAttribute("src", responses[i * 5][1].image);
-        teamLogos[i].setAttribute("src", responses[i * 5][1].teamLogo);
-        teamLogos[i].style.visibility = "initial";
-      } else {
-        playerPics[i].setAttribute("src", responses[i * 5][1].teamLogo);
-        teamLogos[i].style.visibility = "hidden";
       }
     }
 
