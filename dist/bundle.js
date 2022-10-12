@@ -364,23 +364,20 @@ var searchPlayers = /*#__PURE__*/function () {
               }
             }
 
-            input.forEach(function (input) {
-              input.value = "";
-            });
-            _context.next = 52;
+            _context.next = 51;
             break;
 
-          case 49:
-            _context.prev = 49;
+          case 48:
+            _context.prev = 48;
             _context.t1 = _context["catch"](29);
             console.log(_context.t1);
 
-          case 52:
+          case 51:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[29, 49]]);
+    }, _callee, null, [[29, 48]]);
   }));
 
   return function searchPlayers() {

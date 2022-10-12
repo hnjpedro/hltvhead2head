@@ -313,9 +313,7 @@ const searchPlayers = async () => {
         devDetail[6 + j].appendChild(iconSpan2.firstChild);
       }
     }
-    input.forEach((input) => {
-      input.value = "";
-    });
+    
   } catch (err) {
     console.log(err);
   }
