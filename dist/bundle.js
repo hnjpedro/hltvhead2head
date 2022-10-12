@@ -74,6 +74,9 @@ var addLoad = function addLoad() {
     item.setAttribute("src", 'https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif');
     item.className += ' loading-player';
   });
+  teamLogos.forEach(function (item) {
+    item.style.visibility = 'hidden';
+  });
 }; // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
 
 
@@ -312,6 +315,8 @@ var searchPlayers = /*#__PURE__*/function () {
               }
 
               playerPics[_i2 / 5].classList.remove('loading-player');
+
+              teamLogos[_i2 / 5].style.visibility = 'initial';
             }
 
             if (_i2 < s1Rating.length) {
