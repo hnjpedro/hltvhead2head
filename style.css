@@ -555,6 +555,12 @@ h3 {
   width: 30px;
 }
 
+.loading-player {
+  width: 130px;
+  left: 30px;
+  top: 10px
+}
+
 .container-hltv {
   margin-top: 15px;
   color: silver;

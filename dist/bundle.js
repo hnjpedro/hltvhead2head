@@ -70,6 +70,10 @@ var addLoad = function addLoad() {
   loading.forEach(function (item) {
     item.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
   });
+  playerPics.forEach(function (item) {
+    item.setAttribute("src", 'https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif');
+    item.className += ' loading-player';
+  });
 }; // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
 
 
@@ -306,6 +310,8 @@ var searchPlayers = /*#__PURE__*/function () {
 
                 teamLogos[_i2 / 5].style.visibility = "hidden";
               }
+
+              playerPics[_i2 / 5].classList.remove('loading-player');
             }
 
             if (_i2 < s1Rating.length) {

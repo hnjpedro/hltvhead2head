@@ -31,6 +31,10 @@ const addLoad = () => {
   loading.forEach((item) => {
     item.innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
   });
+  playerPics.forEach((item) => {
+    item.setAttribute("src", 'https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif');
+    item.className += ' loading-player'
+  });
 };
 
 // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
@@ -259,6 +263,7 @@ const searchPlayers = async () => {
           playerPics[i/5].setAttribute("src", responses[i][1].teamLogo);
           teamLogos[i/5].style.visibility = "hidden";
         }
+        playerPics[i/5].classList.remove('loading-player')
       }
       if (i < s1Rating.length) {
         s1Rating[i].innerHTML = responses[i][0].rating;
