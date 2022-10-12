@@ -6,6 +6,8 @@ import {
   namesIDs,
 } from "./allplayers";
 
+import moment from 'moment'
+
 const axios = require("axios");
 const body = document.body;
 const overlay = document.getElementById("popup-overlay");
@@ -31,6 +33,8 @@ const teamLogos = document.querySelectorAll(".team-logo");
 const h3Left = document.querySelectorAll("h3.left");
 const h3Right = document.querySelectorAll("h3.right");
 const options = document.querySelectorAll(".dropdown-dates option");
+
+
 
 // ADD LOADING ICONS
 const addLoad = () => {
@@ -183,21 +187,10 @@ const searchPlayers = async () => {
       var dateFilterStart = "_";
       ratingValue(2015);
       break;
-    case "last-month":
-      dateFilterStart = date(30);
+    case "1": case "3": case "6": case "12":
+      dateFilterStart = moment().subtract(select, 'months');
       ratingValue(2018);
-      break;
-    case "last-3-months":
-      var dateFilterStart = date(90);
-      ratingValue(2018);
-      break;
-    case "last-6-months":
-      dateFilterStart = date(180);
-      ratingValue(2018);
-      break;
-    case "last-12-months":
-      var dateFilterStart = date(30 * 12);
-      ratingValue(2018);
+      console.log(`teste1: ${dateFilterStart}`)
       break;
     case "custom":
       if (
@@ -208,8 +201,7 @@ const searchPlayers = async () => {
         var dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
         ratingValue(dateFilterStart.slice(0, 4));
       } else {
-        var dateFilterStart = '_'
-        var dateFilterEnd = '_'
+        alert('Please add dates!')
       }
       break;
     default:
