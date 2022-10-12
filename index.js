@@ -1,12 +1,5 @@
-import {
-  allNames,
-  flagLinks,
-  playerIDs,
-  countryFlags,
-  namesIDs,
-} from "./allplayers";
-
-import moment from 'moment'
+import { allNames, flagLinks, playerIDs, countryFlags } from "./allplayers";
+import moment from "moment";
 
 const axios = require("axios");
 const body = document.body;
@@ -32,9 +25,6 @@ const playerPics = document.querySelectorAll(".player-pic");
 const teamLogos = document.querySelectorAll(".team-logo");
 const h3Left = document.querySelectorAll("h3.left");
 const h3Right = document.querySelectorAll("h3.right");
-const options = document.querySelectorAll(".dropdown-dates option");
-
-
 
 // ADD LOADING ICONS
 const addLoad = () => {
@@ -187,10 +177,13 @@ const searchPlayers = async () => {
       var dateFilterStart = "_";
       ratingValue(2015);
       break;
-    case "1": case "3": case "6": case "12":
-      dateFilterStart = moment().subtract(select, 'months');
+    case "1":
+    case "3":
+    case "6":
+    case "12":
+      dateFilterStart = moment().subtract(select, "months");
       ratingValue(2018);
-      console.log(`teste1: ${dateFilterStart}`)
+      console.log(`teste1: ${dateFilterStart}`);
       break;
     case "custom":
       if (
@@ -201,7 +194,7 @@ const searchPlayers = async () => {
         var dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
         ratingValue(dateFilterStart.slice(0, 4));
       } else {
-        alert('Please add dates!')
+        alert("Please add dates!");
       }
       break;
     default:
@@ -243,14 +236,21 @@ const searchPlayers = async () => {
   ];
 
   try {
-    /* const resp0 = await axios.get(allEndpoints[0])
-   console.log(resp0.data) */
-
     let responses = [];
-
-    for (let i = 0; i < allEndpoints.length; ++i) {
-      let resp = await axios.get(allEndpoints[i]);
-      responses.push(resp.data);
+    for (let i = 0; i < s1Detail.length; ++i) {
+      if (i < allEndpoints.length) {let resp = await axios.get(allEndpoints[i]);
+      responses.push(resp.data);}
+      if (i < 5) {
+        s1Rating[i].innerHTML = responses[i][0].rating;
+        s1Impact[i].innerHTML = responses[i][0].impact;
+        s1Maps[i].innerHTML = responses[i][0].mapsPlayed;
+        h3Left[i].innerHTML = responses[0][1].nickname;
+        } else if (i < 10) {
+        devRating[i - 5].innerHTML = responses[i][0].rating;
+        devImpact[i - 5].innerHTML = responses[i][0].impact;
+        devMaps[i - 5].innerHTML = responses[i][0].mapsPlayed;
+        h3Right[i - 5].innerHTML = responses[5][1].nickname;
+      }
     }
 
     for (let i = 0; i < playerNames.length; ++i) {
@@ -265,19 +265,6 @@ const searchPlayers = async () => {
       }
     }
 
-    for (let i = 0; i < h3Left.length; ++i) {
-      h3Left[i].innerHTML = responses[0][1].nickname;
-      h3Right[i].innerHTML = responses[5][1].nickname;
-    }
-
-    for (let i = 0; i < s1Rating.length; ++i) {
-      s1Rating[i].innerHTML = responses[i][0].rating;
-      s1Impact[i].innerHTML = responses[i][0].impact;
-      s1Maps[i].innerHTML = responses[i][0].mapsPlayed;
-      devRating[i].innerHTML = responses[i + 5][0].rating;
-      devImpact[i].innerHTML = responses[i + 5][0].impact;
-      devMaps[i].innerHTML = responses[i + 5][0].mapsPlayed;
-    }
     for (let i = 0; i < devDetail.length; ++i) {
       const indice = Math.floor(i / 11);
       const indice2 = i % 11;
@@ -339,7 +326,7 @@ select.addEventListener("change", (event) => {
   }
 });
 
-// ADD FUNCTION TO 'ENTER' KEY ON INPUTS AND TO 'SEARCH' BUTTON
+// ADD FUNCTION TO 'COMPARE' BUTTON
 const verifyAndSearch = () => {
   if (input1.value && input2.value) {
     searchPlayers();
@@ -351,17 +338,6 @@ const verifyAndSearch = () => {
     alert("Please add players!");
   }
 };
-
-/* input.forEach(
-  (item) =>
-    (item.onkeydown = (event) => {
-      if (document.querySelectorAll(".autocomplete-items").length == 0) {
-        if (event.key === "Enter") {
-          verifyAndSearch();
-        }
-      }
-    })
-); */
 
 document.getElementById("search-players").addEventListener("click", () => {
   verifyAndSearch();
