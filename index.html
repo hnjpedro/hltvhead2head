@@ -64,21 +64,32 @@
       </form>
     </div>
     <div class="date-header" id="date-header">
-      <label for="dropdown-dates">Select a time filter:</label>
-      <select class="dropdown-dates" name="dropdown-dates">
-        <option value="all-time">All time</option>
-        <option value="last-month">Last month</option>
-        <option value="last-3-months">Last 3 months</option>
-        <option value="last-6-months">Last 6 months</option>
-        <option value="last-12-months">Last 12 months</option>
-        <option value="2022">2022</option>
-        <option value="2021">2021</option>
-        <option value="2020">2020</option>
-        <option value="2019">2019</option>
-        <option value="2018">2018</option>
-        <option value="2017">2017</option>
-        <option value="2016">2016</option>
-      </select>
+      <div class="labels">
+        <label for="dropdown-dates">Select a time filter:</label>
+        <label for="start-date" class="hidden">Select start date:</label>
+        <label for="end-date" class="hidden">Select end date:</label>
+      </div>
+      <div class="dropdowns">
+        <select class="dropdown-dates" name="dropdown-dates">
+          <option value="all-time">All time</option>
+          <option value="last-month">Last month</option>
+          <option value="last-3-months">Last 3 months</option>
+          <option value="last-6-months">Last 6 months</option>
+          <option value="last-12-months">Last 12 months</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="custom">Custom</option>
+        </select>
+
+        <input type="date" class="dropdown-dates hidden" name="start-date" min="2016-01-01" />
+
+        <input type="date" class="dropdown-dates hidden" name="end-date" min="2016-01-01" />
+      </div>
     </div>
     <div class="valve-majors all-lan">
       <h2>ALL EVENTS</h2>

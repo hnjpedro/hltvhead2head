@@ -173,7 +173,7 @@ const searchPlayers = async () => {
       if (number < 2017) {
         rating1[i].innerHTML = "RATING 1.0";
       } else {
-        rating1[i].innerHTML = "RATING 2.0"
+        rating1[i].innerHTML = "RATING 2.0";
       }
     }
   };
@@ -198,6 +198,19 @@ const searchPlayers = async () => {
     case "last-12-months":
       var dateFilterStart = date(30 * 12);
       ratingValue(2018);
+      break;
+    case "custom":
+      if (
+        document.querySelectorAll(".hidden")[2].value &&
+        document.querySelectorAll(".hidden")[3].value
+      ) {
+        var dateFilterStart = document.querySelectorAll(".hidden")[2].value;
+        var dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
+        ratingValue(dateFilterStart.slice(0, 4));
+      } else {
+        var dateFilterStart = '_'
+        var dateFilterEnd = '_'
+      }
       break;
     default:
       var dateFilterStart = `${select}-01-01`;
@@ -314,13 +327,25 @@ const searchPlayers = async () => {
         devDetail[6 + j].appendChild(iconSpan2.firstChild);
       }
     }
-    
   } catch (err) {
     console.log(err);
   }
 };
 
 searchPlayers();
+
+var select = document.querySelector("select");
+select.addEventListener("change", (event) => {
+  if (select.value == "custom") {
+    document
+      .querySelectorAll(".hidden")
+      .forEach((item) => (item.style.display = "initial"));
+  } else {
+    document
+      .querySelectorAll(".hidden")
+      .forEach((item) => (item.style.display = "none"));
+  }
+});
 
 // ADD FUNCTION TO 'ENTER' KEY ON INPUTS AND TO 'SEARCH' BUTTON
 const verifyAndSearch = () => {
