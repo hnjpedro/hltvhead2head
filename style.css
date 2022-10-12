@@ -58,7 +58,7 @@ body {
 }
 
 #search-players {
-  margin: 0px 45px
+  margin: 0px 45px;
 }
 
 .autocomplete {
@@ -75,9 +75,9 @@ body {
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
-  
+
   color: black;
-  width: 230px
+  width: 230px;
 }
 .autocomplete-items div {
   padding: 10px;
@@ -89,13 +89,13 @@ body {
 .each-item {
   height: 15px;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 
 .each-item:before {
-  position:relative;
+  position: relative;
   content: var(--bg-image);
-  top:3px
+  top: 3px;
 }
 
 .autocomplete-items div:hover {
@@ -114,7 +114,7 @@ input {
   padding: 5px 10px;
   text-align: center;
   position: relative;
-  outline: none
+  outline: none;
 }
 
 /* #input-1 {
@@ -126,7 +126,7 @@ input {
 } */
 
 #input-2-autocomplete-list {
-  left: 0px !important
+  left: 0px !important;
 }
 
 /* STATS BOXES SETTINGS */
@@ -404,7 +404,7 @@ h3 {
   right: 0;
   text-transform: uppercase;
   z-index: 999;
-  border-radius: 0
+  border-radius: 0;
 }
 
 .close-btn:hover {
@@ -566,4 +566,18 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.date-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.date-header select {
+  margin: 0px 5px;
+  height: 15px;
+  padding: 5px;
+  box-sizing: content-box;
 }

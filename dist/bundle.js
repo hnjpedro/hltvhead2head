@@ -60,7 +60,8 @@ var playerNames = document.querySelectorAll(".player-name");
 var playerPics = document.querySelectorAll(".player-pic");
 var teamLogos = document.querySelectorAll(".team-logo");
 var h3Left = document.querySelectorAll("h3.left");
-var h3Right = document.querySelectorAll("h3.right"); // ADD LOADING ICONS
+var h3Right = document.querySelectorAll("h3.right");
+var options = document.querySelectorAll(".dropdown-dates option"); // ADD LOADING ICONS
 
 var addLoad = function addLoad() {
   loading.forEach(function (item) {
@@ -198,77 +199,132 @@ input.forEach(function (item) {
 
 var searchPlayers = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var allEndpoints, responses, _i, resp, _i2, _i3, _i4, _i5, indice, indice2, k, j, iconSpan, iconSpan2;
+    var select, date, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, _i2, resp, _i3, _i4, _i5, _i6, indice, indice2, k, j, iconSpan, iconSpan2;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             addLoad();
-            allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors"), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents")];
-            _context.prev = 2;
+            select = document.querySelector("select").value;
+
+            date = function date(number) {
+              return new Date(Date.now() - 24 * number * 3600 * 1000).toISOString().slice(0, 10);
+            };
+
+            dateNow = new Date().toISOString().slice(0, 10);
+            rating1 = document.querySelectorAll(".rating-1");
+            defaultRating = "RATING 2.0";
+
+            ratingValue = function ratingValue(number) {
+              for (var _i = 0; _i < rating1.length; ++_i) {
+                if (number < 2016) {
+                  rating1[_i].innerHTML = "RATING 1.0";
+                } else {
+                  rating1[_i].innerHTML = "RATING 2.0";
+                }
+              }
+            };
+
+            dateFilterEnd = dateNow;
+            _context.t0 = select;
+            _context.next = _context.t0 === "all-time" ? 11 : _context.t0 === "last-month" ? 14 : _context.t0 === "last-3-months" ? 17 : _context.t0 === "last-6-months" ? 20 : _context.t0 === "last-12-months" ? 23 : 26;
+            break;
+
+          case 11:
+            dateFilterStart = "_";
+            ratingValue(2015);
+            return _context.abrupt("break", 28);
+
+          case 14:
+            dateFilterStart = date(30);
+            ratingValue(2018);
+            return _context.abrupt("break", 28);
+
+          case 17:
+            dateFilterStart = date(90);
+            ratingValue(2018);
+            return _context.abrupt("break", 28);
+
+          case 20:
+            dateFilterStart = date(180);
+            ratingValue(2018);
+            return _context.abrupt("break", 28);
+
+          case 23:
+            dateFilterStart = date(30 * 12);
+            ratingValue(2018);
+            return _context.abrupt("break", 28);
+
+          case 26:
+            dateFilterStart = "".concat(select, "-01-01");
+            dateFilterEnd = "".concat(select, "-12-31");
+
+          case 28:
+            allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd)];
+            _context.prev = 29;
 
             /* const resp0 = await axios.get(allEndpoints[0])
             console.log(resp0.data) */
             responses = [];
-            _i = 0;
+            _i2 = 0;
 
-          case 5:
-            if (!(_i < allEndpoints.length)) {
-              _context.next = 13;
+          case 32:
+            if (!(_i2 < allEndpoints.length)) {
+              _context.next = 40;
               break;
             }
 
-            _context.next = 8;
-            return axios.get(allEndpoints[_i]);
+            _context.next = 35;
+            return axios.get(allEndpoints[_i2]);
 
-          case 8:
+          case 35:
             resp = _context.sent;
             responses.push(resp.data);
 
-          case 10:
-            ++_i;
-            _context.next = 5;
+          case 37:
+            ++_i2;
+            _context.next = 32;
             break;
 
-          case 13:
-            for (_i2 = 0; _i2 < playerNames.length; ++_i2) {
-              playerNames[_i2].innerHTML = responses[_i2 * 5][1].nickname;
+          case 40:
+            for (_i3 = 0; _i3 < playerNames.length; ++_i3) {
+              playerNames[_i3].innerHTML = responses[_i3 * 5][1].nickname;
 
-              if (Object.keys(responses[_i2 * 5][1]).length > 2) {
-                playerPics[_i2].setAttribute("src", responses[_i2 * 5][1].image);
+              if (Object.keys(responses[_i3 * 5][1]).length > 2) {
+                playerPics[_i3].setAttribute("src", responses[_i3 * 5][1].image);
 
-                teamLogos[_i2].setAttribute("src", responses[_i2 * 5][1].teamLogo);
+                teamLogos[_i3].setAttribute("src", responses[_i3 * 5][1].teamLogo);
 
-                teamLogos[_i2].style.visibility = 'initial';
+                teamLogos[_i3].style.visibility = "initial";
               } else {
-                playerPics[_i2].setAttribute("src", responses[_i2 * 5][1].teamLogo);
+                playerPics[_i3].setAttribute("src", responses[_i3 * 5][1].teamLogo);
 
-                teamLogos[_i2].style.visibility = 'hidden';
+                teamLogos[_i3].style.visibility = "hidden";
               }
             }
 
-            for (_i3 = 0; _i3 < h3Left.length; ++_i3) {
-              h3Left[_i3].innerHTML = responses[0][1].nickname;
-              h3Right[_i3].innerHTML = responses[5][1].nickname;
+            for (_i4 = 0; _i4 < h3Left.length; ++_i4) {
+              h3Left[_i4].innerHTML = responses[0][1].nickname;
+              h3Right[_i4].innerHTML = responses[5][1].nickname;
             }
 
-            for (_i4 = 0; _i4 < s1Rating.length; ++_i4) {
-              s1Rating[_i4].innerHTML = responses[_i4][0].rating;
-              s1Impact[_i4].innerHTML = responses[_i4][0].impact;
-              s1Maps[_i4].innerHTML = responses[_i4][0].mapsPlayed;
-              devRating[_i4].innerHTML = responses[_i4 + 5][0].rating;
-              devImpact[_i4].innerHTML = responses[_i4 + 5][0].impact;
-              devMaps[_i4].innerHTML = responses[_i4 + 5][0].mapsPlayed;
+            for (_i5 = 0; _i5 < s1Rating.length; ++_i5) {
+              s1Rating[_i5].innerHTML = responses[_i5][0].rating;
+              s1Impact[_i5].innerHTML = responses[_i5][0].impact;
+              s1Maps[_i5].innerHTML = responses[_i5][0].mapsPlayed;
+              devRating[_i5].innerHTML = responses[_i5 + 5][0].rating;
+              devImpact[_i5].innerHTML = responses[_i5 + 5][0].impact;
+              devMaps[_i5].innerHTML = responses[_i5 + 5][0].mapsPlayed;
             }
 
-            for (_i5 = 0; _i5 < devDetail.length; ++_i5) {
-              indice = Math.floor(_i5 / 11);
-              indice2 = _i5 % 11; // ALL S1MPLE DETAILED STATS
+            for (_i6 = 0; _i6 < devDetail.length; ++_i6) {
+              indice = Math.floor(_i6 / 11);
+              indice2 = _i6 % 11; // ALL S1MPLE DETAILED STATS
 
-              s1Detail[_i5].innerHTML = Object.values(responses[indice][0])[indice2]; // ALL DEVICE DETAILED STATS
+              s1Detail[_i6].innerHTML = Object.values(responses[indice][0])[indice2]; // ALL DEVICE DETAILED STATS
 
-              devDetail[_i5].innerHTML = Object.values(responses[indice + 5][0])[indice2];
+              devDetail[_i6].innerHTML = Object.values(responses[indice + 5][0])[indice2];
             } // CHANGE COLOR ON GREATER STAT
 
 
@@ -311,20 +367,20 @@ var searchPlayers = /*#__PURE__*/function () {
             input.forEach(function (input) {
               input.value = "";
             });
-            _context.next = 25;
+            _context.next = 52;
             break;
 
-          case 22:
-            _context.prev = 22;
-            _context.t0 = _context["catch"](2);
-            console.log(_context.t0);
+          case 49:
+            _context.prev = 49;
+            _context.t1 = _context["catch"](29);
+            console.log(_context.t1);
 
-          case 25:
+          case 52:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[2, 22]]);
+    }, _callee, null, [[29, 49]]);
   }));
 
   return function searchPlayers() {
@@ -338,33 +394,37 @@ var verifyAndSearch = function verifyAndSearch() {
   if (input1.value && input2.value) {
     searchPlayers();
   } else if (input1.value && !input2.value) {
-    alert('Please add second player!');
+    alert("Please add second player!");
   } else if (!input1.value && input2.value) {
-    alert('Please add first player!');
+    alert("Please add first player!");
   } else {
-    alert('Please add players!');
+    alert("Please add players!");
   }
 };
+/* input.forEach(
+  (item) =>
+    (item.onkeydown = (event) => {
+      if (document.querySelectorAll(".autocomplete-items").length == 0) {
+        if (event.key === "Enter") {
+          verifyAndSearch();
+        }
+      }
+    })
+); */
 
-input.forEach(function (item) {
-  return item.onkeydown = function (event) {
-    if (event.key === "Enter") {
-      verifyAndSearch();
-    }
-  };
-});
+
 document.getElementById("search-players").addEventListener("click", function () {
   verifyAndSearch();
 }); // TOOLTIP ICONS
 
 var tooltips = document.querySelectorAll(".tooltip");
 
-for (var _i6 = 0; _i6 < tooltips.length; ++_i6) {
+for (var _i7 = 0; _i7 < tooltips.length; ++_i7) {
   var infoButton = document.createElement("span");
   infoButton.innerHTML = "<span class='material-icons-outlined info-icon'>info</span>";
 
   while (infoButton.firstChild) {
-    tooltips[_i6].appendChild(infoButton.firstChild);
+    tooltips[_i7].appendChild(infoButton.firstChild);
   }
 } // TOOLTIPS ON MOBILE
 
@@ -373,17 +433,17 @@ if (window.innerWidth < 1000) {
   (function () {
     var tooltips = document.querySelectorAll("h4[title]");
 
-    var _loop = function _loop(_i7) {
+    var _loop = function _loop(_i8) {
       var auxTool = function auxTool() {
         var toolTipText = document.createElement("span");
-        toolTipText.innerHTML = '<span class="title">' + tooltips[_i7].getAttribute("title") + "</span>";
+        toolTipText.innerHTML = '<span class="title">' + tooltips[_i8].getAttribute("title") + "</span>";
 
         while (toolTipText.firstChild) {
-          tooltips[_i7].appendChild(toolTipText.firstChild);
+          tooltips[_i8].appendChild(toolTipText.firstChild);
         }
       };
 
-      tooltips[_i7].addEventListener("click", function (event) {
+      tooltips[_i8].addEventListener("click", function (event) {
         var activeTool = document.querySelectorAll(".title");
 
         if (!activeTool.length) {
@@ -399,57 +459,57 @@ if (window.innerWidth < 1000) {
       });
     };
 
-    for (var _i7 = 0; _i7 < tooltips.length; ++_i7) {
-      _loop(_i7);
+    for (var _i8 = 0; _i8 < tooltips.length; ++_i8) {
+      _loop(_i8);
     }
   })();
 } // OPEN POPUPS
 
 
-var _loop2 = function _loop2(_i8) {
-  statsButtons[_i8].addEventListener("click", function () {
-    allPopups[_i8].style.display = "flex";
+var _loop2 = function _loop2(_i9) {
+  statsButtons[_i9].addEventListener("click", function () {
+    allPopups[_i9].style.display = "flex";
 
     if (window.innerWidth < 1600) {
-      allPopups[_i8].style.top = "".concat(window.pageYOffset + 10, "px");
+      allPopups[_i9].style.top = "".concat(window.pageYOffset + 10, "px");
     } else {
-      allPopups[_i8].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
+      allPopups[_i9].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
     }
 
-    mainPopup[_i8].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
+    mainPopup[_i9].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = "".concat(window.pageYOffset, "px");
     body.style.overflow = "hidden";
     overlay.style.display = "block";
   });
 };
 
-for (var _i8 = 0; _i8 < statsButtons.length; ++_i8) {
-  _loop2(_i8);
+for (var _i9 = 0; _i9 < statsButtons.length; ++_i9) {
+  _loop2(_i9);
 } // CLOSE POPUPS
 
 
 var closePopUpAux = function closePopUpAux() {
-  var _loop3 = function _loop3(_i9) {
+  var _loop3 = function _loop3(_i10) {
     if (window.innerWidth < 1000 || window.innerWidth > 1600) {
-      mainPopup[_i9].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
+      mainPopup[_i10].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
     } else {
-      mainPopup[_i9].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
+      mainPopup[_i10].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
     }
 
     setTimeout(function () {
-      allPopups[_i9].style.display = "none";
+      allPopups[_i10].style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
     }, 500);
   };
 
-  for (var _i9 = 0; _i9 < allPopups.length; ++_i9) {
-    _loop3(_i9);
+  for (var _i10 = 0; _i10 < allPopups.length; ++_i10) {
+    _loop3(_i10);
   }
 };
 
-for (var _i10 = 0; _i10 < allPopups.length; ++_i10) {
-  allPopups[_i10].addEventListener("click", function (event) {
+for (var _i11 = 0; _i11 < allPopups.length; ++_i11) {
+  allPopups[_i11].addEventListener("click", function (event) {
     var classNameOfClickedElement = event.target.classList[0];
     var classNames = ["close-btn", "popup", "popup-overlay"];
     var shouldClosePopUp = classNames.some(function (className) {

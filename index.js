@@ -30,6 +30,7 @@ const playerPics = document.querySelectorAll(".player-pic");
 const teamLogos = document.querySelectorAll(".team-logo");
 const h3Left = document.querySelectorAll("h3.left");
 const h3Right = document.querySelectorAll("h3.right");
+const options = document.querySelectorAll(".dropdown-dates option");
 
 // ADD LOADING ICONS
 const addLoad = () => {
@@ -158,17 +159,81 @@ input.forEach((item) => {
 // GET DEFAULT INFO AND IDs FROM INPUT
 const searchPlayers = async () => {
   addLoad();
+  var select = document.querySelector("select").value;
+  const date = (number) => {
+    return new Date(Date.now() - 24 * number * 3600 * 1000)
+      .toISOString()
+      .slice(0, 10);
+  };
+  const dateNow = new Date().toISOString().slice(0, 10);
+  let rating1 = document.querySelectorAll(".rating-1");
+  const defaultRating = "RATING 2.0";
+  const ratingValue = (number) => {
+    for (let i = 0; i < rating1.length; ++i) {
+      if (number < 2016) {
+        rating1[i].innerHTML = "RATING 1.0";
+      } else {
+        rating1[i].innerHTML = "RATING 2.0"
+      }
+    }
+  };
+  var dateFilterEnd = dateNow;
+  switch (select) {
+    case "all-time":
+      var dateFilterStart = "_";
+      ratingValue(2015);
+      break;
+    case "last-month":
+      dateFilterStart = date(30);
+      ratingValue(2018);
+      break;
+    case "last-3-months":
+      var dateFilterStart = date(90);
+      ratingValue(2018);
+      break;
+    case "last-6-months":
+      dateFilterStart = date(180);
+      ratingValue(2018);
+      break;
+    case "last-12-months":
+      var dateFilterStart = date(30 * 12);
+      ratingValue(2018);
+      break;
+    default:
+      var dateFilterStart = `${select}-01-01`;
+      var dateFilterEnd = `${select}-12-31`;
+  }
   const allEndpoints = [
-    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/_`,
-    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/Lan`,
-    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/Online`,
-    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/Majors`,
-    `${endpoint}${playerIDs[allNames.indexOf(input1.value)]}/BigEvents`,
-    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/_`,
-    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/Lan`,
-    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/Online`,
-    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/Majors`,
-    `${endpoint}${playerIDs[allNames.indexOf(input2.value)]}/BigEvents`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input1.value)]
+    }/_/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input1.value)]
+    }/Lan/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input1.value)]
+    }/Online/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input1.value)]
+    }/Majors/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input1.value)]
+    }/BigEvents/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/_/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/Lan/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/Online/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/Majors/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/BigEvents/${dateFilterStart}/${dateFilterEnd}`,
   ];
 
   try {
@@ -182,17 +247,15 @@ const searchPlayers = async () => {
       responses.push(resp.data);
     }
 
-    
-
     for (let i = 0; i < playerNames.length; ++i) {
       playerNames[i].innerHTML = responses[i * 5][1].nickname;
-      if (Object.keys(responses[i*5][1]).length > 2){
-      playerPics[i].setAttribute("src", responses[i * 5][1].image);
-      teamLogos[i].setAttribute("src", responses[i * 5][1].teamLogo);
-      teamLogos[i].style.visibility = 'initial' }
-      else {
-        playerPics[i].setAttribute("src", responses[i * 5][1].teamLogo)
-        teamLogos[i].style.visibility = 'hidden'
+      if (Object.keys(responses[i * 5][1]).length > 2) {
+        playerPics[i].setAttribute("src", responses[i * 5][1].image);
+        teamLogos[i].setAttribute("src", responses[i * 5][1].teamLogo);
+        teamLogos[i].style.visibility = "initial";
+      } else {
+        playerPics[i].setAttribute("src", responses[i * 5][1].teamLogo);
+        teamLogos[i].style.visibility = "hidden";
       }
     }
 
@@ -215,9 +278,7 @@ const searchPlayers = async () => {
       // ALL S1MPLE DETAILED STATS
       s1Detail[i].innerHTML = Object.values(responses[indice][0])[indice2];
       // ALL DEVICE DETAILED STATS
-      devDetail[i].innerHTML = Object.values(responses[indice + 5][0])[
-        indice2
-      ];
+      devDetail[i].innerHTML = Object.values(responses[indice + 5][0])[indice2];
     }
     // CHANGE COLOR ON GREATER STAT
     for (let k = 0; k < s1Detail.length; ++k) {
@@ -254,7 +315,7 @@ const searchPlayers = async () => {
     }
     input.forEach((input) => {
       input.value = "";
-    }); 
+    });
   } catch (err) {
     console.log(err);
   }
@@ -267,25 +328,27 @@ const verifyAndSearch = () => {
   if (input1.value && input2.value) {
     searchPlayers();
   } else if (input1.value && !input2.value) {
-    alert('Please add second player!')
+    alert("Please add second player!");
   } else if (!input1.value && input2.value) {
-    alert('Please add first player!')
+    alert("Please add first player!");
   } else {
-    alert('Please add players!')
+    alert("Please add players!");
   }
-}
+};
 
-input.forEach(
+/* input.forEach(
   (item) =>
     (item.onkeydown = (event) => {
-      if (event.key === "Enter") {
-        verifyAndSearch()
+      if (document.querySelectorAll(".autocomplete-items").length == 0) {
+        if (event.key === "Enter") {
+          verifyAndSearch();
+        }
       }
     })
-);
+); */
 
 document.getElementById("search-players").addEventListener("click", () => {
-  verifyAndSearch()
+  verifyAndSearch();
 });
 
 // TOOLTIP ICONS
