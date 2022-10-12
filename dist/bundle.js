@@ -218,7 +218,7 @@ var searchPlayers = /*#__PURE__*/function () {
 
             ratingValue = function ratingValue(number) {
               for (var _i = 0; _i < rating1.length; ++_i) {
-                if (number < 2016) {
+                if (number < 2017) {
                   rating1[_i].innerHTML = "RATING 1.0";
                 } else {
                   rating1[_i].innerHTML = "RATING 2.0";
@@ -234,60 +234,61 @@ var searchPlayers = /*#__PURE__*/function () {
           case 11:
             dateFilterStart = "_";
             ratingValue(2015);
-            return _context.abrupt("break", 28);
+            return _context.abrupt("break", 29);
 
           case 14:
             dateFilterStart = date(30);
             ratingValue(2018);
-            return _context.abrupt("break", 28);
+            return _context.abrupt("break", 29);
 
           case 17:
             dateFilterStart = date(90);
             ratingValue(2018);
-            return _context.abrupt("break", 28);
+            return _context.abrupt("break", 29);
 
           case 20:
             dateFilterStart = date(180);
             ratingValue(2018);
-            return _context.abrupt("break", 28);
+            return _context.abrupt("break", 29);
 
           case 23:
             dateFilterStart = date(30 * 12);
             ratingValue(2018);
-            return _context.abrupt("break", 28);
+            return _context.abrupt("break", 29);
 
           case 26:
             dateFilterStart = "".concat(select, "-01-01");
             dateFilterEnd = "".concat(select, "-12-31");
+            ratingValue(select);
 
-          case 28:
+          case 29:
             allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd)];
-            _context.prev = 29;
+            _context.prev = 30;
 
             /* const resp0 = await axios.get(allEndpoints[0])
             console.log(resp0.data) */
             responses = [];
             _i2 = 0;
 
-          case 32:
+          case 33:
             if (!(_i2 < allEndpoints.length)) {
-              _context.next = 40;
+              _context.next = 41;
               break;
             }
 
-            _context.next = 35;
+            _context.next = 36;
             return axios.get(allEndpoints[_i2]);
 
-          case 35:
+          case 36:
             resp = _context.sent;
             responses.push(resp.data);
 
-          case 37:
+          case 38:
             ++_i2;
-            _context.next = 32;
+            _context.next = 33;
             break;
 
-          case 40:
+          case 41:
             for (_i3 = 0; _i3 < playerNames.length; ++_i3) {
               playerNames[_i3].innerHTML = responses[_i3 * 5][1].nickname;
 
@@ -364,20 +365,20 @@ var searchPlayers = /*#__PURE__*/function () {
               }
             }
 
-            _context.next = 51;
+            _context.next = 52;
             break;
 
-          case 48:
-            _context.prev = 48;
-            _context.t1 = _context["catch"](29);
+          case 49:
+            _context.prev = 49;
+            _context.t1 = _context["catch"](30);
             console.log(_context.t1);
 
-          case 51:
+          case 52:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[29, 48]]);
+    }, _callee, null, [[30, 49]]);
   }));
 
   return function searchPlayers() {

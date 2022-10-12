@@ -170,7 +170,7 @@ const searchPlayers = async () => {
   const defaultRating = "RATING 2.0";
   const ratingValue = (number) => {
     for (let i = 0; i < rating1.length; ++i) {
-      if (number < 2016) {
+      if (number < 2017) {
         rating1[i].innerHTML = "RATING 1.0";
       } else {
         rating1[i].innerHTML = "RATING 2.0"
@@ -202,6 +202,7 @@ const searchPlayers = async () => {
     default:
       var dateFilterStart = `${select}-01-01`;
       var dateFilterEnd = `${select}-12-31`;
+      ratingValue(select);
   }
   const allEndpoints = [
     `${endpoint}${
