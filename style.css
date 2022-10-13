@@ -1,6 +1,8 @@
 :root {
   --device: 223, 86, 22;
   --s1mple: 0, 185, 191;
+  --s1text: 's1mple';
+  --devtext: 'device';
 }
 
 html {
@@ -488,12 +490,16 @@ h3 {
 }
 
 .s1-detailed-stat::after {
-  content: "\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0s1mple\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
-  right: 21px;
+  content: var(--s1text);
+  display: inline-block;
+  width: 110px; 
+  right: 20px;
 }
 
 .dev-detailed-stat::after {
-  content: "\a\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0 device\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  content: var(--devtext);
+  display: inline-block;
+  width: 110px; 
   right: 20px;
 }
 

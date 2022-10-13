@@ -47,14 +47,7 @@ var overlay = document.getElementById("popup-overlay");
 var allPopups = document.querySelectorAll(".popup");
 var statsButtons = document.querySelectorAll(".open-btn");
 var mainPopup = document.querySelectorAll(".main-popup");
-var s1Rating = document.querySelectorAll(".s1-main-rating");
-var s1Impact = document.querySelectorAll(".s1-main-impact");
-var s1Maps = document.querySelectorAll(".s1-main-maps");
-var s1Detail = document.querySelectorAll(".s1-detailed-stat");
-var devRating = document.querySelectorAll(".dev-main-rating");
-var devImpact = document.querySelectorAll(".dev-main-impact");
-var devMaps = document.querySelectorAll(".dev-main-maps");
-var devDetail = document.querySelectorAll(".dev-detailed-stat");
+var detailedStat = document.querySelectorAll(".detail-stat");
 var loading = document.querySelectorAll(".loading");
 var endpoint = "https://hnjpedro.tech/players/";
 var input1 = document.getElementById("input-1");
@@ -215,7 +208,7 @@ input.forEach(function (item) {
 
 var searchPlayers = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var select, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, _i2, resp, _i3, indice, indice2, k, j, iconSpan, iconSpan2;
+    var select, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, faceMaps, faceRating, faceImpact, _i2, resp, indice, indice2, j, iconSpan, iconSpan2;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
@@ -270,9 +263,12 @@ var searchPlayers = /*#__PURE__*/function () {
             ratingValue(select);
 
           case 22:
-            allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd)];
+            allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd)];
             _context.prev = 23;
             responses = [];
+            faceMaps = document.querySelectorAll(".face-maps");
+            faceRating = document.querySelectorAll(".face-rating");
+            faceImpact = document.querySelectorAll(".face-impact");
             h3Left.forEach(function (item) {
               item.innerHTML = input1.value;
             });
@@ -281,122 +277,119 @@ var searchPlayers = /*#__PURE__*/function () {
             });
             playerNames[0].innerHTML = input1.value;
             playerNames[1].innerHTML = input2.value;
+            document.documentElement.style.setProperty("--s1text", "\"".concat(input1.value, "\""));
+            document.documentElement.style.setProperty("--devtext", "\"".concat(input2.value, "\""));
             _i2 = 0;
 
-          case 30:
-            if (!(_i2 < s1Detail.length)) {
-              _context.next = 41;
+          case 35:
+            if (!(_i2 < detailedStat.length)) {
+              _context.next = 52;
               break;
             }
 
             if (!(_i2 < allEndpoints.length)) {
-              _context.next = 36;
+              _context.next = 44;
               break;
             }
 
-            _context.next = 34;
+            _context.next = 39;
             return axios.get(allEndpoints[_i2]);
 
-          case 34:
+          case 39:
             resp = _context.sent;
             responses.push(resp.data);
+            faceMaps[_i2].innerHTML = responses[_i2][0].mapsPlayed;
+            faceRating[_i2].innerHTML = responses[_i2][0].rating;
+            faceImpact[_i2].innerHTML = responses[_i2][0].impact;
 
-          case 36:
-            if (_i2 == 0 || _i2 == 5) {
+          case 44:
+            if (_i2 < 2) {
               if (Object.keys(responses[_i2][1]).length > 2) {
-                playerPics[_i2 / 5].setAttribute("src", responses[_i2][1].image);
+                playerPics[_i2].setAttribute("src", responses[_i2][1].image);
 
-                teamLogos[_i2 / 5].setAttribute("src", responses[_i2][1].teamLogo);
+                teamLogos[_i2].setAttribute("src", responses[_i2][1].teamLogo);
 
-                teamLogos[_i2 / 5].style.visibility = "initial";
+                teamLogos[_i2].style.visibility = "initial";
               } else {
-                playerPics[_i2 / 5].setAttribute("src", responses[_i2][1].teamLogo);
+                playerPics[_i2].setAttribute("src", responses[_i2][1].teamLogo);
 
-                teamLogos[_i2 / 5].style.visibility = "hidden";
+                teamLogos[_i2].style.visibility = "hidden";
               }
 
-              playerPics[_i2 / 5].classList.remove("loading-player");
+              playerPics[_i2].classList.remove("loading-player");
 
-              teamLogos[_i2 / 5].style.visibility = "initial";
+              teamLogos[_i2].style.visibility = "initial";
             }
 
-            if (_i2 < s1Rating.length) {
-              s1Rating[_i2].innerHTML = responses[_i2][0].rating;
-              s1Impact[_i2].innerHTML = responses[_i2][0].impact;
-              s1Maps[_i2].innerHTML = responses[_i2][0].mapsPlayed;
-            } else if (_i2 < devRating.length + 5) {
-              devRating[_i2 - 5].innerHTML = responses[_i2][0].rating;
-              devImpact[_i2 - 5].innerHTML = responses[_i2][0].impact;
-              devMaps[_i2 - 5].innerHTML = responses[_i2][0].mapsPlayed;
-            }
+            indice = Math.floor(_i2 / 22);
+            indice2 = _i2 % 22 / 2;
 
-          case 38:
-            ++_i2;
-            _context.next = 30;
-            break;
-
-          case 41:
-            for (_i3 = 0; _i3 < devDetail.length; ++_i3) {
-              indice = Math.floor(_i3 / 11);
-              indice2 = _i3 % 11; // ALL S1MPLE DETAILED STATS
-
-              s1Detail[_i3].innerHTML = Object.values(responses[indice][0])[indice2]; // ALL DEVICE DETAILED STATS
-
-              devDetail[_i3].innerHTML = Object.values(responses[indice + 5][0])[indice2];
+            if (_i2 % 2 == 0) {
+              detailedStat[_i2].innerHTML = Object.values(responses[indice * 2][0])[indice2];
+            } else {
+              detailedStat[_i2].innerHTML = Object.values(responses[indice * 2 + 1][0])[Math.floor(indice2)];
             } // CHANGE COLOR ON GREATER STAT
 
 
-            for (k = 0; k < s1Detail.length; ++k) {
-              if (k % 11 != 3) {
-                if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-                  s1Detail[k].style.color = "lightgreen";
-                  devDetail[k].style.color = "white";
+            if (_i2 % 2 != 0) {
+              if (detailedStat[_i2].innerHTML == detailedStat[_i2 - 1].innerHTML) {
+                detailedStat[_i2].style.color = "white";
+                detailedStat[_i2 - 1].style.color = "white";
+              }
+
+              if (!detailedStat[_i2].classList.contains("inv")) {
+                if (detailedStat[_i2].innerHTML > detailedStat[_i2 - 1].innerHTML) {
+                  detailedStat[_i2].style.color = "lightgreen";
+                  detailedStat[_i2 - 1].style.color = "white";
                 } else {
-                  devDetail[k].style.color = "lightgreen";
-                  s1Detail[k].style.color = "white";
+                  detailedStat[_i2].style.color = "white";
+                  detailedStat[_i2 - 1].style.color = "lightgreen";
                 }
               } else {
-                if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-                  devDetail[k].style.color = "lightgreen";
-                  s1Detail[k].style.color = "white";
+                if (detailedStat[_i2].innerHTML > detailedStat[_i2 - 1].innerHTML) {
+                  detailedStat[_i2 - 1].style.color = "lightgreen";
+                  detailedStat[_i2].style.color = "white";
                 } else {
-                  s1Detail[k].style.color = "lightgreen";
-                  devDetail[k].style.color = "white";
+                  detailedStat[_i2 - 1].style.color = "white";
+                  detailedStat[_i2].style.color = "lightgreen";
                 }
               }
-            } // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
+            }
 
+          case 49:
+            ++_i2;
+            _context.next = 35;
+            break;
 
-            for (j = 0; j < s1Detail.length; j += 11) {
+          case 52:
+            // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
+            for (j = 0; j < detailedStat.length; j += 22) {
               iconSpan = document.createElement("span");
               iconSpan2 = document.createElement("span");
               iconSpan.innerHTML = "%";
               iconSpan2.innerHTML = "%";
 
-              while (iconSpan.firstChild) {
-                s1Detail[6 + j].appendChild(iconSpan.firstChild);
-              }
-
-              while (iconSpan2.firstChild) {
-                devDetail[6 + j].appendChild(iconSpan2.firstChild);
+              while (iconSpan.firstChild && iconSpan2.firstChild) {
+                detailedStat[12 + j].appendChild(iconSpan.firstChild);
+                detailedStat[13 + j].appendChild(iconSpan2.firstChild);
               }
             }
 
             isSearching = false;
-            _context.next = 50;
+            _context.next = 59;
             break;
 
-          case 47:
-            _context.prev = 47;
+          case 56:
+            _context.prev = 56;
             _context.t1 = _context["catch"](23);
             console.log(_context.t1);
 
-          case 50:
+          case 59:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[23, 47]]);
+    }, _callee, null, [[23, 56]]);
   }));
 
   return function searchPlayers() {
@@ -440,12 +433,12 @@ document.getElementById("search-players").addEventListener("click", function () 
 
 var tooltips = document.querySelectorAll(".tooltip");
 
-for (var _i4 = 0; _i4 < tooltips.length; ++_i4) {
+for (var _i3 = 0; _i3 < tooltips.length; ++_i3) {
   var infoButton = document.createElement("span");
   infoButton.innerHTML = "<span class='material-icons-outlined info-icon'>info</span>";
 
   while (infoButton.firstChild) {
-    tooltips[_i4].appendChild(infoButton.firstChild);
+    tooltips[_i3].appendChild(infoButton.firstChild);
   }
 } // TOOLTIPS ON MOBILE
 
@@ -454,17 +447,17 @@ if (window.innerWidth < 1000) {
   (function () {
     var tooltips = document.querySelectorAll("h4[title]");
 
-    var _loop = function _loop(_i5) {
+    var _loop = function _loop(_i4) {
       var auxTool = function auxTool() {
         var toolTipText = document.createElement("span");
-        toolTipText.innerHTML = '<span class="title">' + tooltips[_i5].getAttribute("title") + "</span>";
+        toolTipText.innerHTML = '<span class="title">' + tooltips[_i4].getAttribute("title") + "</span>";
 
         while (toolTipText.firstChild) {
-          tooltips[_i5].appendChild(toolTipText.firstChild);
+          tooltips[_i4].appendChild(toolTipText.firstChild);
         }
       };
 
-      tooltips[_i5].addEventListener("click", function (event) {
+      tooltips[_i4].addEventListener("click", function (event) {
         var activeTool = document.querySelectorAll(".title");
 
         if (!activeTool.length) {
@@ -480,57 +473,57 @@ if (window.innerWidth < 1000) {
       });
     };
 
-    for (var _i5 = 0; _i5 < tooltips.length; ++_i5) {
-      _loop(_i5);
+    for (var _i4 = 0; _i4 < tooltips.length; ++_i4) {
+      _loop(_i4);
     }
   })();
 } // OPEN POPUPS
 
 
-var _loop2 = function _loop2(_i6) {
-  statsButtons[_i6].addEventListener("click", function () {
-    allPopups[_i6].style.display = "flex";
+var _loop2 = function _loop2(_i5) {
+  statsButtons[_i5].addEventListener("click", function () {
+    allPopups[_i5].style.display = "flex";
 
     if (window.innerWidth < 1600) {
-      allPopups[_i6].style.top = "".concat(window.pageYOffset + 10, "px");
+      allPopups[_i5].style.top = "".concat(window.pageYOffset + 10, "px");
     } else {
-      allPopups[_i6].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
+      allPopups[_i5].style.top = "calc(".concat(window.pageYOffset, "px + 15vh)");
     }
 
-    mainPopup[_i6].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
+    mainPopup[_i5].style.cssText = "animation:slide-in .5s; animation-fill-mode: forwards";
     overlay.style.top = "".concat(window.pageYOffset, "px");
     body.style.overflow = "hidden";
     overlay.style.display = "block";
   });
 };
 
-for (var _i6 = 0; _i6 < statsButtons.length; ++_i6) {
-  _loop2(_i6);
+for (var _i5 = 0; _i5 < statsButtons.length; ++_i5) {
+  _loop2(_i5);
 } // CLOSE POPUPS
 
 
 var closePopUpAux = function closePopUpAux() {
-  var _loop3 = function _loop3(_i7) {
+  var _loop3 = function _loop3(_i6) {
     if (window.innerWidth < 1000 || window.innerWidth > 1600) {
-      mainPopup[_i7].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
+      mainPopup[_i6].style.cssText = "animation:slide-out200 .5s; animation-fill-mode: forwards";
     } else {
-      mainPopup[_i7].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
+      mainPopup[_i6].style.cssText = "animation:slide-out .5s; animation-fill-mode: forwards";
     }
 
     setTimeout(function () {
-      allPopups[_i7].style.display = "none";
+      allPopups[_i6].style.display = "none";
       body.style.overflow = "auto";
       overlay.style.display = "none";
     }, 500);
   };
 
-  for (var _i7 = 0; _i7 < allPopups.length; ++_i7) {
-    _loop3(_i7);
+  for (var _i6 = 0; _i6 < allPopups.length; ++_i6) {
+    _loop3(_i6);
   }
 };
 
-for (var _i8 = 0; _i8 < allPopups.length; ++_i8) {
-  allPopups[_i8].addEventListener("click", function (event) {
+for (var _i7 = 0; _i7 < allPopups.length; ++_i7) {
+  allPopups[_i7].addEventListener("click", function (event) {
     var classNameOfClickedElement = event.target.classList[0];
     var classNames = ["close-btn", "popup", "popup-overlay"];
     var shouldClosePopUp = classNames.some(function (className) {

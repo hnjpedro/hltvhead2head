@@ -86,9 +86,19 @@
           <option value="custom">Custom</option>
         </select>
 
-        <input type="date" class="dropdown-dates hidden" name="start-date" min="2016-01-01" />
+        <input
+          type="date"
+          class="dropdown-dates hidden"
+          name="start-date"
+          min="2016-01-01"
+        />
 
-        <input type="date" class="dropdown-dates hidden" name="end-date" min="2016-01-01" />
+        <input
+          type="date"
+          class="dropdown-dates hidden"
+          name="end-date"
+          min="2016-01-01"
+        />
       </div>
     </div>
     <div class="valve-majors all-lan">
@@ -98,15 +108,15 @@
           <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading s1-main-maps"></span>
+              <span class="number loading s1-main-maps face-maps"></span>
               <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading s1-main-rating"></span>
+              <span class="number loading s1-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading s1-main-impact"></span>
+              <span class="number loading s1-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -115,15 +125,15 @@
           <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading dev-main-maps"></span>
+              <span class="number loading dev-main-maps face-maps"></span>
               <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading dev-main-rating"></span>
+              <span class="number loading dev-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading dev-main-impact"></span>
+              <span class="number loading dev-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -146,43 +156,55 @@
               <div class="details-list-container">
                 <h4 class="detail-list-title">maps</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">rounds</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">kills</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">deaths</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat inv"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat inv"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title rating-1">rating 2.0</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">impact rating</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -193,8 +215,12 @@
                   kast
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -205,8 +231,8 @@
                   adr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
 
@@ -215,8 +241,8 @@
                   kpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -224,15 +250,15 @@
                   dpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">k/d ratio</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
             </div>
@@ -247,15 +273,15 @@
           <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading s1-main-maps"></span>
+              <span class="number loading s1-main-maps face-maps"></span>
               <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading s1-main-rating"></span>
+              <span class="number loading s1-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading s1-main-impact"></span>
+              <span class="number loading s1-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -264,15 +290,15 @@
           <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading dev-main-maps"></span>
+              <span class="number loading dev-main-maps face-maps"></span>
               <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading dev-main-rating"></span>
+              <span class="number loading dev-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading dev-main-impact"></span>
+              <span class="number loading dev-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -293,43 +319,55 @@
               <div class="details-list-container">
                 <h4 class="detail-list-title">maps</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">rounds</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">kills</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">deaths</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat inv"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat inv"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title rating-1">rating 2.0</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">impact rating</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -340,8 +378,12 @@
                   kast
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -352,8 +394,8 @@
                   adr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
 
@@ -362,8 +404,8 @@
                   kpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -371,15 +413,15 @@
                   dpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">k/d ratio</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
             </div>
@@ -394,15 +436,15 @@
           <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading s1-main-maps"></span>
+              <span class="number loading s1-main-maps face-maps"></span>
               <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading s1-main-rating"></span>
+              <span class="number loading s1-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading s1-main-impact"></span>
+              <span class="number loading s1-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -411,15 +453,15 @@
           <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading dev-main-maps"></span>
+              <span class="number loading dev-main-maps face-maps"></span>
               <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading dev-main-rating"></span>
+              <span class="number loading dev-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading dev-main-impact"></span>
+              <span class="number loading dev-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -440,43 +482,55 @@
               <div class="details-list-container">
                 <h4 class="detail-list-title">maps</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">rounds</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">kills</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">deaths</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat inv"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat inv"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title rating-1">rating 2.0</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">impact rating</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -487,8 +541,12 @@
                   kast
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -499,8 +557,8 @@
                   adr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
 
@@ -509,8 +567,8 @@
                   kpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -518,15 +576,15 @@
                   dpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">k/d ratio</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
             </div>
@@ -541,15 +599,15 @@
           <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading s1-main-maps"></span>
+              <span class="number loading s1-main-maps face-maps"></span>
               <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading s1-main-rating"></span>
+              <span class="number loading s1-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading s1-main-impact"></span>
+              <span class="number loading s1-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -558,15 +616,15 @@
           <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading dev-main-maps"></span>
+              <span class="number loading dev-main-maps face-maps"></span>
               <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading dev-main-rating"></span>
+              <span class="number loading dev-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading dev-main-impact"></span>
+              <span class="number loading dev-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -588,43 +646,43 @@
               <div class="details-list-container">
                 <h4 class="detail-list-title">maps</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">rounds</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading" l></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat" l></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">kills</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">deaths</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title rating-1">rating 2.0</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">impact rating</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -635,8 +693,12 @@
                   kast
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -647,8 +709,8 @@
                   adr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
 
@@ -657,8 +719,8 @@
                   kpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -666,15 +728,15 @@
                   dpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">k/d ratio</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
             </div>
@@ -690,15 +752,15 @@
           <h3 class="s1-stats left">s1mple</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading s1-main-maps"></span>
+              <span class="number loading s1-main-maps face-maps"></span>
               <span class="stats-text maps-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading s1-main-rating"></span>
+              <span class="number loading s1-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading s1-main-impact"></span>
+              <span class="number loading s1-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -707,15 +769,15 @@
           <h3 class="dev-stats right">device</h3>
           <ul class="stats-block">
             <li class="li-stats mvp">
-              <span class="number loading dev-main-maps"></span>
+              <span class="number loading dev-main-maps face-maps"></span>
               <span class="stats-text">MAPS</span>
             </li>
             <li class="li-stats lans-won">
-              <span class="number loading dev-main-rating"></span>
+              <span class="number loading dev-main-rating face-rating"></span>
               <span class="stats-text rating-text rating-1">RATING 2.0</span>
             </li>
             <li class="li-stats lans-played">
-              <span class="number loading dev-main-impact"></span>
+              <span class="number loading dev-main-impact face-impact"></span>
               <span class="stats-text">IMPACT</span>
             </li>
           </ul>
@@ -737,43 +799,51 @@
               <div class="details-list-container">
                 <h4 class="detail-list-title">maps</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">rounds</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">kills</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">deaths</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title rating-1">rating 2.0</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
                 <h4 class="detail-list-title">impact rating</h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -784,8 +854,12 @@
                   kast
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat five-dig loading"></li>
-                  <li class="dev-detailed-stat five-dig loading"></li>
+                  <li
+                    class="s1-detailed-stat five-dig loading detail-stat"
+                  ></li>
+                  <li
+                    class="dev-detailed-stat five-dig loading detail-stat"
+                  ></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -796,24 +870,18 @@
                   adr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat"></li>
-                  <li class="dev-detailed-stat"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
-                <h4 class="detail-list-title">k/d ratio</h4>
+                <h4
+                  class="detail-list-title tooltip"
+                  title="Kills per round"
+                >kpr                </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
-                </ul>
-              </div>
-              <div class="details-list-container">
-                <h4 class="detail-list-title tooltip" title="Kills per round">
-                  kpr
-                </h4>
-                <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
               <div class="details-list-container">
@@ -821,8 +889,15 @@
                   dpr
                 </h4>
                 <ul class="detail-list-stats">
-                  <li class="s1-detailed-stat loading"></li>
-                  <li class="dev-detailed-stat loading"></li>
+                  <li class="s1-detailed-stat loading detail-stat inv"></li>
+                  <li class="dev-detailed-stat loading detail-stat inv"></li>
+                </ul>
+              </div>
+              <div class="details-list-container">
+                <h4 class="detail-list-title">k/d ratio</h4>
+                <ul class="detail-list-stats">
+                  <li class="s1-detailed-stat loading detail-stat"></li>
+                  <li class="dev-detailed-stat loading detail-stat"></li>
                 </ul>
               </div>
             </div>

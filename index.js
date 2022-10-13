@@ -7,14 +7,7 @@ const overlay = document.getElementById("popup-overlay");
 const allPopups = document.querySelectorAll(".popup");
 const statsButtons = document.querySelectorAll(".open-btn");
 const mainPopup = document.querySelectorAll(".main-popup");
-const s1Rating = document.querySelectorAll(".s1-main-rating");
-const s1Impact = document.querySelectorAll(".s1-main-impact");
-const s1Maps = document.querySelectorAll(".s1-main-maps");
-const s1Detail = document.querySelectorAll(".s1-detailed-stat");
-const devRating = document.querySelectorAll(".dev-main-rating");
-const devImpact = document.querySelectorAll(".dev-main-impact");
-const devMaps = document.querySelectorAll(".dev-main-maps");
-const devDetail = document.querySelectorAll(".dev-detailed-stat");
+const detailedStat = document.querySelectorAll(".detail-stat");
 const loading = document.querySelectorAll(".loading");
 const endpoint = "https://hnjpedro.tech/players/";
 const input1 = document.getElementById("input-1");
@@ -26,25 +19,26 @@ const teamLogos = document.querySelectorAll(".team-logo");
 const h3Left = document.querySelectorAll("h3.left");
 const h3Right = document.querySelectorAll("h3.right");
 var isSearching = false;
-let runCount = -1
+let runCount = -1;
 
 // ADD LOADING ICONS
 const addLoad = () => {
   loading.forEach((item) => {
     item.innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
   });
-  runCount += 1
+  runCount += 1;
   if (runCount > 0) {
-  playerPics.forEach((item) => {
-    item.setAttribute(
-      "src",
-      "https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif"
-    );
-    item.className += " loading-player";
-  });
-  teamLogos.forEach((item) => {
-    item.style.visibility = "hidden";
-  });}
+    playerPics.forEach((item) => {
+      item.setAttribute(
+        "src",
+        "https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif"
+      );
+      item.className += " loading-player";
+    });
+    teamLogos.forEach((item) => {
+      item.style.visibility = "hidden";
+    });
+  }
 };
 
 // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
@@ -153,13 +147,11 @@ const autocomplete = (inp, arr) => {
 };
 
 let playerList = [];
-
 for (let i = 0; i < flagLinks.length; ++i) {
   let span = document.createElement("span");
   span.innerHTML = `${flagLinks[i]} ${allNames[i]}`;
   playerList.push(span);
 }
-
 input.forEach((item) => {
   autocomplete(item, allNames);
 });
@@ -211,34 +203,35 @@ const searchPlayers = async () => {
       var dateFilterEnd = `${select}-12-31`;
       ratingValue(select);
   }
+
   const allEndpoints = [
     `${endpoint}${
       playerIDs[allNames.indexOf(input1.value)]
     }/_/${dateFilterStart}/${dateFilterEnd}`,
     `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/_/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
       playerIDs[allNames.indexOf(input1.value)]
+    }/Lan/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
     }/Lan/${dateFilterStart}/${dateFilterEnd}`,
     `${endpoint}${
       playerIDs[allNames.indexOf(input1.value)]
     }/Online/${dateFilterStart}/${dateFilterEnd}`,
     `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
+    }/Online/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
       playerIDs[allNames.indexOf(input1.value)]
+    }/Majors/${dateFilterStart}/${dateFilterEnd}`,
+    `${endpoint}${
+      playerIDs[allNames.indexOf(input2.value)]
     }/Majors/${dateFilterStart}/${dateFilterEnd}`,
     `${endpoint}${
       playerIDs[allNames.indexOf(input1.value)]
     }/BigEvents/${dateFilterStart}/${dateFilterEnd}`,
-    `${endpoint}${
-      playerIDs[allNames.indexOf(input2.value)]
-    }/_/${dateFilterStart}/${dateFilterEnd}`,
-    `${endpoint}${
-      playerIDs[allNames.indexOf(input2.value)]
-    }/Lan/${dateFilterStart}/${dateFilterEnd}`,
-    `${endpoint}${
-      playerIDs[allNames.indexOf(input2.value)]
-    }/Online/${dateFilterStart}/${dateFilterEnd}`,
-    `${endpoint}${
-      playerIDs[allNames.indexOf(input2.value)]
-    }/Majors/${dateFilterStart}/${dateFilterEnd}`,
     `${endpoint}${
       playerIDs[allNames.indexOf(input2.value)]
     }/BigEvents/${dateFilterStart}/${dateFilterEnd}`,
@@ -246,6 +239,9 @@ const searchPlayers = async () => {
 
   try {
     let responses = [];
+    const faceMaps = document.querySelectorAll(".face-maps");
+    const faceRating = document.querySelectorAll(".face-rating");
+    const faceImpact = document.querySelectorAll(".face-impact");
     h3Left.forEach((item) => {
       item.innerHTML = input1.value;
     });
@@ -254,73 +250,78 @@ const searchPlayers = async () => {
     });
     playerNames[0].innerHTML = input1.value;
     playerNames[1].innerHTML = input2.value;
-    for (let i = 0; i < s1Detail.length; ++i) {
+    document.documentElement.style.setProperty("--s1text", `"${input1.value}"`);
+    document.documentElement.style.setProperty(
+      "--devtext",
+      `"${input2.value}"`
+    );
+    for (let i = 0; i < detailedStat.length; ++i) {
       if (i < allEndpoints.length) {
         let resp = await axios.get(allEndpoints[i]);
         responses.push(resp.data);
+        faceMaps[i].innerHTML = responses[i][0].mapsPlayed;
+        faceRating[i].innerHTML = responses[i][0].rating;
+        faceImpact[i].innerHTML = responses[i][0].impact;
       }
-      if (i == 0 || i == 5) {
+      if (i < 2) {
         if (Object.keys(responses[i][1]).length > 2) {
-          playerPics[i / 5].setAttribute("src", responses[i][1].image);
-          teamLogos[i / 5].setAttribute("src", responses[i][1].teamLogo);
-          teamLogos[i / 5].style.visibility = "initial";
+          playerPics[i].setAttribute("src", responses[i][1].image);
+          teamLogos[i].setAttribute("src", responses[i][1].teamLogo);
+          teamLogos[i].style.visibility = "initial";
         } else {
-          playerPics[i / 5].setAttribute("src", responses[i][1].teamLogo);
-          teamLogos[i / 5].style.visibility = "hidden";
+          playerPics[i].setAttribute("src", responses[i][1].teamLogo);
+          teamLogos[i].style.visibility = "hidden";
         }
-        playerPics[i / 5].classList.remove("loading-player");
-        teamLogos[i / 5].style.visibility = "initial";
+        playerPics[i].classList.remove("loading-player");
+        teamLogos[i].style.visibility = "initial";
       }
-      if (i < s1Rating.length) {
-        s1Rating[i].innerHTML = responses[i][0].rating;
-        s1Impact[i].innerHTML = responses[i][0].impact;
-        s1Maps[i].innerHTML = responses[i][0].mapsPlayed;
-      } else if (i < devRating.length + 5) {
-        devRating[i - 5].innerHTML = responses[i][0].rating;
-        devImpact[i - 5].innerHTML = responses[i][0].impact;
-        devMaps[i - 5].innerHTML = responses[i][0].mapsPlayed;
+
+      const indice = Math.floor(i / 22);
+      const indice2 = (i % 22) / 2;
+      if (i % 2 == 0) {
+        detailedStat[i].innerHTML = Object.values(responses[indice * 2][0])[
+          indice2
+        ];
+      } else {
+        detailedStat[i].innerHTML = Object.values(responses[indice * 2 + 1][0])[
+          Math.floor(indice2)
+        ];
+      }
+      // CHANGE COLOR ON GREATER STAT
+      if (i % 2 != 0) {
+        if (detailedStat[i].innerHTML == detailedStat[i - 1].innerHTML) {
+          detailedStat[i].style.color = "white";
+          detailedStat[i - 1].style.color = "white";
+        }
+        if (!detailedStat[i].classList.contains("inv")) {
+          if (detailedStat[i].innerHTML > detailedStat[i - 1].innerHTML) {
+            detailedStat[i].style.color = "lightgreen";
+            detailedStat[i - 1].style.color = "white";
+          } else {
+            detailedStat[i].style.color = "white";
+            detailedStat[i - 1].style.color = "lightgreen";
+          }
+        } else {
+          if (detailedStat[i].innerHTML > detailedStat[i - 1].innerHTML) {
+            detailedStat[i - 1].style.color = "lightgreen";
+            detailedStat[i].style.color = "white";
+          } else {
+            detailedStat[i - 1].style.color = "white";
+            detailedStat[i].style.color = "lightgreen";
+          }
+        } 
       }
     }
 
-    for (let i = 0; i < devDetail.length; ++i) {
-      const indice = Math.floor(i / 11);
-      const indice2 = i % 11;
-      // ALL S1MPLE DETAILED STATS
-      s1Detail[i].innerHTML = Object.values(responses[indice][0])[indice2];
-      // ALL DEVICE DETAILED STATS
-      devDetail[i].innerHTML = Object.values(responses[indice + 5][0])[indice2];
-    }
-    // CHANGE COLOR ON GREATER STAT
-    for (let k = 0; k < s1Detail.length; ++k) {
-      if (k % 11 != 3) {
-        if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-          s1Detail[k].style.color = "lightgreen";
-          devDetail[k].style.color = "white";
-        } else {
-          devDetail[k].style.color = "lightgreen";
-          s1Detail[k].style.color = "white";
-        }
-      } else {
-        if (s1Detail[k].innerHTML > devDetail[k].innerHTML) {
-          devDetail[k].style.color = "lightgreen";
-          s1Detail[k].style.color = "white";
-        } else {
-          s1Detail[k].style.color = "lightgreen";
-          devDetail[k].style.color = "white";
-        }
-      }
-    }
     // MAKE SURE ALL KAST STATS HAVE '%' IN EVERY MODAL
-    for (let j = 0; j < s1Detail.length; j += 11) {
+    for (let j = 0; j < detailedStat.length; j += 22) {
       const iconSpan = document.createElement("span");
       const iconSpan2 = document.createElement("span");
       iconSpan.innerHTML = `%`;
       iconSpan2.innerHTML = `%`;
-      while (iconSpan.firstChild) {
-        s1Detail[6 + j].appendChild(iconSpan.firstChild);
-      }
-      while (iconSpan2.firstChild) {
-        devDetail[6 + j].appendChild(iconSpan2.firstChild);
+      while (iconSpan.firstChild && iconSpan2.firstChild) {
+        detailedStat[12 + j].appendChild(iconSpan.firstChild);
+        detailedStat[13 + j].appendChild(iconSpan2.firstChild);
       }
     }
     isSearching = false;
