@@ -64,19 +64,25 @@ var playerNames = document.querySelectorAll(".player-name");
 var playerPics = document.querySelectorAll(".player-pic");
 var teamLogos = document.querySelectorAll(".team-logo");
 var h3Left = document.querySelectorAll("h3.left");
-var h3Right = document.querySelectorAll("h3.right"); // ADD LOADING ICONS
+var h3Right = document.querySelectorAll("h3.right");
+var isSearching = false;
+var runCount = -1; // ADD LOADING ICONS
 
 var addLoad = function addLoad() {
   loading.forEach(function (item) {
     item.innerHTML = "<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />";
   });
-  playerPics.forEach(function (item) {
-    item.setAttribute("src", 'https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif');
-    item.className += ' loading-player';
-  });
-  teamLogos.forEach(function (item) {
-    item.style.visibility = 'hidden';
-  });
+  runCount += 1;
+
+  if (runCount > 0) {
+    playerPics.forEach(function (item) {
+      item.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif");
+      item.className += " loading-player";
+    });
+    teamLogos.forEach(function (item) {
+      item.style.visibility = "hidden";
+    });
+  }
 }; // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
 
 
@@ -209,19 +215,15 @@ input.forEach(function (item) {
 
 var searchPlayers = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var select, date, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, _i2, resp, _i3, indice, indice2, k, j, iconSpan, iconSpan2;
+    var select, dateNow, rating1, defaultRating, ratingValue, dateFilterEnd, dateFilterStart, allEndpoints, responses, _i2, resp, _i3, indice, indice2, k, j, iconSpan, iconSpan2;
 
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             addLoad();
+            isSearching = true;
             select = document.querySelector("select").value;
-
-            date = function date(number) {
-              return new Date(Date.now() - 24 * number * 3600 * 1000).toISOString().slice(0, 10);
-            };
-
             dateNow = new Date().toISOString().slice(0, 10);
             rating1 = document.querySelectorAll(".rating-1");
             defaultRating = "RATING 2.0";
@@ -231,28 +233,27 @@ var searchPlayers = /*#__PURE__*/function () {
                 if (number < 2017) {
                   rating1[_i].innerHTML = "RATING 1.0";
                 } else {
-                  rating1[_i].innerHTML = "RATING 2.0";
+                  rating1[_i].innerHTML = defaultRating;
                 }
               }
             };
 
             dateFilterEnd = dateNow;
             _context.t0 = select;
-            _context.next = _context.t0 === "all-time" ? 11 : _context.t0 === "1" ? 14 : _context.t0 === "3" ? 14 : _context.t0 === "6" ? 14 : _context.t0 === "12" ? 14 : _context.t0 === "custom" ? 18 : 20;
+            _context.next = _context.t0 === "all-time" ? 11 : _context.t0 === "1" ? 14 : _context.t0 === "3" ? 14 : _context.t0 === "6" ? 14 : _context.t0 === "12" ? 14 : _context.t0 === "custom" ? 17 : 19;
             break;
 
           case 11:
             dateFilterStart = "_";
             ratingValue(2015);
-            return _context.abrupt("break", 23);
+            return _context.abrupt("break", 22);
 
           case 14:
             dateFilterStart = (0, _moment["default"])().subtract(select, "months");
             ratingValue(2018);
-            console.log("teste1: ".concat(dateFilterStart));
-            return _context.abrupt("break", 23);
+            return _context.abrupt("break", 22);
 
-          case 18:
+          case 17:
             if (document.querySelectorAll(".hidden")[2].value && document.querySelectorAll(".hidden")[3].value) {
               dateFilterStart = document.querySelectorAll(".hidden")[2].value;
               dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
@@ -261,16 +262,16 @@ var searchPlayers = /*#__PURE__*/function () {
               alert("Please add dates!");
             }
 
-            return _context.abrupt("break", 23);
+            return _context.abrupt("break", 22);
 
-          case 20:
+          case 19:
             dateFilterStart = "".concat(select, "-01-01");
             dateFilterEnd = "".concat(select, "-12-31");
             ratingValue(select);
 
-          case 23:
+          case 22:
             allEndpoints = ["".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input1.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/_/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Lan/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Online/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/Majors/").concat(dateFilterStart, "/").concat(dateFilterEnd), "".concat(endpoint).concat(_allplayers.playerIDs[_allplayers.allNames.indexOf(input2.value)], "/BigEvents/").concat(dateFilterStart, "/").concat(dateFilterEnd)];
-            _context.prev = 24;
+            _context.prev = 23;
             responses = [];
             h3Left.forEach(function (item) {
               item.innerHTML = input1.value;
@@ -282,25 +283,25 @@ var searchPlayers = /*#__PURE__*/function () {
             playerNames[1].innerHTML = input2.value;
             _i2 = 0;
 
-          case 31:
+          case 30:
             if (!(_i2 < s1Detail.length)) {
-              _context.next = 42;
+              _context.next = 41;
               break;
             }
 
             if (!(_i2 < allEndpoints.length)) {
-              _context.next = 37;
+              _context.next = 36;
               break;
             }
 
-            _context.next = 35;
+            _context.next = 34;
             return axios.get(allEndpoints[_i2]);
 
-          case 35:
+          case 34:
             resp = _context.sent;
             responses.push(resp.data);
 
-          case 37:
+          case 36:
             if (_i2 == 0 || _i2 == 5) {
               if (Object.keys(responses[_i2][1]).length > 2) {
                 playerPics[_i2 / 5].setAttribute("src", responses[_i2][1].image);
@@ -314,9 +315,9 @@ var searchPlayers = /*#__PURE__*/function () {
                 teamLogos[_i2 / 5].style.visibility = "hidden";
               }
 
-              playerPics[_i2 / 5].classList.remove('loading-player');
+              playerPics[_i2 / 5].classList.remove("loading-player");
 
-              teamLogos[_i2 / 5].style.visibility = 'initial';
+              teamLogos[_i2 / 5].style.visibility = "initial";
             }
 
             if (_i2 < s1Rating.length) {
@@ -329,12 +330,12 @@ var searchPlayers = /*#__PURE__*/function () {
               devMaps[_i2 - 5].innerHTML = responses[_i2][0].mapsPlayed;
             }
 
-          case 39:
+          case 38:
             ++_i2;
-            _context.next = 31;
+            _context.next = 30;
             break;
 
-          case 42:
+          case 41:
             for (_i3 = 0; _i3 < devDetail.length; ++_i3) {
               indice = Math.floor(_i3 / 11);
               indice2 = _i3 % 11; // ALL S1MPLE DETAILED STATS
@@ -381,12 +382,13 @@ var searchPlayers = /*#__PURE__*/function () {
               }
             }
 
+            isSearching = false;
             _context.next = 50;
             break;
 
           case 47:
             _context.prev = 47;
-            _context.t1 = _context["catch"](24);
+            _context.t1 = _context["catch"](23);
             console.log(_context.t1);
 
           case 50:
@@ -394,7 +396,7 @@ var searchPlayers = /*#__PURE__*/function () {
             return _context.stop();
         }
       }
-    }, _callee, null, [[24, 47]]);
+    }, _callee, null, [[23, 47]]);
   }));
 
   return function searchPlayers() {
@@ -417,14 +419,18 @@ select.addEventListener("change", function (event) {
 }); // ADD FUNCTION TO 'COMPARE' BUTTON
 
 var verifyAndSearch = function verifyAndSearch() {
-  if (input1.value && input2.value) {
-    searchPlayers();
-  } else if (input1.value && !input2.value) {
-    alert("Please add second player!");
-  } else if (!input1.value && input2.value) {
-    alert("Please add first player!");
+  if (!isSearching) {
+    if (input1.value && input2.value) {
+      searchPlayers();
+    } else if (input1.value && !input2.value) {
+      alert("Please add second player!");
+    } else if (!input1.value && input2.value) {
+      alert("Please add first player!");
+    } else {
+      alert("Please add players!");
+    }
   } else {
-    alert("Please add players!");
+    alert("Please try again after current search is finished");
   }
 };
 

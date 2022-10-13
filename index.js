@@ -25,19 +25,26 @@ const playerPics = document.querySelectorAll(".player-pic");
 const teamLogos = document.querySelectorAll(".team-logo");
 const h3Left = document.querySelectorAll("h3.left");
 const h3Right = document.querySelectorAll("h3.right");
+var isSearching = false;
+let runCount = -1
 
 // ADD LOADING ICONS
 const addLoad = () => {
   loading.forEach((item) => {
     item.innerHTML = `<img src='https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif' />`;
   });
+  runCount += 1
+  if (runCount > 0) {
   playerPics.forEach((item) => {
-    item.setAttribute("src", 'https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif');
-    item.className += ' loading-player'
+    item.setAttribute(
+      "src",
+      "https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif"
+    );
+    item.className += " loading-player";
   });
   teamLogos.forEach((item) => {
-    item.style.visibility = 'hidden'
-  });
+    item.style.visibility = "hidden";
+  });}
 };
 
 // ADD AUTOCOMPLETE SUGGESTIONS TO FORM
@@ -160,12 +167,8 @@ input.forEach((item) => {
 // GET DEFAULT INFO AND IDs FROM INPUT
 const searchPlayers = async () => {
   addLoad();
+  isSearching = true;
   var select = document.querySelector("select").value;
-  const date = (number) => {
-    return new Date(Date.now() - 24 * number * 3600 * 1000)
-      .toISOString()
-      .slice(0, 10);
-  };
   const dateNow = new Date().toISOString().slice(0, 10);
   let rating1 = document.querySelectorAll(".rating-1");
   const defaultRating = "RATING 2.0";
@@ -174,7 +177,7 @@ const searchPlayers = async () => {
       if (number < 2017) {
         rating1[i].innerHTML = "RATING 1.0";
       } else {
-        rating1[i].innerHTML = "RATING 2.0";
+        rating1[i].innerHTML = defaultRating;
       }
     }
   };
@@ -190,7 +193,6 @@ const searchPlayers = async () => {
     case "12":
       dateFilterStart = moment().subtract(select, "months");
       ratingValue(2018);
-      console.log(`teste1: ${dateFilterStart}`);
       break;
     case "custom":
       if (
@@ -257,23 +259,23 @@ const searchPlayers = async () => {
         let resp = await axios.get(allEndpoints[i]);
         responses.push(resp.data);
       }
-        if (i == 0 || i == 5) {
+      if (i == 0 || i == 5) {
         if (Object.keys(responses[i][1]).length > 2) {
-          playerPics[i/5].setAttribute("src", responses[i][1].image);
-          teamLogos[i/5].setAttribute("src", responses[i][1].teamLogo);
-          teamLogos[i/5].style.visibility = "initial";
+          playerPics[i / 5].setAttribute("src", responses[i][1].image);
+          teamLogos[i / 5].setAttribute("src", responses[i][1].teamLogo);
+          teamLogos[i / 5].style.visibility = "initial";
         } else {
-          playerPics[i/5].setAttribute("src", responses[i][1].teamLogo);
-          teamLogos[i/5].style.visibility = "hidden";
+          playerPics[i / 5].setAttribute("src", responses[i][1].teamLogo);
+          teamLogos[i / 5].style.visibility = "hidden";
         }
-        playerPics[i/5].classList.remove('loading-player')
-        teamLogos[i/5].style.visibility = 'initial'
+        playerPics[i / 5].classList.remove("loading-player");
+        teamLogos[i / 5].style.visibility = "initial";
       }
       if (i < s1Rating.length) {
         s1Rating[i].innerHTML = responses[i][0].rating;
         s1Impact[i].innerHTML = responses[i][0].impact;
         s1Maps[i].innerHTML = responses[i][0].mapsPlayed;
-      } else if (i < (devRating.length + 5)) {
+      } else if (i < devRating.length + 5) {
         devRating[i - 5].innerHTML = responses[i][0].rating;
         devImpact[i - 5].innerHTML = responses[i][0].impact;
         devMaps[i - 5].innerHTML = responses[i][0].mapsPlayed;
@@ -321,6 +323,7 @@ const searchPlayers = async () => {
         devDetail[6 + j].appendChild(iconSpan2.firstChild);
       }
     }
+    isSearching = false;
   } catch (err) {
     console.log(err);
   }
@@ -343,14 +346,18 @@ select.addEventListener("change", (event) => {
 
 // ADD FUNCTION TO 'COMPARE' BUTTON
 const verifyAndSearch = () => {
-  if (input1.value && input2.value) {
-    searchPlayers();
-  } else if (input1.value && !input2.value) {
-    alert("Please add second player!");
-  } else if (!input1.value && input2.value) {
-    alert("Please add first player!");
+  if (!isSearching) {
+    if (input1.value && input2.value) {
+      searchPlayers();
+    } else if (input1.value && !input2.value) {
+      alert("Please add second player!");
+    } else if (!input1.value && input2.value) {
+      alert("Please add first player!");
+    } else {
+      alert("Please add players!");
+    }
   } else {
-    alert("Please add players!");
+    alert("Please try again after current search is finished");
   }
 };
 
