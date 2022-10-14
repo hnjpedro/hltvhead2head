@@ -274,7 +274,7 @@ const searchPlayers = async () => {
           teamLogos[i].style.visibility = "hidden";
         }
         playerPics[i].classList.remove("loading-player");
-        teamLogos[i].style.visibility = "initial";
+        // teamLogos[i].style.visibility = "initial";
       }
 
       const indice = Math.floor(i / 22);

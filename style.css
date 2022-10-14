@@ -17,6 +17,10 @@ body {
   color: white;
 }
 
+* {
+  outline: none
+}
+
 /* HEADER SETINGS */
 .header-div {
   display: flex;

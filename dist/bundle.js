@@ -318,9 +318,8 @@ var searchPlayers = /*#__PURE__*/function () {
                 teamLogos[_i2].style.visibility = "hidden";
               }
 
-              playerPics[_i2].classList.remove("loading-player");
+              playerPics[_i2].classList.remove("loading-player"); // teamLogos[i].style.visibility = "initial";
 
-              teamLogos[_i2].style.visibility = "initial";
             }
 
             indice = Math.floor(_i2 / 22);
