@@ -1,5 +1,6 @@
 import { allNames, flagLinks, playerIDs, countryFlags } from "./allplayers";
 import moment from "moment";
+import swal from 'sweetalert'
 
 const axios = require("axios");
 const body = document.body;
@@ -195,7 +196,7 @@ const searchPlayers = async () => {
         var dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
         ratingValue(dateFilterStart.slice(0, 4));
       } else {
-        alert("Please add dates!");
+        swal("Uh, oh!", "Please add dates!", "warning");
       }
       break;
     default:
@@ -351,14 +352,14 @@ const verifyAndSearch = () => {
     if (input1.value && input2.value) {
       searchPlayers();
     } else if (input1.value && !input2.value) {
-      alert("Please add second player!");
+      swal("Uh, oh!", "Please add second player", "warning");
     } else if (!input1.value && input2.value) {
-      alert("Please add first player!");
+      swal("Uh, oh!", "Please add first player", "warning");
     } else {
-      alert("Please add players!");
+      swal("Uh, oh!", "Please add players", "warning");
     }
   } else {
-    alert("Please try again after current search is finished");
+    swal("Uh, oh!", "Please try again after current search is finished", "warning");
   }
 };
 

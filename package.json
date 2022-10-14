@@ -42,6 +42,7 @@
     "hltv": "^3.4.1",
     "hltv-api": "^3.0.2",
     "moment": "^2.29.4",
+    "sweetalert": "^2.1.2",
     "watchify": "^4.0.0"
   },
   "devDependencies": {
