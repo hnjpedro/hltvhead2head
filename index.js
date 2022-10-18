@@ -184,7 +184,7 @@ const searchPlayers = async () => {
     case "3":
     case "6":
     case "12":
-      dateFilterStart = moment().subtract(select, "months");
+      dateFilterStart = moment().subtract(select, "months").format('YYYY-MM-DD');
       ratingValue(2018);
       break;
     case "custom":
@@ -195,8 +195,19 @@ const searchPlayers = async () => {
         var dateFilterStart = document.querySelectorAll(".hidden")[2].value;
         var dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
         ratingValue(dateFilterStart.slice(0, 4));
+      } else if (document.querySelectorAll(".hidden")[2].value &&
+      !document.querySelectorAll(".hidden")[3].value
+    ) {
+        var dateFilterStart = document.querySelectorAll(".hidden")[2].value
+        var dateFilterEnd = moment().format('YYYY-MM-DD')
+      } else if (!document.querySelectorAll(".hidden")[2].value &&
+      document.querySelectorAll(".hidden")[3].value
+    ) {
+        var dateFilterStart = '2016-01-01'
+        var dateFilterEnd = document.querySelectorAll('.hidden')[3].value
       } else {
-        swal("Uh, oh!", "Please add dates!", "warning");
+        var dateFilterStart = '_'
+        var dateFilterEnd = '_'
       }
       break;
     default:

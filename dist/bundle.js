@@ -244,7 +244,7 @@ var searchPlayers = /*#__PURE__*/function () {
             return _context.abrupt("break", 22);
 
           case 14:
-            dateFilterStart = (0, _moment["default"])().subtract(select, "months");
+            dateFilterStart = (0, _moment["default"])().subtract(select, "months").format('YYYY-MM-DD');
             ratingValue(2018);
             return _context.abrupt("break", 22);
 
@@ -253,8 +253,15 @@ var searchPlayers = /*#__PURE__*/function () {
               dateFilterStart = document.querySelectorAll(".hidden")[2].value;
               dateFilterEnd = document.querySelectorAll(".hidden")[3].value;
               ratingValue(dateFilterStart.slice(0, 4));
+            } else if (document.querySelectorAll(".hidden")[2].value && !document.querySelectorAll(".hidden")[3].value) {
+              dateFilterStart = document.querySelectorAll(".hidden")[2].value;
+              dateFilterEnd = (0, _moment["default"])().format('YYYY-MM-DD');
+            } else if (!document.querySelectorAll(".hidden")[2].value && document.querySelectorAll(".hidden")[3].value) {
+              dateFilterStart = '2016-01-01';
+              dateFilterEnd = document.querySelectorAll('.hidden')[3].value;
             } else {
-              (0, _sweetalert["default"])("Uh, oh!", "Please add dates!", "warning");
+              dateFilterStart = '_';
+              dateFilterEnd = '_';
             }
 
             return _context.abrupt("break", 22);
